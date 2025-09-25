@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-
+import './registration.css';
+import FormInput from './components/FormInput'; 
 
 
 function Registration() {
@@ -30,15 +31,15 @@ function Registration() {
     if (formData.password !== formData.confirmPassword) {
       alert('Passwords do not match!');
       return;
-    }     
+    } 
     try {
       const response = await fetch('/api/register', {
-        method: 'POST',}
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-        }, 
+        },
         body: JSON.stringify(formData),
-      });     
+    });     
       if (response.ok) {
         alert('Registration successful!');
         setFormData({   
@@ -64,109 +65,86 @@ function Registration() {
     <div className="registration-container">
       <h2>Register</h2> 
       <form onSubmit={handleSubmit} className="registration-form">
-        <div className="form-group">
-          <label>Username:</label> 
-          <input
-            type="text"
-            name="username"
-            value={formData.username}
-            onChange={handleChange}
-            required        
-            className="form-control"
-            placeholder="Enter your username"
-          />
-        </div> 
+        
+        <FormInput
+          label="Username"
+          type="text"
+          name="username"
+          value={formData.username}
+          onChange={handleChange}
+          required ={true}
+          placeHolder="Enter your username"
+        />
+        
+        <FormInput
+          label="Email"
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          required ={true}
+          placeHolder="Enter your email"
+        />
 
-        <div className="form-group">
-          <label>Email:</label>
-          <input
-            type="email"  
-            name="email"
-            value={formData.email}
-            onChange={handleChange}   
-            required
-            className="form-control"
-            placeholder="Enter your email"
-          />
-        </div>
+        <FormInput
+          label="Password"
+          type="password"
+          name="password" 
+          value={formData.password}
+          onChange={handleChange}
+          required ={true}
+          placeHolder="Enter your password"
+        />
 
-        <div className="form-group">
-          <label>Password:</label>
-          <input      
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-            className="form-control"
-            placeholder="Enter your password"
-          />
-        </div>
+        <FormInput
+          label="Confirm Password"
+          type="password"
+          name="confirmPassword"
+          value={formData.confirmPassword}
+          onChange={handleChange}
+          required ={true}
+          placeHolder="Confirm your password"
+        />
 
-        <div className="form-group">
-          <label>Confirm Password:</label>
-          <input
-            type="password"     
-            name="confirmPassword"
-            value={formData.confirmPassword}
-            onChange={handleChange} 
-            required
-            className="form-control"
-            placeholder="Confirm your password"
-          />
-        </div>
+        <FormInput
+          label="Street"
+          type="text"
+          name="street"
+          value={formData.street}
+          onChange={handleChange}
+          required ={true}
+          placeHolder="Enter your street"
+        />
 
-        <div className="form-group">
-          <label>Street:</label>
-          <input  
-            type="text"
-            name="street"
-            value={formData.street}             
-            onChange={handleChange}
-            required
-            className="form-control"
-            placeholder="Enter your street address"
-          />
-        </div>
+        <FormInput
+          label="City"
+          type="text"
+          name="city" 
+          value={formData.city}
+          onChange={handleChange}
+          required ={true}
+          placeHolder="Enter your city"
+        />
 
-        <div className="form-group">
-          <label>City:</label>
-          <input
-            type="text"
-            name="city"
-            value={formData.city} 
-            onChange={handleChange}
-            required
-            className="form-control"
-            placeholder="Enter your city"
-          />
-        </div>
+        <FormInput
+          label="State"
+          type="text"
+          name="state"
+          value={formData.state}
+          onChange={handleChange}
+          required ={true}
+          placeHolder="Enter your state"
+        />
 
-        <div className="form-group">
-          <label>State:</label>
-          <input  
-            type="text"
-            name="state"
-            value={formData.state} 
-            onChange={handleChange}     
-            required  
-            className="form-control"
-            placeholder="Enter your state"
-          />
-        </div>
-
-        <div className="form-group">
-          <label>Zip Code:</label>
-          <input
-            type="text"
-            name="zip"
-            value={formData.zip}
-            onChange={handleChange} 
-            required
-            className="form-control"
-            placeholder="Enter your zip code"
-          />
-        </div>
+        <FormInput
+          label="Zip"
+          type="text"
+          name="zip"
+          value={formData.zip}
+          onChange={handleChange}
+          required ={true}
+          placeHolder="Enter your zip code"
+        />
 
         <button type="submit" className="btn btn-primary">Register</button>
       </form>
