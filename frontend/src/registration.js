@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './registration.css';
 import FormInput from './components/FormInput'; 
 
 
@@ -154,5 +153,5 @@ function Registration() {
 
         
 
-
+export default Registration; 
 

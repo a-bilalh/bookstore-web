@@ -1,11 +1,12 @@
 import './App.css'
-import BooksList from './booksList';
+import Menu from './components/menu';
+import Registration from './registration';
+
 
 function App() {
   return (
     <div>
-      <h1>Books</h1>
-      <BooksList />
+      <Menu/>
     </div>
   )
 }
