@@ -3,10 +3,23 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    height: 50px;
 }
 
 
 li {
-    display: inline-block;
     margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 20px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: rgb(217, 136, 15);
+}
+
+a {
+    text-decoration: none;
+    color: black;
 }
