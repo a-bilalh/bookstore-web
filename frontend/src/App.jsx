@@ -5,9 +5,7 @@ import Registration from './registration';
 
 function App() {
   return (
-    <div>
-      <Menu/>
-    </div>
+      <BookDisplay title="The Great Gatsby" author="F. Scott Fitzgerald"/>
   )
 }
 
