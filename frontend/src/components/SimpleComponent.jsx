@@ -1,3 +1,7 @@
-export default function SimpleComponent() {
+import React from 'react';
+
+function SimpleComponent() {
   return <div>Hello</div>;
 }
+
+export default SimpleComponent;

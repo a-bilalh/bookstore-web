@@ -1,11 +1,12 @@
 import './App.css'
+import BooksList from './booksList';
 import Menu from './components/menu';
 import Registration from './registration';
 
 
 function App() {
   return (
-      <BookDisplay title="The Great Gatsby" author="F. Scott Fitzgerald"/>
+      <BooksList title="The Great Gatsby" author="F. Scott Fitzgerald"/>
   )
 }
 
