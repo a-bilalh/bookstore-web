@@ -6,12 +6,13 @@ function BookDisplay({title, author, cover}) {
     
     return (
 
-        <div>
-            <div className="bookRectangle">
+        <div className="container">
+
+            <div className="picDiv">
                 <h1>Cover Not Available</h1>
             </div>
-            <div>
-                <h2>{title} by {author}</h2>
+            <div className="textDiv"> 
+                {title} by {author}
             </div>
 
         </div>
