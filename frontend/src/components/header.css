@@ -1,0 +1,26 @@
+
+.headerDev{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #a82626;
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.cartIcon{
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.searchBar{
+    width: 30px;
+    height: 500px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
