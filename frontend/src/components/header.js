@@ -7,8 +7,8 @@ import { FaShoppingCart } from "react-icons/fa";
 
 export function SearchBar() {
     return (
-        <div className="search-bar">
-            <input type="text" placeholder="Search books..." />
+        <div>
+            <input type="text" className="searchBar" placeholder="Search books..." />
         </div>
     );
 }
@@ -16,7 +16,7 @@ export function SearchBar() {
 
 export function CartIcon() {
     return (
-        <div className="cart-icon"> 
+        <div className="cartIcon"> 
             <FaShoppingCart size={24} />
         </div>
     );
@@ -25,7 +25,7 @@ export function CartIcon() {
 
 
 
-function Header() {
+export default function Header() {
   return (
 
     <div className="headerDev">
@@ -35,6 +35,9 @@ function Header() {
             <h1>AB Book Store</h1>
         </header>
         <SearchBar />
+        <p className= "createAccountBtn">
+            Create an Account
+        </p>
         <CartIcon />
 
 
@@ -42,5 +45,3 @@ function Header() {
   );
 }
 
-
-export default Header;

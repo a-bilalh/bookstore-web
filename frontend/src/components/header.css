@@ -2,7 +2,6 @@
 .headerDev{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
     background-color: #a82626;
     padding: 10px 20px;
@@ -14,13 +13,26 @@
     width: 40px;
     height: 40px;
     cursor: pointer;
+    margin-left: auto;
+}
+
+.createAccountBtn{
+    margin-left: 275px;
+    padding: 8px 16px;
+    background-color: #191818;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
 }
 
 .searchBar{
-    width: 30px;
-    height: 500px;
+    width: 350px;
+    height: 30px;
+    margin-left: 150px;
     padding: 10px;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid #191818;
     font-size: 16px;
 }
