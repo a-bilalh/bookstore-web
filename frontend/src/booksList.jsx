@@ -11,6 +11,7 @@ const BooksList = () => {
         axios.get(`${API_BASE_URL}/api/books/`)
             .then(response => {
                 setBooks(response.data);
+                console.log("book is fetched");
             })
             .catch(error => {
                 console.error('There was an error fetching the books!', error);

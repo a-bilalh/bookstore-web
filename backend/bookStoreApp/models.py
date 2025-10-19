@@ -15,7 +15,7 @@ class Book(models.Model):
     published_date = models.DateField()
     isbn_number = models.CharField(max_length=13, unique=True)
     pages = models.IntegerField()
-    cover_image = models.URLField(blank=True, null=True)
+    cover_image = models.ImageField(upload_to='book_covers/', blank=True, null=True)
     language = models.CharField(max_length=30)
 
     def __str__(self):
