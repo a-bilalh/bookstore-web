@@ -1,17 +1,25 @@
+import axios from "axios";
+import { API_BASE_URL } from "../config";
+import { useState, useEffect } from 'react';
 
 
-export const fetchBooks = async () => {
-    try {
-        const response = await fetch('/api/books/');
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        const data = await response.json();
-        return data;
-    } catch (error) {
-        console.error('There was a problem with the fetch operation:', error);
-        throw error;
-    }       
+
+export const useFetchBooks = () => {
+   
+    const [books, setBooks] = useState([]);
+    
+    useEffect(() => {
+        axios.get(`${API_BASE_URL}/api/books/`)
+            .then(response => {
+                setBooks(response.data);
+                console.log("book is fetched");
+            }) 
+        .catch(error => {
+            console.error("Error fetching books:", error);
+        })
+    }, []);
+    console.log("books in api service: ")
+    return books;
+
 };
-
 
