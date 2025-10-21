@@ -9,7 +9,8 @@ export const useFetchBooks = () => {
     const [books, setBooks] = useState([]);
     
     useEffect(() => {
-        axios.get(`${API_BASE_URL}/api/books/`)
+        axios.get(`http://localhost:8000/api/books/`)
+        console.log(`${API_BASE_URL}/api/books/`)
             .then(response => {
                 setBooks(response.data);
                 console.log("book is fetched");
