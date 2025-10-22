@@ -11,11 +11,15 @@ const BooksList = () => {
         return (
             <div>
                 <h1>Books List</h1>
-                <ul>
+                    <ul>
                     {books.map(book => (
-                        <li key={book.id}>{book.title} by {book.author}</li>
+                        <li key={book.id}>
+                            {book.title} by {book.author}
+                            {book.cover_image ? <img src={book.cover_image} alt={book.title} />
+                             : null }
+                        </li>
                     ))}
-                </ul>
+                    </ul>
             </div>
         );
     }
