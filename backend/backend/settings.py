@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -18,7 +19,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # media url
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 
@@ -62,7 +63,8 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000', 
+    'http://localhost:3000',
+    'http://127.0.0.1:3000'
 ]
 
 ROOT_URLCONF = 'backend.urls'

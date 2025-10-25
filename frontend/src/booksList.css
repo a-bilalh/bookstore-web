@@ -1,0 +1,10 @@
+
+
+.book-cover {
+  width: 150px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+  margin-top: 5px;
+}

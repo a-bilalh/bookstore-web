@@ -4,20 +4,22 @@ import { useState, useEffect } from 'react';
 
 
 
-export const useFetchBooks = () => {
+export const useBooksList = () => {
    
     const [books, setBooks] = useState([]);
     
     useEffect(() => {
-        axios.get(`http://127.0.0.1:8000/api/books/`)
-            .then(response => {
+
+        const fetchBooks = async () => {
+             try {
+                 const response = await axios.get(`${API_BASE_URL}/api/books/`);
+                console.log("Fetched books data:", response.data);
                 setBooks(response.data);
-            }) 
-        .catch(error => {
-            console.error("Error fetching books:", error);
-        })
+            } catch (err) {
+                console.error("Error fetching books:", err);
+            }
+        };
+        fetchBooks();
     }, []);
     return books;
-
 };
-

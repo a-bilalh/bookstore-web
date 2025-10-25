@@ -1,12 +1,11 @@
 
-import { useFetchBooks } from './services/api';
+import { useBooksList } from './services/api';
 
 
 
 const BooksList = () => {
     
-    const books = useFetchBooks();
-    console.log("print books: ");
+    const books = useBooksList();
 
         return (
             <div>
@@ -15,7 +14,7 @@ const BooksList = () => {
                     {books.map(book => (
                         <li key={book.id}>
                             {book.title} by {book.author}
-                            {book.cover_image ? <img src={book.cover_image} alt={book.title} />
+                            {book.cover_image ? <img src={book.cover_image} alt={book.title} className="book-cover" /> 
                              : null }
                         </li>
                     ))}
