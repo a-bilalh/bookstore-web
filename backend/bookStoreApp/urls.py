@@ -10,8 +10,9 @@ router = DefaultRouter()
 router.register('books', BookViewSet, basename='books')
 
 
-urlpatterns = router.urls
-urlpatterns += [
+urlpatterns = [
     path('books/random/', random_books_view, name='random-books'),
 ]
+urlpatterns += router.urls
+
 

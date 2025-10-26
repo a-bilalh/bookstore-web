@@ -16,5 +16,6 @@ class BookViewSet(viewsets.ModelViewSet):
 @api_view(['GET'])
 def random_books_view(request):
     books = get_random_books(count=10)
+    print("These should be 10 books from database:", books)
     serializer = BookSerializer(books, many=True)
     return Response(serializer.data)
