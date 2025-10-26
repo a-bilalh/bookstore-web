@@ -1,10 +1,10 @@
-import './menu.css';
+import styles from './menu.module.css';
 
 
 function Menu() {
     return (
         <nav>
-            <ul className="menu">
+            <ul className={styles.menu}>
                 {/* Todo: links need to be updated <!-- */}
                 <li><a href="#home">Books</a></li>
                 <li><a href="#about">Fictions</a></li>

@@ -1,10 +1,14 @@
 
 
+li {
+  display: flex;
+  flex-direction: column; /* stack title + image vertically */
+  align-items: flex-start;
+}
+
 .book-cover {
-  width: 150px;
+  width: 100%;
+  max-width: 200px;
   height: auto;
-  object-fit: cover;
-  border-radius: 4px;
-  display: block;
-  margin-top: 5px;
+  object-fit: contain;
 }
