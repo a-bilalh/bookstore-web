@@ -2,17 +2,19 @@ import './bookDisplay.css';
 
 
 
-function BookDisplay({title, author, cover}) {
+
+function BookDisplay({book}) {
     
     return (
 
         <div className="container">
 
             <div className="picDiv">
-                <h1>Cover Not Available</h1>
+                {book.cover_image ? <img src={book.cover_image} alt={book.title} /> 
+                 : <h1>Cover Not Available</h1>}
             </div>
             <div className="textDiv"> 
-                {title} by {author}
+                {book.title} by {book.author}
             </div>
 
         </div>
