@@ -1,0 +1,101 @@
+[
+  {
+    "title": "Ash and Honey",
+    "author": "Elara Vance",
+    "price": 18.99,
+    "isbn_number": "9781452398714",
+    "pages": 314,
+    "published_date": "2021-04-12",
+    "language": "English"
+  },
+  {
+    "title": "Beneath Crimson Snow",
+    "author": "Rowan Tarell",
+    "price": 22.50,
+    "isbn_number": "9781634785092",
+    "pages": 260,
+    "published_date": "2019-11-08",
+    "language": "English"
+  },
+  {
+    "title": "Children of the Clockwork Sun",
+    "author": "Mira Delune",
+    "price": 25.00,
+    "isbn_number": "9781479263159",
+    "pages": 345,
+    "published_date": "2020-06-21",
+    "language": "English"
+  },
+  {
+    "title": "Broken Visions",
+    "author": "K.C. Sterling",
+    "price": 17.75,
+    "isbn_number": "9781508390203",
+    "pages": 280,
+    "published_date": "2018-09-10",
+    "language": "English"
+  },
+  {
+    "title": "Glass Wings",
+    "author": "Rowan Hale",
+    "price": 19.25,
+    "isbn_number": "9781684932741",
+    "pages": 305,
+    "published_date": "2022-02-15",
+    "language": "English"
+  },
+  {
+    "title": "Songs for the Silent Moon",
+    "author": "Liora Vale",
+    "price": 21.40,
+    "isbn_number": "9781547632897",
+    "pages": 210,
+    "published_date": "2021-12-05",
+    "language": "English"
+  },
+  {
+    "title": "The Last Ember",
+    "author": "Marisa Ellington",
+    "price": 23.99,
+    "isbn_number": "9781732059408",
+    "pages": 290,
+    "published_date": "2020-03-14",
+    "language": "English"
+  },
+  {
+    "title": "The Library of Hollow Roads",
+    "author": "Selene Carter",
+    "price": 24.50,
+    "isbn_number": "9781460193282",
+    "pages": 250,
+    "published_date": "2019-07-29",
+    "language": "English"
+  },
+  {
+    "title": "Celestial Tides",
+    "author": "Elara Vance",
+    "price": 26.10,
+    "isbn_number": "9781728934715",
+    "pages": 330,
+    "published_date": "2023-05-19",
+    "language": "English"
+  },
+  {
+    "title": "When Shadows Dream",
+    "author": "Julian Kade",
+    "price": 18.60,
+    "isbn_number": "9781659402183",
+    "pages": 150,
+    "published_date": "2018-10-02",
+    "language": "English"
+  },
+  {
+    "title": "Whissers of the Forgotten Realms",
+    "author": "Lena Avers",
+    "price": 20.30,
+    "isbn_number": "9781674039129",
+    "pages": 323,
+    "published_date": "2022-11-17",
+    "language": "English"
+  }
+]

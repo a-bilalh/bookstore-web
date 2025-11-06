@@ -14,7 +14,7 @@ class Book(models.Model):
     price = models.DecimalField(max_digits=6, decimal_places=2, default=0.00)
     published_date = models.DateField()
     isbn_number = models.CharField(max_length=13, unique=True)
-    pages = models.IntegerField()
+    pages = models.IntegerField(null=True, blank=True)
     cover_image = models.ImageField(upload_to='book_covers/', blank=True, null=True)
     language = models.CharField(max_length=30)
 
