@@ -5,10 +5,11 @@ import BookDisplay from './BookDisplay';
 import { useBooksList } from '../services/api';
 
 
-    
+
 
 const MyHorizontalList = () => {
     const books = useBooksList();
+    console.log("inside myHorizontalList", books)
       return (
         <ScrollMenu>
             {books.map(BookDisplay)}
