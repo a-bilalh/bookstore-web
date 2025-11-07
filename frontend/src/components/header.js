@@ -1,4 +1,4 @@
-import './header.css';
+import './header.module.css';
 import { FaShoppingCart } from "react-icons/fa";
 
 

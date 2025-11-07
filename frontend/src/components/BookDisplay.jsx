@@ -1,4 +1,4 @@
-import './bookDisplay.css';
+import styles from './bookDisplay.module.css';
 
 
 
@@ -7,13 +7,13 @@ function BookDisplay({book}) {
     
     return (
 
-        <div className="container">
+        <div className={styles.container}>
 
-            <div className="picDiv">
+            <div className={styles.picDiv}>
                 {book.cover_image ? <img src={book.cover_image} alt={book.title} /> 
                  : <h1>Cover Not Available</h1>}
             </div>
-            <div className="textDiv"> 
+            <div className={styles.textDiv}> 
                 {book.title} by {book.author}
             </div>
 
