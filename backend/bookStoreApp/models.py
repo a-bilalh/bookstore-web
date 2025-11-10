@@ -2,10 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-
-
-# Create your models here.
-    
     
 # Book model
 class Book(models.Model):
@@ -17,6 +13,7 @@ class Book(models.Model):
     pages = models.IntegerField(null=True, blank=True)
     cover_image = models.ImageField(upload_to='book_covers/', blank=True, null=True)
     language = models.CharField(max_length=30)
+    category = models.CharField(max_length=50, default='fiction')
 
     def __str__(self):
         return self.title

@@ -10,8 +10,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
 
         base_dir = os.path.dirname(os.path.abspath(__file__))
-        json_path = os.path.join(base_dir, 'books.json')
-        print("print the url to books.json" , json_path)
+        json_path = os.path.join(base_dir, 'nonfiction_books.json')
         json_path = os.path.normpath(json_path)
 
         with open(json_path, 'r') as file:
@@ -24,8 +23,8 @@ class Command(BaseCommand):
                     'author': item.get('author', 'Unknown'),
                     'price': item['price'],
                     'isbn_number': item['isbn_number'],
-                    'pages': item['pages'],
-                    'published_date': parse_date(item['published_date'])
+                    'published_date': parse_date(item['published_date']),
+                    'category' : item['category']
                 }
             )
             if created:
