@@ -12,7 +12,7 @@ router.register('books', BookViewSet, basename='books')
 
 urlpatterns = [
     path('books/random/', random_books_view, name='random-books'),
+    urlpatterns += router.urls,                                     
+    re_path(r'^.*', TemplateView.as_view(template_name='index.html')),      # TODO: this path needs to be confirmed
 ]
-urlpatterns += router.urls
-
 
