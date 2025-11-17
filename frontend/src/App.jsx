@@ -4,6 +4,9 @@ import BookDisplay from './components/BookDisplay';
 import Menu from './components/menu';
 import BookDetails from './pages/BookDetails';
 import Registration from './registration';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Cart from './pages/Cart'
+import Home from './pages/HomePage'
 
 
 function App() {

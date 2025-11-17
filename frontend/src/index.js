@@ -4,12 +4,12 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import BooksList from './booksList';
-import MyHorizontalList from './components/booksDisplayRow.jsx';
+import MyHorizontalList from './components/BooksRowDisplay.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <MyHorizontalList />
+    <MyHorizontalList category={"fiction"} count={10}/>
   </React.StrictMode>
 );
 

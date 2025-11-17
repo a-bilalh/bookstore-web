@@ -8,8 +8,8 @@ import 'react-horizontal-scrolling-menu/dist/styles.css';
 
 
 
-const MyHorizontalList = () => {
-    const books = useBooksList();
+const MyHorizontalList = (category, count) => {
+    const books = useBooksList(category, count);
     console.log("inside myHorizontalList", books)
       return (
         <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
