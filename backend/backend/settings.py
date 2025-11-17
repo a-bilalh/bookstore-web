@@ -16,6 +16,55 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Logging configuration
+import sys
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+
+    'formatters': {
+        'simple': {
+            'format': '{levelname}: {message}',
+            'style': '{',
+        },
+        'verbose': {
+            'format': '[{asctime}] {levelname} {name}: {message}',
+            'style': '{',
+        },
+    },
+
+    'handlers': {
+        'console_bookStoreApp': {
+            'class': 'logging.StreamHandler',
+            'level': 'DEBUG',
+            'formatter': 'simple',
+            'stream': sys.stdout,  # <- force stdout so it prints in VS Code terminal
+        },
+        'file_bookStoreApp': {
+            'class': 'logging.FileHandler',
+            'formatter': 'verbose',
+            'filename': os.path.join(BASE_DIR, 'bookStoreApp.log'),
+            'level': 'DEBUG',
+        },
+    },
+
+    'loggers': {
+        # Logger for your app
+        'bookStoreApp': {
+            'handlers': ['console_bookStoreApp', 'file_bookStoreApp'],
+            'level': 'DEBUG',
+            'propagate': False,  # stop logs from bubbling up to root logger
+        },
+
+        # Django internal logs (only warnings/errors)
+        'django': {
+            'handlers': ['console_bookStoreApp'],
+            'level': 'WARNING',
+            'propagate': False,
+        },
+    },
+}
 
 # media url
 MEDIA_URL = '/media/'

@@ -5,8 +5,17 @@ from .services.getData import get_random_books
 from rest_framework.response import Response    
 from rest_framework.decorators import api_view
 from django.shortcuts import render
+import logging
 
+logger = logging.getLogger(__name__)
 
+def test(request):
+    print("test logger name: ", logger.name, flush=True)
+    logger.debug("DEBUG: View triggered")
+    logger.info("INFO: View called")
+
+logger.info("INFO: View called")
+print("print logger name: ", logger.name, flush=True)
 # Create your views here.
 class BookViewSet(viewsets.ModelViewSet):
     queryset = Book.objects.all()
@@ -21,7 +30,8 @@ def home_view(request):
 @api_view(['GET'])
 def random_books_view(request, category, count):
     books = get_random_books(count, category)
-    print("These should be 10 books from database:", books)
+    logger.debug(f"These should be {count} books from database: {books}")
+    
     serializer = BookSerializer(books, many=True)
     return Response(serializer.data)
 

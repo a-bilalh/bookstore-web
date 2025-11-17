@@ -19,6 +19,7 @@ export const useBooksList = (category, count) => {
                 const response = await axios.get( url.toString() );
 
                 console.log("Fetched books data:", response.data);
+                
                 console.log("Type of response data:", typeof response.data);
                 setBooks(response.data);
             } catch (err) {
