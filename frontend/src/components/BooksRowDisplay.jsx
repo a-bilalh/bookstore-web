@@ -1,16 +1,14 @@
 
-import React, { use } from 'react';
+import React from 'react';
 import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu';
 import BookDisplay from './BookDisplay';
 import { useBooksList } from '../services/api';
 import 'react-horizontal-scrolling-menu/dist/styles.css';
 
 
-
-
-const MyHorizontalList = (category, count) => {
+const MyHorizontalList = ({ category, count }) => {
     const books = useBooksList(category, count);
-    console.log("inside myHorizontalList", books)
+    console.log("inside myHorizontalList: First Book", books)
       return (
         <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
             { books.map((book) => <BookDisplay key={book.id} itemId={book.id} book={book} /> ) }

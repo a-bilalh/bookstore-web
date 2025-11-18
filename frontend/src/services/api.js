@@ -12,21 +12,22 @@ export const useBooksList = (category, count) => {
 
         const fetchBooks = async () => {
             try {
-                
-                const url = new URL(`${API_BASE_URL}/api/books/random`);
-                url.searchParams.append('category', category);
-                url.searchParams.append('count', count);
-                const response = await axios.get( url.toString() );
-
+                // if category or count are not provided yet, skip fetching
+                if (category === undefined || count === undefined || category === null || count === null) {
+                    return;
+                }
+                const url = `${API_BASE_URL}/api/books/random/${category}/${count}/`;
+                const response = await axios.get(url);
                 console.log("Fetched books data:", response.data);
                 
                 console.log("Type of response data:", typeof response.data);
-                setBooks(response.data);
+                return response.data;
             } catch (err) {
                 console.error("Error fetching books:", err);
             }
         };
-        fetchBooks();
-    }, []);
+        setBooks(fetchBooks());
+        console.log("books after fetch attempt:", books);
+    }, [category, count]);
     return books;
 };

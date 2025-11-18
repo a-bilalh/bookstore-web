@@ -7,20 +7,10 @@ from rest_framework.decorators import api_view
 from django.shortcuts import render
 import logging
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger("bookStoreApp")
 
-def test(request):
-    print("test logger name: ", logger.name, flush=True)
-    logger.debug("DEBUG: View triggered")
-    logger.info("INFO: View called")
 
-logger.info("INFO: View called")
-print("print logger name: ", logger.name, flush=True)
 # Create your views here.
-class BookViewSet(viewsets.ModelViewSet):
-    queryset = Book.objects.all()
-    serializer_class = BookSerializer
-
 
 def home_view(request):
     return render(request, 'home.html')

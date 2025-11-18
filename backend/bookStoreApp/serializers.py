@@ -3,7 +3,7 @@ from .models import Book
 
 
 class BookSerializer(serializers.ModelSerializer):
-    cover_image = serializers.ImageField(use_url=True)
+    cover_image = serializers.ImageField(max_length=None, allow_empty_file=False, use_url=True)
     
     class Meta:
         model = Book

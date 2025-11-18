@@ -54,7 +54,7 @@ LOGGING = {
         'bookStoreApp': {
             'handlers': ['console_bookStoreApp', 'file_bookStoreApp'],
             'level': 'DEBUG',
-            'propagate': False,  # stop logs from bubbling up to root logger
+            'propagate': True,  # stop logs from bubbling up to root logger
         },
 
         # Django internal logs (only warnings/errors)
