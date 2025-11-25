@@ -18,16 +18,15 @@ export const useBooksList = (category, count) => {
                 }
                 const url = `${API_BASE_URL}/api/books/random/${category}/${count}/`;
                 const response = await axios.get(url);
-                console.log("Fetched books data:", response.data);
+
+                console.log("Fetched books data:", JSON.stringify(response.data, null, 2));
                 
-                console.log("Type of response data:", typeof response.data);
-                return response.data;
+                setBooks(response.data);
             } catch (err) {
                 console.error("Error fetching books:", err);
             }
         };
-        setBooks(fetchBooks());
-        console.log("books after fetch attempt:", books);
+        fetchBooks();
     }, [category, count]);
     return books;
 };

@@ -22,6 +22,6 @@ def random_books_view(request, category, count):
     books = get_random_books(count, category)
     logger.debug(f"These should be {count} books from database: {books}")
     
-    serializer = BookSerializer(books, many=True)
+    serializer = BookSerializer(books, many=True, context={'request': request})
     return Response(serializer.data)
 
