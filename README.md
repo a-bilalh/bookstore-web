@@ -14,3 +14,7 @@ Backend: Django, Django REST Framework
 Database: PostgreSQL
 API Communication: REST API 
 
+
+Home Page of the App
+![Homepage](screenshots/homepage.png)
+
