@@ -10,9 +10,7 @@ import Header from './components/header.js';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Header />
-    <MyHorizontalList category={"fiction"} count={10}/>
-    <MyHorizontalList category={"nonfiction"} count={10}/>
+    <App />
   </React.StrictMode>
 );
 
