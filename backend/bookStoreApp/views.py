@@ -25,3 +25,22 @@ def random_books_view(request, category, count):
     serializer = BookSerializer(books, many=True, context={'request': request})
     return Response(serializer.data)
 
+
+@api_view(['POST'])
+def process_registration(request):
+
+    if request.method == 'POST':
+
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        confirm_password = request.POST.get('confirm_password')
+        logger.debug(f"Received registration data: email={email} password={password}")
+
+        if password != confirm_password:
+            return Response({'error': 'Passwords do not match'}, status=400)
+
+        user = User.objects.create_user(username=email, email=email)
+        user.set_password(password)
+        user_profile = UserProfile.objects.create(user=user)
+        user.save()
+        return Response({'message': 'User registered successfully'}, status=201)
