@@ -1,3 +1,10 @@
+import RegistrationForm from "../components/RegistrationForm";
+import MyHorizontalList from "../components/BooksRowDisplay.jsx";
+import Header from "../components/header.js";
+import LoginForm from "../components/LoginForm.jsx";
+import { useState } from "react";
+
+
 
 export default function Home() {
 
@@ -9,7 +16,7 @@ export default function Home() {
         
     return (
         <>
-            <Header />
+            <Header setShowRegistrationForm={setShowRegistrationForm} />
             <MyHorizontalList category={"fiction"} count={10}/>
             <MyHorizontalList category={"nonfiction"} count={10}/>
 

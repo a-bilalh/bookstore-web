@@ -23,18 +23,19 @@ export function CartIcon() {
 
 
 
-export default function Header() {
+export default function Header({setShowRegistrationForm, showLoginForm}) {
   return (
 
-    <div className={styles.headerDev}>
+    // TO:DO nutton onClick was added to the Create Account button
 
+    <div className={styles.headerDev}>
 
         <header>
             <h1>AB Book Store</h1>
         </header>
         <SearchBar />
-        <p className={styles.createAccountDiv}>
-            Create an Account
+        <p className={styles.createAccountDiv}> 
+            <button onClick={() => setShowRegistrationForm(true)}> Create an Account</button> 
         </p>
         <CartIcon />
         

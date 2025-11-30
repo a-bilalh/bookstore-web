@@ -1,5 +1,7 @@
 from rest_framework import serializers
 from .models import Book
+from django.contrib.auth.models import User
+from .models import UserProfile
 
 
 class BookSerializer(serializers.ModelSerializer):

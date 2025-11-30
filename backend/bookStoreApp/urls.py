@@ -3,7 +3,9 @@ from rest_framework.routers import DefaultRouter
 from .views import random_books_view, home_view
 from django.urls import path, re_path, include
 from django.views.generic import TemplateView
+from .views import process_registration
 import logging
+
 
 
 urlpatterns = [

@@ -1,7 +1,7 @@
+import axios from "axios";
 
 
-
-export default function RegistrationForm() {
+export default function RegistrationForm({ closeRegister, LoginForm }) {
 
 
     async function submistFormRegistration(event) {
@@ -13,6 +13,8 @@ export default function RegistrationForm() {
             console.log("Registration successful:", response.data);
             if (response.status === 201) {
                 alert("Registration successful! Please log in.");
+                closeRegister();
+                LoginForm(true); //New Changes 
             } else {
                 alert("Registration failed. Please try again.");
             }
