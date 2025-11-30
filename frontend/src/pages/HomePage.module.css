@@ -1,0 +1,7 @@
+
+.registrationFormPosition {
+    position: fixed;
+    top: 100px;
+    right: 50px;
+    z-index: 1000;
+}   
