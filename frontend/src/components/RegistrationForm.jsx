@@ -1,4 +1,5 @@
 import axios from "axios";
+import styles from "./RegistrationForm.module.css";
 
 
 export default function RegistrationForm({ closeRegister, LoginForm }) {
@@ -25,7 +26,7 @@ export default function RegistrationForm({ closeRegister, LoginForm }) {
     }
 
     return (
-        <>
+        <div className = {styles.registrationFormContainer}>
             <h1> Registration Form </h1>
             <form action={submistFormRegistration}>
                 <input type="text" name="email" placeholder="Email Address" /><br/>
@@ -33,6 +34,6 @@ export default function RegistrationForm({ closeRegister, LoginForm }) {
                 <input type="password" name="confirm_password" placeholder="Confirm Password" /><br/>
                 <button type="submit">Register</button>
             </form>
-        </>
+        </div>
     )
 }
