@@ -10,6 +10,7 @@ export default function RegistrationForm({ closeRegister, LoginForm }) {
         const formData = new FormData(event.target);
 
         try{
+            console.log("Submitting resitration form with data:", Object.fromEntries(formData.entries()))
             const response = await axios.post('/api/register/', formData);
             console.log("Registration successful:", response.data);
             if (response.status === 201) {
@@ -28,7 +29,7 @@ export default function RegistrationForm({ closeRegister, LoginForm }) {
     return (
         <div className = {styles.registrationFormContainer}>
             <h1> Registration Form </h1>
-            <form action={submistFormRegistration}>
+            <form onSubmit={submistFormRegistration}>
                 <input type="text" name="email" placeholder="Email Address" /><br/>
                 <input type="password" name="password" placeholder="Password" /><br/>
                 <input type="password" name="confirm_password" placeholder="Confirm Password" /><br/>
