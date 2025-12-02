@@ -33,6 +33,7 @@ export default function RegistrationForm({ closeRegister, LoginForm }) {
                 <input type="password" name="password" placeholder="Password" /><br/>
                 <input type="password" name="confirm_password" placeholder="Confirm Password" /><br/>
                 <button type="submit">Register</button>
+                <button type="button" onClick={closeRegister}>Cancel</button>
             </form>
         </div>
     )
