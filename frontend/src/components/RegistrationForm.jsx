@@ -1,4 +1,5 @@
 import axios from "axios";
+import { API_BASE_URL } from "../config";
 import styles from "./RegistrationForm.module.css";
 
 
@@ -10,8 +11,8 @@ export default function RegistrationForm({ closeRegister, LoginForm }) {
         const formData = new FormData(event.target);
 
         try{
-            console.log("Submitting resitration form with data:", Object.fromEntries(formData.entries()))
-            const response = await axios.post('/api/register/', formData);
+            console.log("Submitting resgitration form with data:", formData);
+            const response = await axios.post(`${API_BASE_URL}/api/register/`, formData);
             console.log("Registration successful:", response.data);
             if (response.status === 201) {
                 alert("Registration successful! Please log in.");

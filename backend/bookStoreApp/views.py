@@ -5,7 +5,10 @@ from .services.getData import get_random_books
 from rest_framework.response import Response    
 from rest_framework.decorators import api_view
 from django.shortcuts import render
+from django.contrib.auth.models import User
+from .models import UserProfile
 import logging
+
 
 logger = logging.getLogger("bookStoreApp")
 
@@ -41,6 +44,7 @@ def process_registration(request):
 
         user = User.objects.create_user(username=email, email=email)
         user.set_password(password)
-        user_profile = UserProfile.objects.create(user=user)
         user.save()
+        user_profile = UserProfile.objects.create(user=user)
+        user_profile.save()
         return Response({'message': 'User registered successfully'}, status=201)
