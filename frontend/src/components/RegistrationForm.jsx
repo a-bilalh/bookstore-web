@@ -3,7 +3,7 @@ import { API_BASE_URL } from "../config";
 import styles from "./RegistrationForm.module.css";
 
 
-export default function RegistrationForm({ closeRegister, LoginForm }) {
+export default function RegistrationForm({ closeRegister, showLoginForm }) {
 
 
     async function submistFormRegistration(event) {
@@ -17,7 +17,7 @@ export default function RegistrationForm({ closeRegister, LoginForm }) {
             if (response.status === 201) {
                 alert("Registration successful! Please log in.");
                 closeRegister();
-                LoginForm(true); //New Changes 
+                showLoginForm(); //New Changes 
             } else {
                 alert("Registration failed. Please try again.");
             }

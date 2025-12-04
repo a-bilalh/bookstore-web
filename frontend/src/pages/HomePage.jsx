@@ -20,12 +20,14 @@ export default function Home() {
             <Header setShowRegistrationForm={setShowRegistrationForm} />
             <MyHorizontalList category={"fiction"} count={10}/>
             <MyHorizontalList category={"nonfiction"} count={10}/>
-
+        
             <div className={style.registrationFormPosition}>
                 {showRegistrationForm && <RegistrationForm closeRegister={() => 
-                        setShowRegistrationForm(false)} LoginForm={LoginForm} />}
+                        setShowRegistrationForm(false)} showLoginForm={() => setShowLoginForm(true)} />}
             </div>
-            {showLoginForm && <LoginForm closeLogin={() => setShowLoginForm(false)} />}
+            <div>
+                {showLoginForm && <LoginForm closeLogin={() => setShowLoginForm(false)} />}
+            </div>
         </>
     )
 
