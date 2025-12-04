@@ -1,5 +1,7 @@
 import axios from "axios";
 import { API_BASE_URL } from "../config";
+import styles from "./LoginForm.module.css";
+
 
 export default function LoginForm({ closeLogin }) {
 
@@ -24,14 +26,14 @@ export default function LoginForm({ closeLogin }) {
 
 
     return (
-        <>
+        <div className={styles.loginFormContainer}>
             <h1> Login Form </h1>
-            <form onSubmit={submitLogIn}>
+            <form onSubmit={submitLogIn} >
                 <input type="text" name="email" placeholder="Email Address" /><br/>
                 <input type="password" name="password" placeholder="Password" /><br/>
                 <button type="submit">Login</button>
                 <button type="button" onClick={closeLogin}>Cancel</button>
             </form>
-        </>
+        </div>
     )
 }

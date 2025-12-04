@@ -18,6 +18,7 @@ export default function RegistrationForm({ closeRegister, showLoginForm }) {
                 alert("Registration successful! Please log in.");
                 closeRegister();
                 showLoginForm(); //New Changes 
+                console.log("showLoginForm status after successful registration: ", showLoginForm )
             } else {
                 alert("Registration failed. Please try again.");
             }
