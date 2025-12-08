@@ -8,6 +8,7 @@ from django.shortcuts import render
 from django.contrib.auth.models import User
 from .models import UserProfile
 import logging
+from django.contrib.auth import authenticate, login
 
 
 logger = logging.getLogger("bookStoreApp")
@@ -29,6 +30,7 @@ def random_books_view(request, category, count):
     return Response(serializer.data)
 
 
+# View to handle user registration
 @api_view(['POST'])
 def process_registration(request):
 
@@ -48,3 +50,23 @@ def process_registration(request):
         user_profile = UserProfile.objects.create(user=user)
         user_profile.save()
         return Response({'message': 'User registered successfully'}, status=201)
+
+
+
+# View to handle user login
+@api_view(['POST'])
+def login_view(request):
+
+    if request.method == 'POST':
+
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        logger.debug(f"Received login data: email={email} password={password}")
+        
+        user = authenticate(request, username=email, password=password)
+
+        if user is not None:
+            login(request, user)
+            return Response({'message': 'User logged in successfully'}, status=200)
+        else:
+            return Response({'error': 'Invalid email or password'}, status=401)

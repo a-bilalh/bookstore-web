@@ -17,7 +17,7 @@ export default function Home() {
         
     return (
         <>
-            <Header setShowRegistrationForm={setShowRegistrationForm} />
+            <Header setShowRegistrationForm={setShowRegistrationForm} setShowLoginForm={setShowLoginForm} />
             <MyHorizontalList category={"fiction"} count={10}/>
             <MyHorizontalList category={"nonfiction"} count={10}/>
 
