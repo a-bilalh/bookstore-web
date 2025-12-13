@@ -11,7 +11,9 @@ export default function LoginForm({ closeLogin }) {
         const formData = new FormData(event.target);
 
         try {
-            const response = await axios.post(`${API_BASE_URL}/o/token/`, formData);
+
+            const response = await axios.post(`${API_BASE_URL}/api/login/`, formData);
+
             if (response.status === 200) {
                 alert("Login successful!");
                 localStorage.setItem("access", response.data.access); 

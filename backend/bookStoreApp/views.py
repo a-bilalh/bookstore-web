@@ -9,6 +9,10 @@ from django.contrib.auth.models import User
 from .models import UserProfile
 import logging
 from django.contrib.auth import authenticate, login
+from oauth2_provider.views.generic import ProtectedResourceView
+from django.http import HttpResponse
+
+
 
 
 logger = logging.getLogger("bookStoreApp")
@@ -57,16 +61,8 @@ def process_registration(request):
 @api_view(['POST'])
 def login_view(request):
 
-    if request.method == 'POST':
-
-        email = request.POST.get('email')
-        password = request.POST.get('password')
-        logger.debug(f"Received login data: email={email} password={password}")
-        
-        user = authenticate(request, username=email, password=password)
-
-        if user is not None:
-            login(request, user)
-            return Response({'message': 'User logged in successfully'}, status=200)
-        else:
-            return Response({'error': 'Invalid email or password'}, status=401)
+    email = request.POST.get('email')
+    password = request.POST.get('password')
+    tokens  = backend_login(email, password)
+    
+    return Response(tokens, status=200)
