@@ -11,6 +11,7 @@ import logging
 from django.contrib.auth import authenticate, login
 from oauth2_provider.views.generic import ProtectedResourceView
 from django.http import HttpResponse
+from .services.oauth_service import backend_login
 
 
 
@@ -63,6 +64,8 @@ def login_view(request):
 
     email = request.POST.get('email')
     password = request.POST.get('password')
+
     tokens  = backend_login(email, password)
     
+    logger.debug(f"Received tokens: {tokens} in login_view")
     return Response(tokens, status=200)

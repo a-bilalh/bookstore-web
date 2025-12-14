@@ -16,8 +16,8 @@ export default function LoginForm({ closeLogin }) {
 
             if (response.status === 200) {
                 alert("Login successful!");
-                localStorage.setItem("access", response.data.access); 
-                localStorage.setItem("refresh", response.data.refresh);
+                localStorage.setItem("access", response.data.access);  // Store access token, works successfully
+                localStorage.setItem("refresh", response.data.refresh); // Store refresh token, works successfully
                 closeLogin();
             } else {
                 alert("Login failed. The Email or Password is incorrect. Please try again.");   

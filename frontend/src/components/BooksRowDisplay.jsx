@@ -8,7 +8,6 @@ import 'react-horizontal-scrolling-menu/dist/styles.css';
 
 const MyHorizontalList = ({ category, count }) => {
     const books = useBooksList(category, count);
-    console.log("inside myHorizontalList: First Book", books)
       return (
         <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
             { books.map((book) => <BookDisplay key={book.id} itemId={book.id} book={book} /> ) }
