@@ -3,7 +3,7 @@ import { API_BASE_URL } from "../config";
 import styles from "./LoginForm.module.css";
 
 
-export default function LoginForm({ closeLogin }) {
+export default function LoginForm({ closeLogin, setAccessToken }) {
 
 
     async function submitLogIn(event) {
@@ -18,6 +18,7 @@ export default function LoginForm({ closeLogin }) {
                 alert("Login successful!");
                 localStorage.setItem("access", response.data.access);  // Store access token, works successfully
                 localStorage.setItem("refresh", response.data.refresh); // Store refresh token, works successfully
+                setAccessToken(response.data.access); // Update accessToken state in HomePage
                 closeLogin();
             } else {
                 alert("Login failed. The Email or Password is incorrect. Please try again.");   

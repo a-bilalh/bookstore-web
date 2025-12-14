@@ -22,7 +22,7 @@ export function CartIcon() {
 
 
 
-export default function Header({setShowRegistrationForm, setShowLoginForm}) {
+export default function Header({setShowRegistrationForm, setShowLoginForm, isLoggedIn}) {
   return (
 
     // TO:DO nutton onClick was added to the Create Account button
@@ -34,10 +34,13 @@ export default function Header({setShowRegistrationForm, setShowLoginForm}) {
         </header>
         <SearchBar />
         <p className={styles.createAccountDiv}> 
-            <button onClick={() => setShowRegistrationForm(true)}> Create an Account</button> 
+            {!isLoggedIn && <button onClick={() => setShowRegistrationForm(true)}> Create an Account</button> }
         </p>
         <p> 
-            <button onClick={() => setShowLoginForm(true)}> Log In</button> 
+            {!isLoggedIn && <button onClick={() => setShowLoginForm(true)}> Log In</button> }
+        </p>
+        <p className={styles.createAccountDiv}>
+            {isLoggedIn && <button>Log Out</button>}
         </p>
         <CartIcon />
         
