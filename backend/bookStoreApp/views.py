@@ -12,6 +12,7 @@ from django.contrib.auth import authenticate, login
 from oauth2_provider.views.generic import ProtectedResourceView
 from django.http import HttpResponse
 from .services.oauth_service import backend_login
+from .services.oauth_service import backend_logout
 
 
 
@@ -66,6 +67,18 @@ def login_view(request):
     password = request.POST.get('password')
 
     tokens  = backend_login(email, password)
-    
+
     logger.debug(f"Received tokens: {tokens} in login_view")
     return Response(tokens, status=200)
+
+
+@api_view(['POST'])
+def logout_view(request):
+
+    token = request.POST.get('token')
+
+    response = backend_logout(token)
+
+    logger.debug(f"Logout response: {response.status_code} - {response.text} in logout_view")
+
+    return Response({'message': 'User logged out successfully'}, status=200)

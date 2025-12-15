@@ -4,7 +4,7 @@ import { API_BASE_URL } from "../config";
 
 
 
-export default async function Logout( {setAccessToken} ) {
+export default async function Logout( setAccessToken ) {
 
     try { 
 

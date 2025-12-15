@@ -4,6 +4,7 @@ import Header from "../components/header.js";
 import LoginForm from "../components/LoginForm.jsx";
 import { useState } from "react";
 import style from './HomePage.module.css';
+import Logout from "../components/LogoutForm.jsx";
 
 
 
@@ -11,17 +12,32 @@ export default function Home() {
 
     const[showRegistrationForm, setShowRegistrationForm] = useState(false);
     const[showLoginForm, setShowLoginForm] = useState(false);
-    const[showLogout, setShowLogout] = useState(false);
     const[accessToken, setAccessToken] = useState( localStorage.getItem("access") || null );
 
     const isLoggedIn = accessToken !== null;
 
+    const handleLogin = () => {
+        setShowLoginForm(true);
+        setShowRegistrationForm(false);
+    }
 
-        
+    const handleRegistration = () => {
+        setShowRegistrationForm(true);
+        setShowLoginForm(false);
+    }
+
+    const handleLogout = async() => {
+        await Logout( setAccessToken );
+    }
+
+
     return (
         <>
-            <Header setShowRegistrationForm={setShowRegistrationForm} setShowLoginForm={setShowLoginForm}
-                    setShowLogout={setShowLogout} isLoggedIn={isLoggedIn}/>
+            <Header handleRegistration={handleRegistration}
+                    handleLogin={handleLogin}
+                    handleLogout={handleLogout}
+                    isLoggedIn={isLoggedIn}
+                    />
 
             <MyHorizontalList category={"fiction"} count={10}/>
             <MyHorizontalList category={"nonfiction"} count={10}/>

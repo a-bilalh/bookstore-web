@@ -22,3 +22,17 @@ def backend_login(email, password):
 
     response =  requests.post('http://localhost:8000/o/token/', data=data)  
     return response.json()
+
+
+
+def backend_logout(token):
+
+    data = {
+        'token': token,
+        'client_id': oauth_client_id,
+    }
+    response =  requests.post('http://localhost:8000/o/revoke_token/', data=data)  
+
+    return response 
+
+    

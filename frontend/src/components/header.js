@@ -1,5 +1,6 @@
 import styles from './header.module.css';
 import { FaShoppingCart } from "react-icons/fa";
+import Logout from './LogoutForm';
 
 
 
@@ -22,7 +23,11 @@ export function CartIcon() {
 
 
 
-export default function Header({setShowRegistrationForm, setShowLoginForm, isLoggedIn, setShowLogout}) {
+export default function Header({  handleRegistration
+                                , handleLogin
+                                , handleLogout={Logout}
+                                , isLoggedIn={isLoggedIn}}) {
+                                    
   return (
 
     // TO:DO nutton onClick was added to the Create Account button
@@ -32,19 +37,19 @@ export default function Header({setShowRegistrationForm, setShowLoginForm, isLog
         <header>
             <h1>AB Book Store</h1>
         </header>
-        
+
         <SearchBar />
 
         <p className={styles.createAccountDiv}> 
-            {!isLoggedIn && <button onClick={() => setShowRegistrationForm(true)}> Create an Account</button> }
+            {!isLoggedIn && <button onClick={handleRegistration}>Create an Account</button> }
         </p>
 
         <p> 
-            {!isLoggedIn && <button onClick={() => setShowLoginForm(true)}>Log In</button> }
+            {!isLoggedIn && <button onClick={handleLogin}>Log In</button> }
         </p>
 
         <p className={styles.createAccountDiv}>
-            {isLoggedIn && <button onClick={() => setShowLogout(true)}>Log Out</button>}
+            { isLoggedIn && <button onClick={handleLogout}>Log Out</button> }
         </p>
 
         <CartIcon />
