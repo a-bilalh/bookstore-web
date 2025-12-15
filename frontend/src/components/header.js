@@ -22,7 +22,7 @@ export function CartIcon() {
 
 
 
-export default function Header({setShowRegistrationForm, setShowLoginForm, isLoggedIn}) {
+export default function Header({setShowRegistrationForm, setShowLoginForm, isLoggedIn, setShowLogout}) {
   return (
 
     // TO:DO nutton onClick was added to the Create Account button
@@ -32,16 +32,21 @@ export default function Header({setShowRegistrationForm, setShowLoginForm, isLog
         <header>
             <h1>AB Book Store</h1>
         </header>
+        
         <SearchBar />
+
         <p className={styles.createAccountDiv}> 
             {!isLoggedIn && <button onClick={() => setShowRegistrationForm(true)}> Create an Account</button> }
         </p>
+
         <p> 
-            {!isLoggedIn && <button onClick={() => setShowLoginForm(true)}> Log In</button> }
+            {!isLoggedIn && <button onClick={() => setShowLoginForm(true)}>Log In</button> }
         </p>
+
         <p className={styles.createAccountDiv}>
-            {isLoggedIn && <button>Log Out</button>}
+            {isLoggedIn && <button onClick={() => setShowLogout(true)}>Log Out</button>}
         </p>
+
         <CartIcon />
         
     </div>

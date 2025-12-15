@@ -20,13 +20,15 @@ export default function Home() {
         
     return (
         <>
-            <Header setShowRegistrationForm={setShowRegistrationForm} setShowLoginForm={setShowLoginForm} isLoggedIn={isLoggedIn}/>
+            <Header setShowRegistrationForm={setShowRegistrationForm} setShowLoginForm={setShowLoginForm}
+                    setShowLogout={setShowLogout} isLoggedIn={isLoggedIn}/>
+
             <MyHorizontalList category={"fiction"} count={10}/>
             <MyHorizontalList category={"nonfiction"} count={10}/>
 
             <div className={style.formPosition}>
                 {showRegistrationForm && <RegistrationForm closeRegister={() => 
-                        setShowRegistrationForm(false)} showLoginForm={() => setShowLoginForm(true)} />}
+                    setShowRegistrationForm(false)} showLoginForm={() => setShowLoginForm(true)} />}
             </div>
             <div className={style.formPosition}>
                 {showLoginForm && <LoginForm closeLogin={() => setShowLoginForm(false)} setAccessToken={setAccessToken} />}
