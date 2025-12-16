@@ -3,7 +3,8 @@ A work-in-progress e-commerce bookstore built using React for the frontend and D
 **Project Goals**</br>
  Display books dynamically from backend ✅</br>
  Admin panel for inventory management ✅</br>
- User authentication and registration 🚧(WIP)</br>
+ User authentication and registration ✅</br>
+Create a book detail page🚧(WIP)</br>
  Shopping cart and checkout system 🔴</br>
  Stripe or PayPal integration for payments 🔴</br>
  A review system, where users can leave reviews and rate a book. 🔴</br>
