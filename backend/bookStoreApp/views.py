@@ -30,10 +30,25 @@ def home_view(request):
 @api_view(['GET'])
 def random_books_view(request, category, count):
     books = get_random_books(count, category)
-    logger.debug(f"These should be {count} books from database: {books}")
     
     serializer = BookSerializer(books, many=True, context={'request': request})
     return Response(serializer.data)
+
+
+
+# Get book by ID
+@api_view(['GET'])
+def get_book_by_id(request, book_id):
+    try:
+        book = Book.objects.get(id=book_id)
+    except Book.DoesNotExist:
+        return Response({'error': 'Book not found'}, status=404)
+
+    serializer = BookSerializer(book, context={'request': request})
+
+    loggedger.debug(f"Selected Book data: {serializer.data}")
+    return Response(serializer.data)
+
 
 
 # View to handle user registration

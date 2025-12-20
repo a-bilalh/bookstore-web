@@ -14,6 +14,7 @@ class Book(models.Model):
     cover_image = models.ImageField(upload_to='book_covers/', blank=True, null=True)
     language = models.CharField(max_length=30)
     category = models.CharField(max_length=50, default='fiction')
+    description = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return self.title

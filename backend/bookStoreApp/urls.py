@@ -6,12 +6,14 @@ from django.views.generic import TemplateView
 from .views import process_registration
 from .views import login_view
 from .views import logout_view
+from .views import get_book_by_id
 import logging
 
 
 
 urlpatterns = [
 
+    path('books/<int:book_id>/', get_book_by_id, name='book-by-id'),
     path('books/random/<str:category>/<int:count>/', random_books_view, name='random-books'),
     path('register/', process_registration, name='register'),
     path('login/', login_view, name='login_view'), # TODO: New url for user login; untested
