@@ -46,7 +46,7 @@ def get_book_by_id(request, book_id):
 
     serializer = BookSerializer(book, context={'request': request})
 
-    loggedger.debug(f"Selected Book data: {serializer.data}")
+    logger.debug(f"Selected Book data: {serializer.data}")
     return Response(serializer.data)
 
 

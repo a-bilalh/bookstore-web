@@ -1,5 +1,6 @@
 import React from "react";
 import { useBookDetails } from "../services/api";
+import { useParams } from "react-router-dom";
 
 /*
  * 1)  I need  cover photo for book details page
@@ -15,17 +16,26 @@ import { useBookDetails } from "../services/api";
  */
 
 
-export default function BookDetails( bookId ) {
+export default function BookDetails( ) {
 
-    const bookDetails = useBookDetails(bookId);
-
+    const { id } = useParams();
+    console.log("Book Details Component - bookId:", id);
+    const bookDetails = useBookDetails(id);
+    console.log("Book Details Component - bookDetails:", bookDetails);
     
+    if (!bookDetails) {
+        return <div>Loading...</div>;
+    }
     return (
         <div>
-            Book Details Page
+            <p1> {bookDetails ? bookDetails.title : "Loading..."}</p1>
+            <p1> {bookDetails.author}</p1>
+            <p1> {bookDetails.description}</p1>
+            <p1> {bookDetails.price}</p1>
+            <button>Add to Cart</button>
+            <a href="/">Back to Home</a>
         </div>
 
     )
-
 
 }

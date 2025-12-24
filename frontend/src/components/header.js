@@ -23,10 +23,11 @@ export function CartIcon() {
 
 
 
+
 export default function Header({  handleRegistration
                                 , handleLogin
-                                , handleLogout={Logout}
-                                , isLoggedIn={isLoggedIn}}) {
+                                , handleLogout
+                                , isLoggedIn }) {
                                     
   return (
 

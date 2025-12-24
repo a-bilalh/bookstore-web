@@ -1,13 +1,15 @@
 import styles from './bookDisplay.module.css';
+import { Link } from "react-router";
 
 
 
 
 function BookDisplay({book}) {
+    /* Update! Link was substituted for div to make each book clickable and navigate to book details page */
     
     return (
 
-        <div className={styles.container}>
+        <Link to={`/book/${book.id}`} className={styles.container}> 
 
             <div className={styles.picDiv}>
                 {book.cover_image ? <img src={book.cover_image} alt={book.title} /> 
@@ -17,7 +19,7 @@ function BookDisplay({book}) {
                 {book.title} by {book.author}
             </div>
 
-        </div>
+        </Link>
     )
 }
 
