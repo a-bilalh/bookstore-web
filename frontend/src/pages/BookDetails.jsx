@@ -1,6 +1,7 @@
 import React from "react";
 import { useBookDetails } from "../services/api";
 import { useParams } from "react-router-dom";
+import styles from './BookDetails.module.css';
 
 /*
  * 1)  I need  cover photo for book details page
@@ -27,15 +28,18 @@ export default function BookDetails( ) {
         return <div>Loading...</div>;
     }
     return (
-        <div>
-            <p1> {bookDetails ? bookDetails.title : "Loading..."}</p1>
-            <p1> {bookDetails.author}</p1>
-            <p1> {bookDetails.description}</p1>
-            <p1> {bookDetails.price}</p1>
-            <button>Add to Cart</button>
-            <a href="/">Back to Home</a>
-        </div>
+        <main className={styles.bookDetailsContainer}>
+            <div className={styles.bookDetails_container_img}> {bookDetails.cover_image ? <img src={bookDetails.cover_image}  alt={bookDetails.title} /> 
+                 : <h1>Cover Not Available</h1>} </div>
+            <section>
+                <div>{bookDetails ? bookDetails.title : "Loading..."}</div>
+                <div>{bookDetails.author}</div>
+                <div>{bookDetails.description}</div>
+                <div>{bookDetails.price}</div>
+                <button>Add to Cart</button>
+                <a href="/">Back to Home</a>
+            </section> 
+        </main>
 
-    )
-
+    );
 }
