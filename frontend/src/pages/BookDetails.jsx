@@ -27,18 +27,22 @@ export default function BookDetails( ) {
     if (!bookDetails) {
         return <div>Loading...</div>;
     }
+
     return (
         <main className={styles.bookDetailsContainer}>
-            <div className={styles.bookDetails_container_img}> {bookDetails.cover_image ? <img src={bookDetails.cover_image}  alt={bookDetails.title} /> 
-                 : <h1>Cover Not Available</h1>} </div>
-            <section>
-                <div>{bookDetails ? bookDetails.title : "Loading..."}</div>
-                <div>{bookDetails.author}</div>
-                <div>{bookDetails.description}</div>
-                <div>{bookDetails.price}</div>
-                <button>Add to Cart</button>
+            <div className={styles.bookDetails_container_img}> 
+                {bookDetails.cover_image ? <img src={bookDetails.cover_image}  alt={bookDetails.title} /> 
+                 : <h1>Cover Not Available</h1>} 
+            </div>
+            <section className={styles.bookDetails_container_section}>
+                <div className={styles.bookDetails_container_section_title}>{bookDetails ? bookDetails.title : "Loading..."}</div>
+                <div className={styles.bookDetails_container_section_author}>{bookDetails.author}</div>
+                <div className={styles.bookDetails_container_section_description}>{bookDetails.description}</div>
+                <div className={styles.bookDetails_container_section_price}>{bookDetails.price}</div>
+                <button className={styles.primaryButton}>Add to Cart</button>
                 <a href="/">Back to Home</a>
             </section> 
+            
         </main>
 
     );
