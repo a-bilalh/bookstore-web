@@ -6,6 +6,7 @@ from bookStoreApp.models import Book
 
 """
 This functions takes the given book fields and export the coresponding values as a CSV file.
+Usage: management/commands/export_books_to_csv.py
 """
 def export_book_fields_as_csv( book_fields, file_path ):
 
@@ -18,6 +19,7 @@ def export_book_fields_as_csv( book_fields, file_path ):
 
 """
 This function imports book descriptions from a CSV file and updates the corresponding Book entries in the database.
+Usage: management/commands/import_books_from_csv.py
 """
 # TODO: This function is not efficient for large CSV files. Consider using bulk updates or batch processing for better performance.
 def import_books_from_csv(file_path):

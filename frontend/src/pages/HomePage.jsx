@@ -1,6 +1,6 @@
 import RegistrationForm from "../components/RegistrationForm";
 import MyHorizontalList from "../components/BooksRowDisplay.jsx";
-import Header from "../components/header.js";
+import Header from "../components/header.jsx";
 import LoginForm from "../components/LoginForm.jsx";
 import { useState } from "react";
 import style from './HomePage.module.css';
@@ -13,6 +13,7 @@ export default function Home() {
     const[showRegistrationForm, setShowRegistrationForm] = useState(false);
     const[showLoginForm, setShowLoginForm] = useState(false);
     const[accessToken, setAccessToken] = useState( localStorage.getItem("access") || null );
+    const[cartItems, setCartItems] = useState([]);
 
     const isLoggedIn = accessToken !== null;
 

@@ -74,6 +74,9 @@
 }
 
 
-a {
-    display: block;
+.backLink {
+    margin-top: 15px;
+    text-decoration: none;
+    color: #007bff;
+    font-size: 1rem;
 }

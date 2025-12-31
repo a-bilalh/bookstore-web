@@ -5,7 +5,6 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import BooksList from './booksList';
 import MyHorizontalList from './components/BooksRowDisplay.jsx';
-import Header from './components/header.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
