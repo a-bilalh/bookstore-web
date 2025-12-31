@@ -1,4 +1,6 @@
 import csv
+from bookStoreApp.models import Book
+
 
 
 
@@ -7,7 +9,7 @@ This functions takes the given book fields and export the coresponding values as
 """
 def export_book_fields_as_csv( book_fields, file_path ):
 
-    book_values = Book.objects.values(book_fields)
+    book_values = Book.objects.values(*book_fields)
     with open(file_path, mode='x', newline='', encoding='utf-8') as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=book_fields)
         writer.writeheader()

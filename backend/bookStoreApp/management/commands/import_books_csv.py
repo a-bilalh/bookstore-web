@@ -2,6 +2,7 @@
 from django.core.management.base import BaseCommand
 from pathlib import Path
 from django.conf import settings
+from backend.utils.csv_helpers import import_books_from_csv
 
 
 
@@ -17,8 +18,7 @@ class Command(BaseCommand):
         parser.add_argument(
             'input_path',
             type=str,
-            help='Path to the CSV file to import book descriptions from',
-            default=self.import_file_path
+            help='Path to the CSV file to import book descriptions from'
         )
 
     def handle(self, *args, **options):
