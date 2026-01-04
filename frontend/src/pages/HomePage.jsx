@@ -13,7 +13,7 @@ export default function Home() {
     const[showRegistrationForm, setShowRegistrationForm] = useState(false);
     const[showLoginForm, setShowLoginForm] = useState(false);
     const[accessToken, setAccessToken] = useState( localStorage.getItem("access") || null );
-    const[cartItems, setCartItems] = useState([]);
+
 
     const isLoggedIn = accessToken !== null;
 

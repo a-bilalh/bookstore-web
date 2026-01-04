@@ -38,7 +38,7 @@ export default function BookDetails( ) {
             <section className={styles.bookDetails_container_section}>
                 <div>
                     <div className={styles.bookDetails_container_section_title}>{bookDetails ? bookDetails.title : "Loading..."}</div>
-                    <div>CartIcon</div>
+                    <div><CartIcon /></div>
                 </div>
                 <div className={styles.bookDetails_container_section_author}>{bookDetails.author}</div>
                 <div className={styles.bookDetails_container_section_description}>{bookDetails.description}</div>

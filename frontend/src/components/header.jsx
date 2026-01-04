@@ -30,7 +30,9 @@ export function CartIcon(itemCount) {
 export default function Header({  handleRegistration
                                 , handleLogin
                                 , handleLogout
-                                , isLoggedIn }) {
+                                , isLoggedIn
+                                , cartItems
+                                }) {
                                     
   return (
 
@@ -56,7 +58,7 @@ export default function Header({  handleRegistration
             { isLoggedIn && <button onClick={handleLogout}>Log Out</button> }
         </p>
 
-        <CartIcon />
+        <CartIcon itemCount={cartItems.length} />
         
     </div>
   );
