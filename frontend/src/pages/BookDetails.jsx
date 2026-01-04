@@ -3,6 +3,7 @@ import { useBookDetails } from "../services/api";
 import { Link, useParams } from "react-router-dom";
 import styles from './BookDetails.module.css';
 import { CartIcon } from "../components/header.jsx";
+import { useCart } from "../contexts/CartContexts.jsx";
 
 /*
  * 1)  I need  cover photo for book details page
@@ -23,7 +24,7 @@ export default function BookDetails( ) {
     const { id } = useParams();
     console.log("Book Details Component - bookId:", id);
     const bookDetails = useBookDetails(id);
-    console.log("Book Details Component - bookDetails:", bookDetails);
+    const { cartItems } = useCart();
     
     if (!bookDetails) {
         return <div>Loading...</div>;
@@ -38,7 +39,7 @@ export default function BookDetails( ) {
             <section className={styles.bookDetails_container_section}>
                 <div>
                     <div className={styles.bookDetails_container_section_title}>{bookDetails ? bookDetails.title : "Loading..."}</div>
-                    <div><CartIcon /></div>
+                    <div><CartIcon itemCount={cartItems.length} /></div>
                 </div>
                 <div className={styles.bookDetails_container_section_author}>{bookDetails.author}</div>
                 <div className={styles.bookDetails_container_section_description}>{bookDetails.description}</div>

@@ -1,6 +1,7 @@
 import styles from './header.module.css';
 import { FaShoppingCart } from "react-icons/fa";
 import Logout from './LogoutForm';
+import { useCart } from '../contexts/CartContexts.jsx';
 
 
 
@@ -31,8 +32,9 @@ export default function Header({  handleRegistration
                                 , handleLogin
                                 , handleLogout
                                 , isLoggedIn
-                                , cartItems
                                 }) {
+
+            const { cartItems } = useCart();
                                     
   return (
 
