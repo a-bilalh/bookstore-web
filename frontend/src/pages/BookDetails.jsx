@@ -27,9 +27,10 @@ export default function BookDetails( ) {
     const { cartItems, addToCart } = useCart();
 
     const handleClick = (book) => {
+        console.log("HandleClick, Number of items in Cart before adding:", cartItems.length);
         addToCart(book);
     }
-
+ 
     
     
     // Show loading state if book details are not yet available
