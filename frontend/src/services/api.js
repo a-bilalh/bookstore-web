@@ -33,29 +33,29 @@ export const useBooksList = (category, count) => {
 
 
 
-export const useBookDetails = (bookId) => {
-    const [bookDetails, setBookDetails] = useState(null);
-    console.log("useBookDetails called with bookId:", bookId);
+export const useBook = (bookId) => {
+    const [book, setBook] = useState(null);
+    console.log("useBook called with bookId:", bookId);
     useEffect(() => {
 
         if ( !bookId ) {
             return;
         }
 
-        console.log("useBookDetails useEffect called with bookId:", bookId);
-        const fetchBookDetails = async () => {
+        console.log("useBook useEffect called with bookId:", bookId);
+        const fetchBook = async () => {
             try {
-                console.log("fetchBookDetails called with bookId:", bookId);
-            
+                console.log("fetchBook called with bookId:", bookId);
+
                 const url = `${API_BASE_URL}/api/books/${bookId}/`;
                 const response = await axios.get(url);
-                setBookDetails(response.data);
-                console.log("Fetched book details:", JSON.stringify(response.data, null, 2));
+                setBook(response.data);
+                console.log("Fetched book:", JSON.stringify(response.data, null, 2));
             } catch (err) {
-                console.error("Error fetching book details:", err);
+                console.error("Error fetching book:", err);
             }
         };
-        fetchBookDetails();
+        fetchBook();
     }, [bookId]);
-    return bookDetails;
+    return book;
 };
