@@ -14,12 +14,16 @@ export function SearchBar() {
 }
 
 
-export function CartIcon(itemCount) {
+
+export function CartIcon( {itemCount} ) {
     return (
-        <div className={styles.cartIcon}> 
-            <FaShoppingCart size={24} />
+        <div className={styles.cartIcon}>
+            <FaShoppingCart size={24} />    
             { itemCount > 0 && (
-                <span className={styles.itemCount}>{itemCount}</span>
+                <span className={styles.itemCount}>
+                    {itemCount}
+                </span>
+                
             )}
         </div>
     );
