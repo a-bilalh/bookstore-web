@@ -1,5 +1,5 @@
 import React from "react";
-import { useBookDetails } from "../services/api";
+import { useBook } from "../services/api";
 import { Link, useParams } from "react-router-dom";
 import styles from './BookDetails.module.css';
 import { CartIcon } from "../components/header.jsx";
@@ -23,28 +23,40 @@ export default function BookDetails( ) {
 
     const { id } = useParams();
     console.log("Book Details Component - bookId:", id);
-    const bookDetails = useBookDetails(id);
-    const { cartItems } = useCart();
+    const book = useBook(id);
+    const { cartItems, addToCart } = useCart();
+
+    const handleClick = (book) => {
+        addToCart(book);
+    }
+
     
-    if (!bookDetails) {
+    
+    // Show loading state if book details are not yet available
+    if (!book) {
         return <div>Loading...</div>;
     }
 
+    // Render book details
     return (
         <main className={styles.bookDetailsContainer}>
             <div className={styles.bookDetails_container_img}> 
-                {bookDetails.cover_image ? <img src={bookDetails.cover_image}  alt={bookDetails.title} /> 
+                {book.cover_image ? <img src={book.cover_image}  alt={book.title} /> 
                  : <h1>Cover Not Available</h1>} 
             </div>
             <section className={styles.bookDetails_container_section}>
                 <div>
-                    <div className={styles.bookDetails_container_section_title}>{bookDetails ? bookDetails.title : "Loading..."}</div>
+                    <div className={styles.bookDetails_container_section_title}>{book ? book.title : "Loading..."}</div>
                     <div><CartIcon itemCount={cartItems.length} /></div>
                 </div>
-                <div className={styles.bookDetails_container_section_author}>{bookDetails.author}</div>
-                <div className={styles.bookDetails_container_section_description}>{bookDetails.description}</div>
-                <div className={styles.bookDetails_container_section_price}>{bookDetails.price}</div>
-                <button className={styles.primaryButton}>Add to Cart</button>
+                <div className={styles.bookDetails_container_section_author}>{book.author}</div>
+                <div className={styles.bookDetails_container_section_description}>{book.description}</div>
+                <div className={styles.bookDetails_container_section_price}>{book.price}</div>
+                <button 
+                    onClick={() => handleClick(book)} 
+                    className={styles.primaryButton}>
+                        Add to Cart
+                </button>
                 <Link to="/" className={styles.backLink}>Back to Home</Link>
             </section> 
             

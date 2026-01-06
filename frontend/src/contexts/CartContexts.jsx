@@ -9,12 +9,19 @@ export default function CartProvider({ children }) {
 
     const [cartItems, setCartItems] = useState([]);
 
+    // Function to add an item to the cart
+    function addToCart(item) {
+        setCartItems((prevItems) => [...prevItems, item]);
+    }
+
     return (
-        <CartContext.Provider value={{ cartItems, setCartItems }}>
+        <CartContext.Provider value={{ cartItems, setCartItems, addToCart }}>
             {children}
         </CartContext.Provider>
     );
 }
+
+
 
 // Custom hook to use the CartContext
 export function useCart() {
