@@ -1,6 +1,6 @@
 import RegistrationForm from "../components/RegistrationForm";
 import MyHorizontalList from "../components/BooksRowDisplay.jsx";
-import Header from "../components/header.jsx";
+import Header from "../components/Header.jsx";
 import LoginForm from "../components/LoginForm.jsx";
 import { useState } from "react";
 import style from './HomePage.module.css';

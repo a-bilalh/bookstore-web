@@ -2,7 +2,7 @@ import React from "react";
 import { useBook } from "../services/api";
 import { Link, useParams } from "react-router-dom";
 import styles from './BookDetails.module.css';
-import { CartIcon } from "../components/header.jsx";
+import CartIcon from "../components/CartIcon.jsx";  
 import { useCart } from "../contexts/CartContexts.jsx";
 
 /*
@@ -15,7 +15,6 @@ import { useCart } from "../contexts/CartContexts.jsx";
     7)  "Back to Home" link
     8)  Styling to make it visually appealing
 
- * 
  */
 
 
@@ -24,10 +23,10 @@ export default function BookDetails( ) {
     const { id } = useParams();
     console.log("Book Details Component - bookId:", id);
     const book = useBook(id);
-    const { cartItems, addToCart } = useCart();
+    const { cartItems, addToCart, numberOfItemsInCart } = useCart();
 
     const handleClick = (book) => {
-        console.log("HandleClick, Number of items in Cart before adding:", cartItems.length);
+        console.log("HandleClick, Number of items in Cart before adding:", numberOfItemsInCart());
         addToCart(book);
     }
  
@@ -48,7 +47,7 @@ export default function BookDetails( ) {
             <section className={styles.bookDetails_container_section}>
                 <div>
                     <div className={styles.bookDetails_container_section_title}>{book ? book.title : "Loading..."}</div>
-                    <div><CartIcon itemCount={cartItems.length} /></div>
+                    <div><CartIcon itemCount={numberOfItemsInCart()} /></div>
                 </div>
                 <div className={styles.bookDetails_container_section_author}>{book.author}</div>
                 <div className={styles.bookDetails_container_section_description}>{book.description}</div>
