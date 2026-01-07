@@ -1,10 +1,10 @@
-import styles from './header.module.css';
-import { FaShoppingCart } from "react-icons/fa";
-import Logout from './LogoutForm';
+import styles from './Header.module.css';
+import Logout from './LogoutForm.jsx';
 import { useCart } from '../contexts/CartContexts.jsx';
+import CartIcon from './CartIcon.jsx';
 
 
-
+// Search Bar Component
 export function SearchBar() {
     return (
         <div>
@@ -14,31 +14,15 @@ export function SearchBar() {
 }
 
 
-
-export function CartIcon( {itemCount} ) {
-    return (
-        <div className={styles.cartIcon}>
-            <FaShoppingCart size={24} />    
-            { itemCount > 0 && (
-                <span className={styles.itemCount}>
-                    {itemCount}
-                </span>
-                
-            )}
-        </div>
-    );
-}
-
-
-
-
+// Header Component
+// Contains the store title, search bar, account buttons, and cart icon
 export default function Header({  handleRegistration
                                 , handleLogin
                                 , handleLogout
                                 , isLoggedIn
                                 }) {
 
-            const { cartItems } = useCart();
+            const { cartItems, numberOfItemsInCart } = useCart();
                                     
   return (
 
@@ -64,7 +48,7 @@ export default function Header({  handleRegistration
             { isLoggedIn && <button onClick={handleLogout}>Log Out</button> }
         </p>
 
-        <CartIcon itemCount={cartItems.length} />
+        <CartIcon itemCount={numberOfItemsInCart()} />
         
     </div>
   );
