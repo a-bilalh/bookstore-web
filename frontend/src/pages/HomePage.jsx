@@ -31,14 +31,15 @@ export default function Home() {
         await Logout( setAccessToken );
     }
 
-
-    return (
-        <>
-            <Header handleRegistration={handleRegistration}
+/*
+                <Header handleRegistration={handleRegistration}
                     handleLogin={handleLogin}
                     handleLogout={handleLogout}
                     isLoggedIn={isLoggedIn}
                     />
+*/
+    return (
+        <>
 
             <MyHorizontalList category={"fiction"} count={10}/>
             <MyHorizontalList category={"nonfiction"} count={10}/>
