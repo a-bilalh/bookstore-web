@@ -3,7 +3,7 @@ import Header from "../components/Header.jsx";
 
 
 // HeaderLayout component to include Header on all pages
-export default function HeaderLayout() {
+export default function HeaderLayout( children, props ) {
     return (
         <>
             <Header />
