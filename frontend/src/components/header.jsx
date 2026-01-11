@@ -4,6 +4,29 @@ import { useCart } from '../contexts/CartContexts.jsx';
 import CartIcon from './CartIcon.jsx';
 
 
+const[showRegistrationForm, setShowRegistrationForm] = useState(false);
+const[showLoginForm, setShowLoginForm] = useState(false);
+const[accessToken, setAccessToken] = useState( localStorage.getItem("access") || null );
+
+
+const isLoggedIn = accessToken !== null;
+
+const handleLogin = () => {
+    setShowLoginForm(true);
+    setShowRegistrationForm(false);
+}
+
+const handleRegistration = () => {
+    setShowRegistrationForm(true);
+    setShowLoginForm(false);
+}
+
+const handleLogout = async() => {
+    await Logout( setAccessToken );
+}
+
+
+
 // Search Bar Component
 export function SearchBar() {
     return (
@@ -12,6 +35,8 @@ export function SearchBar() {
         </div>
     );
 }
+
+
 
 
 // Header Component
