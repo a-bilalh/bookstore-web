@@ -19,9 +19,14 @@ export function AuthProvider({ children }) {
         return accessToken !== null;
     }
 
+    const handleLogout = async() => {
+        await Logout( setAccessToken );
+    }
+
+
 
     return (
-        <AuthContext.Provider value={{ isLoggedIn }}>
+        <AuthContext.Provider value={{ isLoggedIn, handleLogout }}>
             {children}
         </AuthContext.Provider>
     );
