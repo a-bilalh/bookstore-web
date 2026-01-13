@@ -1,0 +1,13 @@
+
+
+.AuthButton {
+    margin-left: 275px;
+    padding: 8px 16px;
+    background-color: #191818;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
