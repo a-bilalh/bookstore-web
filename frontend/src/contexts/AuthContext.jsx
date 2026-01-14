@@ -1,4 +1,5 @@
 import React, { createContext, useState } from "react";
+import Logout from "../components/LogoutForm.jsx";
 
 
 
@@ -16,13 +17,13 @@ export function AuthProvider({ children }) {
 
     // Function to check if the user is logged in
     function isLoggedIn() {
-        return accessToken !== null;
+        console.log("Access Token in AuthContext, isLoggedIn function:", accessToken);
+        return !!accessToken;
     }
 
     const handleLogout = async() => {
         await Logout( setAccessToken );
     }
-
 
 
     return (

@@ -34,7 +34,7 @@ export function CartProvider({ children }) {
 
 
 // Custom hook to use the CartContext
-export function useCart() {
+export default function useCart() {
     const context = useContext(CartContext);
     if (!context) {
         throw new Error("useCart must be used within a CartProvider");

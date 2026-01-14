@@ -1,0 +1,7 @@
+1/12/2026
+TODO: Moved state of showRegisterationForm and showLoginForm from HomePage to HeaderLayout; however, I might need to take 
+      it back to Header file or nicely pass the information that I need from these states in HeaderLayout to the Header 
+      component. 
+      
+
+
