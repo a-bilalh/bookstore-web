@@ -1,18 +1,15 @@
 import RegistrationForm from "../components/RegistrationForm";
 import MyHorizontalList from "../components/BooksRowDisplay.jsx";
-import Header from "../components/Header.jsx";
 import LoginForm from "../components/LoginForm.jsx";
 import { useState } from "react";
-import style from './HomePage.module.css';
+import styles from './HomePage.module.css';
 import Logout from "../components/LogoutForm.jsx";
 
-
-
-export default function Home() {
-
+// temporary removed from header 
+/*
     const[showRegistrationForm, setShowRegistrationForm] = useState(false);
     const[showLoginForm, setShowLoginForm] = useState(false);
-    const[accessToken, setAccessToken] = useState( localStorage.getItem("access") || null );
+    const[accessToken, setAccessToken] = useState( localStorage.getItem("access") || null );  // remove this 
 
 
     const isLoggedIn = accessToken !== null;
@@ -31,6 +28,15 @@ export default function Home() {
         await Logout( setAccessToken );
     }
 
+
+
+*/
+
+
+
+export default function Home() {
+
+// temporary and needs to be removed if current design was working 
 /*
                 <Header handleRegistration={handleRegistration}
                     handleLogin={handleLogin}
@@ -44,13 +50,6 @@ export default function Home() {
             <MyHorizontalList category={"fiction"} count={10}/>
             <MyHorizontalList category={"nonfiction"} count={10}/>
 
-            <div className={style.formPosition}>
-                {showRegistrationForm && <RegistrationForm closeRegister={() => 
-                    setShowRegistrationForm(false)} showLoginForm={() => setShowLoginForm(true)} />}
-            </div>
-            <div className={style.formPosition}>
-                {showLoginForm && <LoginForm closeLogin={() => setShowLoginForm(false)} setAccessToken={setAccessToken} />}
-            </div>
         </>
     )
 

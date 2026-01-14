@@ -19,7 +19,6 @@ export const useBooksList = (category, count) => {
                 const url = `${API_BASE_URL}/api/books/random/${category}/${count}/`;
                 const response = await axios.get(url);
 
-                console.log("Fetched books data:", JSON.stringify(response.data, null, 2));
                 
                 setBooks(response.data);
             } catch (err) {
@@ -35,22 +34,18 @@ export const useBooksList = (category, count) => {
 
 export const useBook = (bookId) => {
     const [book, setBook] = useState(null);
-    console.log("useBook called with bookId:", bookId);
+
     useEffect(() => {
 
         if ( !bookId ) {
             return;
         }
-
-        console.log("useBook useEffect called with bookId:", bookId);
         const fetchBook = async () => {
             try {
-                console.log("fetchBook called with bookId:", bookId);
 
                 const url = `${API_BASE_URL}/api/books/${bookId}/`;
                 const response = await axios.get(url);
                 setBook(response.data);
-                console.log("Fetched book:", JSON.stringify(response.data, null, 2));
             } catch (err) {
                 console.error("Error fetching book:", err);
             }

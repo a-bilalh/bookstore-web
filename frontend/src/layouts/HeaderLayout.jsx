@@ -15,7 +15,6 @@ export default function HeaderLayout( children, props ) {
     const[showLoginForm, setShowLoginForm] = useState(false);
 
 
-
     return (
         <>
             <Header handleRegistration={ () => {
@@ -29,7 +28,8 @@ export default function HeaderLayout( children, props ) {
                     }}   
                     
                     handleLogout={handleLogout}
-                    isLoggedIn={isLoggedIn}
+
+                    isLoggedIn={isLoggedIn} 
              />
             <Outlet />
         </>

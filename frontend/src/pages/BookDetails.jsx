@@ -3,7 +3,7 @@ import { useBook } from "../services/api";
 import { Link, useParams } from "react-router-dom";
 import styles from './BookDetails.module.css';
 import CartIcon from "../components/CartIcon.jsx";  
-import { useCart } from "../contexts/CartContexts.jsx";
+import useCart from "../contexts/CartContext.jsx";
 
 /*
  * 1)  I need  cover photo for book details page

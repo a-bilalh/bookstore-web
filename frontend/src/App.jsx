@@ -1,16 +1,12 @@
 import './App.css'
-import BooksList from './booksList';
-import BookDisplay from './components/BookDisplay';
-import Menu from './components/menu';
 import BookDetails from './pages/BookDetails';
-import Registration from './registration';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Cart from './pages/Cart'
 import Home from './pages/HomePage'
-import { CartProvider }  from './contexts/CartContexts';
-import Header from './components/Header.jsx';
+import { CartProvider }  from './contexts/CartContext.jsx';
 import HeaderLayout from './layouts/HeaderLayout.jsx';
 import MainLayout from './layouts/MainLayout.jsx';
+import { AuthProvider } from './contexts/AuthContext.jsx';
 
 
 function App() {
@@ -18,6 +14,7 @@ function App() {
 
     <BrowserRouter>
       <CartProvider>
+        <AuthProvider>
         <MainLayout>
           <Routes>
             <Route element={<HeaderLayout />}>
@@ -27,6 +24,7 @@ function App() {
             <Route path="/cart/" element={<Cart/>} />
           </Routes>
         </MainLayout>
+        </AuthProvider>
       </CartProvider>
     </BrowserRouter>
 

@@ -1,13 +1,20 @@
 import styles from './Header.module.css';
-import Logout from './LogoutForm.jsx';
-import { useCart } from '../contexts/CartContext.jsx';
 import CartIcon from './CartIcon.jsx';
 import SearchBar from './Header/SearchBar.jsx';
-import { useState } from 'react';
-import { useAuth } from '../contexts/AuthContext.jsx';
+import useCart from '../contexts/CartContext.jsx';
 import AuthButton from './Header/AuthButtons.jsx';
 
 
+/*
+        <div className={styles.formPosition}>
+            {showRegistrationForm && <RegistrationForm closeRegister={() => 
+            setShowRegistrationForm(false)} showLoginForm={() => setShowLoginForm(true)} />}
+        </div>
+        <div className={styles.formPosition}>
+            {showLoginForm && <LoginForm closeLogin={() => setShowLoginForm(false)} setAccessToken={setAccessToken} />}
+        </div>
+
+*/
 
 
 
@@ -44,7 +51,8 @@ export default function Header( { handleRegistration
         { isLoggedIn && <AuthButton onClick={handleLogout} content={"Log Out"} /> }
 
 
-        <CartIcon itemCount={numberOfItemsInCart()} />
+        <CartIcon itemCount={numberOfItemsInCart} />
+
         
     </div>  
   );

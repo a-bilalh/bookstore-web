@@ -43,3 +43,11 @@
     position: absolute;
     z-index: 10;
 }
+
+
+.formPosition {
+    position: fixed;
+    top: 100px;
+    right: 50px;
+    z-index: 1000;
+}   
