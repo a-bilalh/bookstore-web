@@ -3,7 +3,7 @@ import { API_BASE_URL } from "../config";
 import styles from "./LoginForm.module.css";
 
 
-export default function LoginForm({ closeLogin, setAccessToken }) {
+export default function LoginForm({ closeLogin, handleSetTokens }) {
 
 
     async function submitLogIn(event) {
@@ -18,7 +18,8 @@ export default function LoginForm({ closeLogin, setAccessToken }) {
                 alert("Login successful!");
                 localStorage.setItem("access", response.data.access);  // Store access token, works successfully
                 localStorage.setItem("refresh", response.data.refresh); // Store refresh token, works successfully
-                setAccessToken(response.data.access); // Update accessToken state in HomePage
+                handleSetTokens(response.data.access); // Call the function passed as prop to set tokens in AuthContext
+                // setAccessToken(response.data.access); // Update accessToken state in HomePage; changed it to line above
                 closeLogin();
             } else {
                 alert("Login failed. The Email or Password is incorrect. Please try again.");   

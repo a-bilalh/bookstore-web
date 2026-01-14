@@ -17,17 +17,22 @@ export function AuthProvider({ children }) {
 
     // Function to check if the user is logged in
     function isLoggedIn() {
-        console.log("Access Token in AuthContext, isLoggedIn function:", accessToken);
         return !!accessToken;
     }
 
+    // Function to handle user logout
     const handleLogout = async() => {
         await Logout( setAccessToken );
     }
 
+    // Function to set tokens after login or registration
+    const handleSetTokens = ( accessTokens ) => {
+        setAccessToken(accessTokens);
+    }
+
 
     return (
-        <AuthContext.Provider value={{ isLoggedIn, handleLogout }}>
+        <AuthContext.Provider value={{ isLoggedIn, handleLogout, handleSetTokens }}>
             {children}
         </AuthContext.Provider>
     );

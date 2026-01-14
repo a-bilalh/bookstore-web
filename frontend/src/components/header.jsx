@@ -3,6 +3,10 @@ import CartIcon from './CartIcon.jsx';
 import SearchBar from './Header/SearchBar.jsx';
 import useCart from '../contexts/CartContext.jsx';
 import AuthButton from './Header/AuthButtons.jsx';
+import { useState } from 'react';
+import RegistrationForm from './RegistrationForm.jsx';
+import LoginForm from './LoginForm.jsx';
+import useAuth from '../contexts/AuthContext.jsx';
 
 
 /*
@@ -20,14 +24,34 @@ import AuthButton from './Header/AuthButtons.jsx';
 
 // Header Component
 // Contains the store title, search bar, account buttons, and cart icon
-export default function Header( { handleRegistration
-                                  , handleLogin 
-                                  , handleLogout
-                                  , isLoggedIn } ) {
+export default function Header() {
 
 
-            const { cartItems, numberOfItemsInCart } = useCart();
+    const { cartItems, numberOfItemsInCart } = useCart();
+    const { isLoggedIn, handleLogout, handleSetTokens } = useAuth();
+    const isLoggedInValue = isLoggedIn();  // Call the function to get boolean value
 
+    // new state that are transfered from HomePage.jsx
+    const[showRegistrationForm, setShowRegistrationForm] = useState(false);
+    const[showLoginForm, setShowLoginForm] = useState(false);
+
+    const openRegistrationForm = () => {
+        setShowRegistrationForm(true);
+        setShowLoginForm(false); 
+    }
+
+    const openLoginForm = () => {
+        setShowLoginForm(true);
+        setShowRegistrationForm(false);
+    }
+
+    const closeRegisterationForm = () => {
+        setShowRegistrationForm(false);
+    }
+
+    const closeLoginForm = () => {
+        setShowLoginForm(false);
+    }
                                     
   return (
 
@@ -42,18 +66,25 @@ export default function Header( { handleRegistration
         <SearchBar />
 
 
-        {!isLoggedIn && <AuthButton onClick={handleRegistration} content={"Create Account"} /> }
+        {!isLoggedInValue && <AuthButton onClick={openRegistrationForm} content={"Create Account"} /> }
 
 
-        {!isLoggedIn && <AuthButton onClick={handleLogin} content={"Log In"} /> }
+        {!isLoggedInValue && <AuthButton onClick={openLoginForm} content={"Log In"} /> }
     
 
-        { isLoggedIn && <AuthButton onClick={handleLogout} content={"Log Out"} /> }
+        { isLoggedInValue && <AuthButton onClick={handleLogout} content={"Log Out"} /> }
+
+        <div className={styles.formPosition}>
+            {showRegistrationForm && <RegistrationForm closeRegister={closeRegisterationForm} showLoginForm={showLoginForm} />}
+        </div>
+        <div className={styles.formPosition}>
+            {showLoginForm && <LoginForm closeLogin={closeLoginForm} handleSetTokens={handleSetTokens} />}
+        </div>
 
 
         <CartIcon itemCount={numberOfItemsInCart} />
 
-        
+
     </div>  
   );
 }

@@ -8,7 +8,6 @@ import { useState } from "react";
 // HeaderLayout component to include Header in all pages inside this layout
 export default function HeaderLayout( children, props ) {
 
-    const { isLoggedIn, handleLogout } = useAuth();
 
     // new state that are transfered from HomePage.jsx
     const[showRegistrationForm, setShowRegistrationForm] = useState(false);
@@ -17,20 +16,7 @@ export default function HeaderLayout( children, props ) {
 
     return (
         <>
-            <Header handleRegistration={ () => {
-                        setShowRegistrationForm(true);
-                        setShowLoginForm(false); 
-                    }}
-
-                    handleLogin={ () => {
-                        setShowLoginForm(true);
-                        setShowRegistrationForm(false);
-                    }}   
-                    
-                    handleLogout={handleLogout}
-
-                    isLoggedIn={isLoggedIn} 
-             />
+            <Header />
             <Outlet />
         </>
     );
