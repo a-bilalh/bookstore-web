@@ -17,11 +17,14 @@ export function AuthProvider({ children }) {
 
     // Function to check if the user is logged in
     function isLoggedIn() {
+        console.log("Checking isLoggedIn with access token:", !!accessToken); // temporary log
+        console.log("Current Access Token type in AuthContext, localstorage:", typeof(accessToken)); // temporary log
         return !!accessToken;
     }
 
     // Function to handle user logout
     const handleLogout = async() => {
+        console.log("Logging out with access token:", accessToken); // temporary log
         await Logout( setAccessToken );
     }
 
