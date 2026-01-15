@@ -3,6 +3,17 @@ import { API_BASE_URL } from "../config";
 import styles from "./LoginForm.module.css";
 
 
+
+// Helper function to save token to localStorage
+function saveToken(token) {
+    if (!token) {
+        localStorage.removeItem("access");
+    } else {
+        localStorage.setItem("access", token);
+    }
+}
+
+
 export default function LoginForm({ closeLogin, handleSetTokens }) {
 
 
@@ -14,12 +25,16 @@ export default function LoginForm({ closeLogin, handleSetTokens }) {
 
             const response = await axios.post(`${API_BASE_URL}/api/login/`, formData);
 
+            console.log("Response from Login API:", response);
+
             if (response.status === 200) {
                 alert("Login successful!");
-                localStorage.setItem("access", response.data.access);  // Store access token, works successfully
-                localStorage.setItem("refresh", response.data.refresh); // Store refresh token, works successfully
-                handleSetTokens(response.data.access); // Call the function passed as prop to set tokens in AuthContext
-                // setAccessToken(response.data.access); // Update accessToken state in HomePage; changed it to line above
+                // Save tokens to localStorage
+                saveToken(response.data.access_token);
+                saveToken(response.data.refresh_token);
+
+                // Update access token state with new tokens
+                handleSetTokens(response.data.access_token);
                 closeLogin();
             } else {
                 alert("Login failed. The Email or Password is incorrect. Please try again.");   
