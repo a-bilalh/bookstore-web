@@ -41,8 +41,11 @@ export default function Header() {
     }
 
     const openLoginForm = () => {
+        console.log("openLoginForm called");
         setShowLoginForm(true);
         setShowRegistrationForm(false);
+        console.log("openLoginForm called, showLoginForm set to true and showRegistrationForm set to false");
+        console.log("Current state - showLoginForm:", showLoginForm, "showRegistrationForm:", showRegistrationForm);
     }
 
     const closeRegisterationForm = () => {
@@ -75,7 +78,7 @@ export default function Header() {
         { isLoggedInValue && <AuthButton onClick={handleLogout} content={"Log Out"} /> }
 
         <div className={styles.formPosition}>
-            {showRegistrationForm && <RegistrationForm closeRegister={closeRegisterationForm} showLoginForm={showLoginForm} />}
+            {showRegistrationForm && <RegistrationForm closeRegister={closeRegisterationForm} showLoginForm={openLoginForm} />}
         </div>
         <div className={styles.formPosition}>
             {showLoginForm && <LoginForm closeLogin={closeLoginForm} handleSetTokens={handleSetTokens} />}

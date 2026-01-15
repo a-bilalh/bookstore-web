@@ -3,6 +3,17 @@ import { API_BASE_URL } from "../config";
 import styles from "./RegistrationForm.module.css";
 
 
+
+/*
+        TODO: ISSUES TO BE FIXED:
+        if an existance user in the system try to register again with the same email, the system should
+        give an clear message that the email is already registered. Right now it just give a generic error message.
+
+*/
+
+
+
+// Registration Form Component
 export default function RegistrationForm({ closeRegister, showLoginForm }) {
 
 
@@ -13,12 +24,13 @@ export default function RegistrationForm({ closeRegister, showLoginForm }) {
         try{
             console.log("Submitting resgitration form with data:", formData);
             const response = await axios.post(`${API_BASE_URL}/api/register/`, formData);
-            console.log("Registration successful:", response.data);
+
             if (response.status === 201) {
+
                 alert("Registration successful! Please log in.");
                 closeRegister();
                 showLoginForm(); //New Changes 
-                console.log("showLoginForm status after successful registration: ", showLoginForm )
+
             } else {
                 alert("Registration failed. Please try again.");
             }
