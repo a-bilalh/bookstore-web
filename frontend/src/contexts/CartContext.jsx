@@ -4,7 +4,8 @@ import { createContext, useState, useContext } from "react";
 const CartContext = createContext(null);
 
 
-/* Create a provider component
+/* 
+*  Create a provider component
 *  Used in Header and BookDetails
 */
 export function CartProvider({ children }) {
@@ -29,7 +30,7 @@ export function CartProvider({ children }) {
         return values.reduce((sum, count) => sum + count, 0);
     }
 
-    
+
     return (
         <CartContext.Provider value={{ cartItems, setCartItems, addToCart, numberOfItemsInCart }}>
             {children}

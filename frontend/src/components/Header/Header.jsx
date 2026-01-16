@@ -1,5 +1,5 @@
 import styles from './Header.module.css';
-import CartIcon from '../CartIcon.jsx';
+import CartIcon from '../Cart/CartIcon.jsx';
 import SearchBar from './SearchBar.jsx';
 import useCart from '../../contexts/CartContext.jsx';
 import AuthButton from './AuthButtons.jsx';
@@ -91,7 +91,7 @@ export default function Header() {
         </div>
 
 
-        <CartIcon itemCount={numberOfItemsInCart} />
+        <CartIcon itemCount={numberOfItemsInCart()} />
 
 
     </div>  
