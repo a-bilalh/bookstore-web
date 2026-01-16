@@ -1,12 +1,12 @@
 import styles from './Header.module.css';
-import CartIcon from './CartIcon.jsx';
-import SearchBar from './Header/SearchBar.jsx';
-import useCart from '../contexts/CartContext.jsx';
-import AuthButton from './Header/AuthButtons.jsx';
+import CartIcon from '../CartIcon.jsx';
+import SearchBar from './SearchBar.jsx';
+import useCart from '../../contexts/CartContext.jsx';
+import AuthButton from './AuthButtons.jsx';
 import { useState } from 'react';
-import RegistrationForm from './RegistrationForm.jsx';
-import LoginForm from './LoginForm.jsx';
-import useAuth from '../contexts/AuthContext.jsx';
+import RegistrationForm from '../RegistrationForm.jsx';
+import LoginForm from '../LoginForm.jsx';
+import useAuth from '../../contexts/AuthContext.jsx';
 
 
 /*
@@ -44,8 +44,6 @@ export default function Header() {
         console.log("openLoginForm called");
         setShowLoginForm(true);
         setShowRegistrationForm(false);
-        console.log("openLoginForm called, showLoginForm set to true and showRegistrationForm set to false");
-        console.log("Current state - showLoginForm:", showLoginForm, "showRegistrationForm:", showRegistrationForm);
     }
 
     const closeRegisterationForm = () => {
@@ -68,18 +66,26 @@ export default function Header() {
 
         <SearchBar />
 
+        <div className={styles.createAccountDiv}>
+            {!isLoggedInValue && <AuthButton onClick={openRegistrationForm} content={"Create Account"} /> }
+        </div>
 
-        {!isLoggedInValue && <AuthButton onClick={openRegistrationForm} content={"Create Account"} /> }
+
+        <div>
+            {!isLoggedInValue && <AuthButton onClick={openLoginForm} content={"Log In"} /> }
+        </div>
 
 
-        {!isLoggedInValue && <AuthButton onClick={openLoginForm} content={"Log In"} /> }
-    
+        <div>
+            { isLoggedInValue && <AuthButton onClick={handleLogout} content={"Log Out"} /> }
+        </div>
 
-        { isLoggedInValue && <AuthButton onClick={handleLogout} content={"Log Out"} /> }
 
         <div className={styles.formPosition}>
             {showRegistrationForm && <RegistrationForm closeRegister={closeRegisterationForm} showLoginForm={openLoginForm} />}
         </div>
+
+
         <div className={styles.formPosition}>
             {showLoginForm && <LoginForm closeLogin={closeLoginForm} handleSetTokens={handleSetTokens} />}
         </div>
