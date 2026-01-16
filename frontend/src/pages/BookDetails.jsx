@@ -49,13 +49,13 @@ export default function BookDetails( ) {
                     <div className={styles.bookDetails_container_section_title}>{book ? book.title : "Loading..."}</div>
                     <div><CartIcon itemCount={numberOfItemsInCart()} /></div>
                 </div>
+                
                 <div className={styles.bookDetails_container_section_author}>{book.author}</div>
                 <div className={styles.bookDetails_container_section_description}>{book.description}</div>
                 <div className={styles.bookDetails_container_section_price}>{book.price}</div>
-                <button 
-                    onClick={() => handleClick(book)} 
-                    className={styles.primaryButton}>
-                        Add to Cart
+
+                <button onClick={() => handleClick(book)} className={styles.primaryButton}>
+                    Add to Cart
                 </button>
                 <Link to="/" className={styles.backLink}>Back to Home</Link>
             </section> 
