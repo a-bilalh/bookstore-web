@@ -2,7 +2,7 @@ import React from "react";
 import { useBook } from "../services/api";
 import { Link, useParams } from "react-router-dom";
 import styles from './BookDetails.module.css';
-import CartIcon from "../components/CartIcon.jsx";  
+import CartIcon from "../components/Cart/CartIcon.jsx";  
 import useCart from "../contexts/CartContext.jsx";
 
 /*
@@ -49,7 +49,7 @@ export default function BookDetails( ) {
                     <div className={styles.bookDetails_container_section_title}>{book ? book.title : "Loading..."}</div>
                     <div><CartIcon itemCount={numberOfItemsInCart()} /></div>
                 </div>
-                
+
                 <div className={styles.bookDetails_container_section_author}>{book.author}</div>
                 <div className={styles.bookDetails_container_section_description}>{book.description}</div>
                 <div className={styles.bookDetails_container_section_price}>{book.price}</div>
