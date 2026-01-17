@@ -3,8 +3,9 @@ import { Link } from "react-router";
 
 
 
-
+// Component to display a single book with cover image, title, and author
 function BookDisplay({book}) {
+    
     /* Update! Link was substituted for div to make each book clickable and navigate to book details page */
     
     return (

@@ -4,7 +4,6 @@
 /* Component to display book in the cart
 *  Args: book - book object
 */
-
 export default function CartBookDisplay( book ) {
 
     return (
@@ -15,7 +14,6 @@ export default function CartBookDisplay( book ) {
             <p>Author: {book.author}</p>
             <p>Price: ${book.price}</p>
         </div>
-
-
+    );
 
 }
