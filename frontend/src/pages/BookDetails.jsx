@@ -29,7 +29,7 @@ export default function BookDetails( ) {
         console.log("HandleClick, Number of items in Cart before adding:", numberOfItemsInCart());
         addToCart(book);
     }
- 
+
     
     
     // Show loading state if book details are not yet available
@@ -40,14 +40,19 @@ export default function BookDetails( ) {
     // Render book details
     return (
         <main className={styles.bookDetailsContainer}>
+
             <div className={styles.bookDetails_container_img}> 
                 {book.cover_image ? <img src={book.cover_image}  alt={book.title} /> 
                  : <h1>Cover Not Available</h1>} 
             </div>
+
             <section className={styles.bookDetails_container_section}>
+
                 <div>
                     <div className={styles.bookDetails_container_section_title}>{book ? book.title : "Loading..."}</div>
-                    <div><CartIcon itemCount={numberOfItemsInCart()} /></div>
+                    <Link to="/cart/">
+                      <CartIcon itemCount={numberOfItemsInCart()} />
+                    </Link>
                 </div>
 
                 <div className={styles.bookDetails_container_section_author}>{book.author}</div>
@@ -58,6 +63,7 @@ export default function BookDetails( ) {
                     Add to Cart
                 </button>
                 <Link to="/" className={styles.backLink}>Back to Home</Link>
+
             </section> 
             
         </main>
