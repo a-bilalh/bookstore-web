@@ -7,6 +7,7 @@ import { useState } from 'react';
 import RegistrationForm from '../RegistrationForm.jsx';
 import LoginForm from '../LoginForm.jsx';
 import useAuth from '../../contexts/AuthContext.jsx';
+import { Link } from 'react-router-dom';
 
 
 /*
@@ -90,8 +91,9 @@ export default function Header() {
             {showLoginForm && <LoginForm closeLogin={closeLoginForm} handleSetTokens={handleSetTokens} />}
         </div>
 
-
-        <CartIcon itemCount={numberOfItemsInCart()} />
+        <Link to="/cart">
+            <CartIcon itemCount={numberOfItemsInCart()} />
+        </Link>
 
 
     </div>  
