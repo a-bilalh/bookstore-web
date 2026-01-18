@@ -1,7 +1,10 @@
-
+import useCart from '../contexts/CartContext.jsx';
 
 
 export default function Cart() {
+
+    const { cartItems, removeFromCart } = useCart();
+
 
     return (
         <div>
