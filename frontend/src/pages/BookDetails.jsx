@@ -27,6 +27,7 @@ export default function BookDetails( ) {
 
     const handleClick = (book) => {
         console.log("HandleClick, Number of items in Cart before adding:", numberOfItemsInCart());
+        console.log("Number of items in Cart (cartItems):", cartItems);
         addToCart(book);
     }
 
