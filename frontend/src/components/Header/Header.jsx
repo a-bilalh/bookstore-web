@@ -10,19 +10,6 @@ import useAuth from '../../contexts/AuthContext.jsx';
 import { Link } from 'react-router-dom';
 
 
-/*
-        <div className={styles.formPosition}>
-            {showRegistrationForm && <RegistrationForm closeRegister={() => 
-            setShowRegistrationForm(false)} showLoginForm={() => setShowLoginForm(true)} />}
-        </div>
-        <div className={styles.formPosition}>
-            {showLoginForm && <LoginForm closeLogin={() => setShowLoginForm(false)} setAccessToken={setAccessToken} />}
-        </div>
-
-*/
-
-
-
 // Header Component
 // Contains the store title, search bar, account buttons, and cart icon
 export default function Header() {
