@@ -1,4 +1,4 @@
-
+import CartBookDisplayStyles from './CartBookDisplay.module.css';
 
 
 /* Component to display book in the cart
@@ -12,7 +12,8 @@ export default function CartBookDisplay( {book} ) {
 
     return (
         <div>
-            {book.cover_image && <img src={book.cover_image} alt={book.title} />}
+            {book.cover_image && <img className={CartBookDisplayStyles.cartImage} src={book.cover_image} alt={book.title} />}
+            
             <p>Book Title: {book.title}</p>
             <p>Author: {book.author}</p>
             <p>Price: ${book.price}</p>
