@@ -3,3 +3,9 @@
     margin-left: 1rem;
     border-bottom: 2px solid #ccc;
 }
+
+
+.cartBooksAndSummary{
+    display: flex;
+    justify-content: space-between;
+}
