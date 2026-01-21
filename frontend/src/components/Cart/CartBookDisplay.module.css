@@ -10,6 +10,9 @@
 
 .cartInfoContainer{
     margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
 }
 
 
@@ -21,4 +24,8 @@
 
 .cartBookTitle{
     margin: 0;
+}
+
+.cartBookPrice{
+    margin-top: 0.5rem;
 }
