@@ -8,6 +8,7 @@ export default function CartBookDisplay( {book} ) {
 
 
     return (
+
         <div className={styles.cartMainContainer}>
 
 
@@ -16,8 +17,18 @@ export default function CartBookDisplay( {book} ) {
           </div>
           
           <div className={styles.cartInfoContainer}>
-            <h3 className={styles.cartBookTitle}>{book.title}</h3>
-            <spam>by {book.author}</spam>
+
+            {/* Book Title, Author, Price */}
+            <div>
+              <h3 className={styles.cartBookTitle}>{book.title}</h3>
+              <span>by {book.author}</span>
+              <h4 className={styles.cartBookPrice}>${book.price}</h4>
+            </div>
+            
+            <div>
+              {/*Quantity and subtotal section*/}
+            </div>
+
           </div>
 
 
