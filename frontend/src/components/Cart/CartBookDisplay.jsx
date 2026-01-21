@@ -1,4 +1,4 @@
-import CartBookDisplayStyles from './CartBookDisplay.module.css';
+import styles from './CartBookDisplay.module.css';
 
 
 /* Component to display book in the cart
@@ -6,17 +6,21 @@ import CartBookDisplayStyles from './CartBookDisplay.module.css';
 */
 export default function CartBookDisplay( {book} ) {
 
-    console.log("CartBookDisplay Component - book type:", book);
-    console.log("book.image:", book.cover_image);
-
 
     return (
-        <div>
-            {book.cover_image && <img className={CartBookDisplayStyles.cartImage} src={book.cover_image} alt={book.title} />}
-            
-            <p>Book Title: {book.title}</p>
-            <p>Author: {book.author}</p>
-            <p>Price: ${book.price}</p>
+        <div className={styles.cartMainContainer}>
+
+
+          <div>
+            {book.cover_image && <img className={styles.cartImage} src={book.cover_image} alt={book.title} />}
+          </div>
+          
+          <div className={styles.cartInfoContainer}>
+            <h3 className={styles.cartBookTitle}>{book.title}</h3>
+            <spam>by {book.author}</spam>
+          </div>
+
+
         </div>
     );
 
