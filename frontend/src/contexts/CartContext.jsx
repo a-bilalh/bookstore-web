@@ -23,7 +23,7 @@ export function CartProvider({ children }) {
         });
     }
 
-    
+
 
     // Function to remove an item from the cart
     function removeFromCart(item) {
@@ -47,6 +47,17 @@ export function CartProvider({ children }) {
 
 
 
+    // Function to delete an item completely from the cart
+    function deleteFromCart(item) {
+        setCartItems( prevItems => {
+            const newMap = new Map(prevItems);
+            newMap.delete(item);
+            return newMap;
+        });
+    }
+
+
+
     // Function to get the total number of items in the cart
     function numberOfItemsInCart() {
         const values = [...cartItems.values()];
@@ -55,7 +66,7 @@ export function CartProvider({ children }) {
 
 
     return (
-        <CartContext.Provider value={{ cartItems, setCartItems, addToCart, numberOfItemsInCart, removeFromCart }}>  
+        <CartContext.Provider value={{ cartItems, setCartItems, addToCart, numberOfItemsInCart, removeFromCart, deleteFromCart }}>  
             {children}
         </CartContext.Provider>
     );
