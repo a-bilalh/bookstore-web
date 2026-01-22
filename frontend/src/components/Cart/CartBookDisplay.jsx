@@ -16,17 +16,27 @@ export default function CartBookDisplay( {book} ) {
             {book.cover_image && <img className={styles.cartImage} src={book.cover_image} alt={book.title} />}
           </div>
           
-          <div className={styles.cartInfoContainer}>
+          <div className={styles.cartInfo}>
 
             {/* Book Title, Author, Price */}
-            <div>
+            <div className={styles.productInfo}>
+
               <h3 className={styles.cartBookTitle}>{book.title}</h3>
               <span>by {book.author}</span>
               <h4 className={styles.cartBookPrice}>${book.price}</h4>
+
             </div>
             
-            <div>
+            <div className={styles.productQuantity}>
+
               {/*Quantity and subtotal section*/}
+              <div>
+                -   + 
+              </div>
+              <div>
+                delete
+              </div>
+
             </div>
 
           </div>

@@ -9,6 +9,11 @@ export default function Cart() {
     const { cartItems, removeFromCart } = useCart();
     const booksArray = [...cartItems.keys()];
 
+
+    function handleRemoveBook(book) {
+        removeFromCart(book);
+    }
+
     return (
         <div>
 
