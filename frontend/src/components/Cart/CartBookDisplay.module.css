@@ -8,11 +8,23 @@
 }
 
 
-.cartInfoContainer{
+.cartInfo{
     margin-left: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: start;
+}
+
+
+.productInfo {
+    display : flex;
+    flex-direction: column;
+}
+
+
+.productQuantity {
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
 }
 
 
@@ -22,9 +34,11 @@
     object-fit: cover;
 }
 
+
 .cartBookTitle{
     margin: 0;
 }
+
 
 .cartBookPrice{
     margin-top: 0.5rem;
