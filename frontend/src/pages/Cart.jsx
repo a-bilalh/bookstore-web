@@ -6,13 +6,15 @@ import OrderSummary from '../components/Cart/OrderSummary.jsx';
 
 export default function Cart() {
 
-    const { cartItems, removeFromCart } = useCart();
+
+    const { cartItems, removeFromCart, deleteFromCart, addToCart } = useCart();
     const booksArray = [...cartItems.keys()];
 
 
-    function handleRemoveBook(book) {
-        removeFromCart(book);
-    }
+    // Function to get number of books in cart
+    const numberOfBooks = (book) => cartItems.get(book) || 0;
+
+
 
     return (
         <div>
@@ -25,7 +27,12 @@ export default function Cart() {
           <div className={styles.cartBooksAndSummary}>
             <div>
                 {booksArray.map( book => (
-                    <CartBookDisplay key = {book.id} book = {book} />
+                    numberOfBooks(book) > 0 && <CartBookDisplay key = {book.id} book = {book} 
+                                                                quantity = {numberOfBooks(book)} 
+                                                                decreaseBook={removeFromCart}
+                                                                increaseBook={addToCart} 
+                                                                deleteFromCart={deleteFromCart}
+                                                                 />
                 ))}
             </div>
 
