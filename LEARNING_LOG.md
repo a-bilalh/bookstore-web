@@ -28,4 +28,22 @@ BUGS<br>
                      }
      
 
+=============================================================================================================================
      
+** Bug - (1/22/2026): Clicking the increment + and decrement - of item in cart page doesn't behave as expected. Clicking on
+                      + add unknown or empty object to the cart. An empty box is getting displayed to the screen without
+                      book details. 
+
+        Cause: wasn't passing the arguments to the function. Then was incorrecly using the arrow function. 
+
+        Solution: passed the book argument to the function.
+
+        Previous Code: <button onClick={(book) => increaseBook(book)}>+</button>
+
+        New Code: <button onClick={() => increaseBook(book)}>+</button>
+                      
+
+
+=============================================================================================================================
+
+**Bug - (1/22/2026): Adding the same book twice to the cart is rendered seperately in the cart page.
