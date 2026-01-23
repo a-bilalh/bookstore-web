@@ -37,7 +37,7 @@ export default function Cart() {
             </div>
 
             <div>
-              <OrderSummary cartItems={booksArray} />
+              <OrderSummary cartItems={cartItems} />
             </div>
             
           </div>
