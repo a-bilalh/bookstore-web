@@ -7,6 +7,7 @@ import { CartProvider }  from './contexts/CartContext.jsx';
 import HeaderLayout from './layouts/HeaderLayout.jsx';
 import MainLayout from './layouts/MainLayout.jsx';
 import { AuthProvider } from './contexts/AuthContext.jsx';
+import Checkout from './pages/Checkout'
 
 
 function App() {
@@ -21,7 +22,8 @@ function App() {
               <Route path="/" element={<Home/>} />
             </Route>
             <Route path="/book/:id" element={<BookDetails />} />
-            <Route path="/cart" element={<Cart/>} />
+            <Route path="/cart/" element={<Cart/>} />
+            <Route path="/checkout/" element={<Checkout />}/>
           </Routes>
         </MainLayout>
         </AuthProvider>
