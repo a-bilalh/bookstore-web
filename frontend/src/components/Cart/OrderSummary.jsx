@@ -1,5 +1,5 @@
 import styles from './OrderSummary.module.css';
-
+import { Link } from "react-router-dom";
 
 
 // Order Summary needs: Total price, estimated tax, shipping cost, final total
@@ -19,6 +19,9 @@ export default function OrderSummary( { cartItems } ) {
     }
 
 
+
+
+
     return (
 
         <div className={styles.orderSummaryMainDiv}>
@@ -28,8 +31,10 @@ export default function OrderSummary( { cartItems } ) {
           <p>Total Items: {cartItems.size}</p>  
 
           <p>Subtotal: ${calculateSubtotal()}</p>
-
-          <button>Proceed to Checkout</button>
+          
+          <Link to="/checkout/" className={styles.checkOutButton}>
+            Checkout
+          </Link>
 
 
         </div>
