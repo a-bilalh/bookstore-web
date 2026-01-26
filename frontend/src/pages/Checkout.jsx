@@ -1,10 +1,16 @@
-
+import EmailInput from "../components/Checkout/EmailInput";
 
 
 export default function Checkout() {
 
-
     return (
-        <p>This is the checkout page</p>
+
+    <div>
+      
+      <p>This is the checkout page</p>
+      <EmailInput />
+
+    </div>
+    
     );
 }

@@ -23,7 +23,7 @@ function App() {
             </Route>
             <Route path="/book/:id" element={<BookDetails />} />
             <Route path="/cart/" element={<Cart/>} />
-            <Route path="/checkout/" element={<Checkout />}/>
+            <Route path="/checkout" element={<Checkout />}/>
           </Routes>
         </MainLayout>
         </AuthProvider>
