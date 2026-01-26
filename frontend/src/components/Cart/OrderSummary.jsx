@@ -30,9 +30,9 @@ export default function OrderSummary( { cartItems } ) {
 
           <p>Total Items: {cartItems.size}</p>  
 
-          <p>Subtotal: ${calculateSubtotal()}</p>
+          <p>Subtotal: ${ calculateSubtotal().toFixed(2) }</p>
           
-          <Link to="/checkout/" className={styles.checkOutButton}>
+          <Link to="/checkout" className={styles.checkoutButton}>
             Checkout
           </Link>
 
