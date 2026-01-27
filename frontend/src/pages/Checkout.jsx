@@ -7,7 +7,6 @@ export default function Checkout() {
 
     <div>
       
-      <p>This is the checkout page</p>
       <EmailInput />
 
     </div>
