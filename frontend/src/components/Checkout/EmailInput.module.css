@@ -1,9 +1,23 @@
 
 
+.mainContainerLayout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 100vh;
+}
+
+
+
+
 .mainContainer {
-    width: 60%;
-    height: 60%;
+    width: 50vw;
+    height: 60vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    border : 1px solid #ddd;
+    border-radius: 10px;
 }
+
+
+
