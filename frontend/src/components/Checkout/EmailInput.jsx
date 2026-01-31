@@ -5,7 +5,7 @@ import axios from 'axios';
 
 
 // This method gets the email of the user and send it to database whether it exists or not. 
-export default function EmailInput( {setUserHasAccount} ) {
+export default function EmailInput( {setUserHasAccount, setCheckoutSteps} ) {
 
     
 
@@ -21,9 +21,8 @@ export default function EmailInput( {setUserHasAccount} ) {
           
           const response = await axios.post(`${API_BASE_URL}/api/user/email/`, formData); 
         
-          
-          console.log("The response code is: ", response.status === 200);
           setUserHasAccount(response.status === 200);
+          setCheckoutSteps("step2");
 
 
         } catch (error) {

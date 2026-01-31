@@ -13,6 +13,7 @@ from oauth2_provider.views.generic import ProtectedResourceView
 from django.http import HttpResponse
 from .services.oauth_service import backend_login
 from .services.oauth_service import backend_logout
+from .services.user_exists import user_exists
 
 
 
@@ -97,3 +98,18 @@ def logout_view(request):
     logger.debug(f"Logout response: {response.status_code} - {response.text} in logout_view")
 
     return Response({'message': 'User logged out successfully'}, status=200)
+
+
+
+
+## If user with given email exist return positive 200 else negative 404
+@api_view(['POST'])
+def check_user_exists(request):
+
+    if ( user_exists( request.POST.get('email') ) ):
+        print('status=200')
+        return Response(status=200)
+    else:
+        return Response(status=404)
+
+

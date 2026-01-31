@@ -13,8 +13,8 @@ function saveToken(token) {
     }
 }
 
-
-export default function LoginForm({ closeLogin, handleSetTokens }) {
+// changes object destructing to props object. { closeLogin, handleSetTokens }
+export default function LoginForm( props ) {
 
 
     async function submitLogIn(event) {
@@ -34,8 +34,14 @@ export default function LoginForm({ closeLogin, handleSetTokens }) {
                 saveToken(response.data.refresh_token);
 
                 // Update access token state with new tokens
-                handleSetTokens(response.data.access_token);
-                closeLogin();
+                props.handleSetTokens(response.data.access_token);
+                props.closeLogin();
+
+                // Newly added feature. If this argument is passed. Then set new state variable
+                if (props.setCheckoutSteps) {
+                    props.setCheckoutSteps("step3")
+                }
+
             } else {
                 alert("Login failed. The Email or Password is incorrect. Please try again.");   
             }
@@ -53,7 +59,7 @@ export default function LoginForm({ closeLogin, handleSetTokens }) {
                 <input type="text" name="email" placeholder="Email Address" /><br/>
                 <input type="password" name="password" placeholder="Password" /><br/>
                 <button type="submit">Login</button>
-                <button type="button" onClick={closeLogin}>Cancel</button>
+                <button type="button" onClick={props.closeLogin}>Cancel</button> {/* changed to props. */}
             </form>
         </div>
     )

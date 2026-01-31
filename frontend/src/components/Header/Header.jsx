@@ -23,6 +23,7 @@ export default function Header() {
     const[showRegistrationForm, setShowRegistrationForm] = useState(false);
     const[showLoginForm, setShowLoginForm] = useState(false);
 
+    
     const openRegistrationForm = () => {
         setShowRegistrationForm(true);
         setShowLoginForm(false); 

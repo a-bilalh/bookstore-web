@@ -9,3 +9,10 @@ ISSUE: Right now, states for registration and login are inside the HomePage.jsx.
     ** DECISION-1/15/2026- <br>
     ** Ended up moving states for registration and login to the Header component. <br>
     ** These functionality works fine now. <br>
+
+
+
+
+## Things to do in next iteration ## 
+ISSUE: Currently login form has same css style used in different places. 
+       I want to change the css style for this component and make if conditional based on where it is used. 

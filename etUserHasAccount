@@ -1,0 +1,582 @@
+[33mcommit d84070b8258d455dfc33de3548ffda37e4319c5b[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Tue Jan 27 22:01:36 2026 -0600
+
+    Completed a working form and created a handleSubmit function in EmailInput.jsx frontend. It needs to be connected to backend endpoints and logic
+
+[33mcommit 2999aaab4b9285d347b61d367039b4e689496351[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Mon Jan 26 21:42:43 2026 -0600
+
+    Improved Checkout EmailInput component
+
+[33mcommit 22e27f4f734ad5ba21a9ede0407addf270b91fce[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Sun Jan 25 21:44:21 2026 -0600
+
+    EmailInput.jsx and EmailInput.module.css files were created
+
+[33mcommit 2db42dae458e6b4f64b78e2f837a36d0877fc8d8[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Sat Jan 24 21:28:10 2026 -0600
+
+    created checkout page and component, and linked checkout buttom in cart page to checkout component; however, the the link still doesn't take user to the checkout page. (bug)
+
+[33mcommit 512664e58fb1b1315a4869c20e4df6e8097e2059[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Thu Jan 22 21:53:46 2026 -0600
+
+    Order Summary sections include enough information for the checkout for now. Cart page is almost complete for this phase. It mostly works as expected.
+
+[33mcommit 4ad8b73f07354940f155860fa7f2279ce3f6e106[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Thu Jan 22 15:32:09 2026 -0600
+
+    Created deleteFromCart in CartContext; linked increment decrement delete buttons to the methods in CartContext; however, now a + and - doesn't render as it should
+
+[33mcommit a4d9655167ebe50697dc026afdaf564dca70eeb2[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Thu Jan 22 00:05:35 2026 -0600
+
+    Added remove from cart method in CartContext and updated cart page styles.
+
+[33mcommit 746606d0d6f6dc1c448e300b399022c848ddf425[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Wed Jan 21 16:20:20 2026 -0600
+
+    Created OrderSummary.module.css in components/Cart and improved cart page styling
+
+[33mcommit c6c45f4cdcbc50b8528e6bb359daaf5232b3cbae[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Wed Jan 21 14:20:19 2026 -0600
+
+    Created OrderSummary component in component/Cart
+
+[33mcommit c77538614628329990733a9556641c0fe5fd102b[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Tue Jan 20 23:39:28 2026 -0600
+
+    Updated styling for cart page. Updated CartBookDisplay.module.css. Pic and Author name alighn nicely now
+
+[33mcommit 8afcbec599b5e226d5547aec42b480f99647e0c6[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Mon Jan 19 22:09:54 2026 -0600
+
+    Created Cart.module.css file and resized image in cart css file
+
+[33mcommit d96fba1a1e132aeeb8883d047bf343dadec97aef[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Sun Jan 18 20:55:58 2026 -0600
+
+    book displays through CarBookDisplay component now. All books in cart maps correctly through CartBookDisplay
+
+[33mcommit 009fbbed30bcf9dc3fbe313e09e65ca0188baec3[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Sun Jan 18 14:34:54 2026 -0600
+
+    Connected cart in HomePage header to the cart page. Click on cart at homepage takes user to cart page
+
+[33mcommit 9a2e2d4306c8c92490d321eacf2ffcfe62b6b5d8[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Fri Jan 16 22:09:13 2026 -0600
+
+    Connected cart icon to the cart page. Cart is clickable and links to the cart page.
+
+[33mcommit 98d7b7c2cfe35dc76fb0d38c9638bff62cfe019b[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Fri Jan 16 16:01:45 2026 -0600
+
+    Created CartBookDisplay component. And moved CartIcon.jsx and CartBookDisplay.jsx to Cart newly created folder
+
+[33mcommit 242fac0bb7dc9af9a25279bb00fccd9067066915[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Fri Jan 16 15:33:38 2026 -0600
+
+    Updated the addToCart function. Now add to cart click works correctly
+
+[33mcommit 02bff246e3b42b12f8676bad444c03b5c0882f8c[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Thu Jan 15 11:51:54 2026 -0600
+
+    Registration Form also works now as expected. Login box opens right after user registers
+
+[33mcommit 6b96d8ba8d457ce9ded2d9bbadca65f8576cdfd6[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Thu Jan 15 10:57:19 2026 -0600
+
+    Login feature works correctly now. Added extra helper functions to save the correct access code to the storage.
+
+[33mcommit bc3f5e1318ab51eb07a6e3159f3b4473fe7711c0[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Tue Jan 13 23:35:41 2026 -0600
+
+    Moved all states of LoginForm and RegistrationForm from headerLayout to header; now both login and resitration forms displays as normal and user can login successfully; however, when a user login, the logout options doesn't display(bug)
+
+[33mcommit 2e1cdecde054d45496f8d124a6c6a6d3ba082cfb[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Tue Jan 13 22:08:10 2026 -0600
+
+    Moved registration form and login form to HeaderLayout, and the homepage displays with the header, however, header dispalys only logout instead of login and create user.
+
+[33mcommit 95debaf5faa7f607fc7ddec447d30d9d0b9c9691[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Mon Jan 12 22:49:47 2026 -0600
+
+    Header was restructured such that it gets its arguments from HeaderLayout without directly accessing useAuth; also AuthButtons.module.css was created
+
+[33mcommit f3a578b5766bffe9613eadcd0830211d610fb46b[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Mon Jan 12 21:50:46 2026 -0600
+
+    AuthButton component was created in frontend/components/Header/AuthButtons
+
+[33mcommit ba8a61d398f383d028bc00b4c0d8ce01f79e9549[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Sun Jan 11 19:39:22 2026 -0600
+
+    Created AuthContext context
+
+[33mcommit 31bcdcbdfbc4181430501c118a0e0a238549738c[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Sat Jan 10 22:47:24 2026 -0600
+
+    ARCHITECTURE.md, DECISIONS.md, LEARNING_LOG.md were added and DECISIONS.md was updated
+
+[33mcommit 694f0ec9644fa3d9ff22962d64cef7835178859a[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Thu Jan 8 22:50:19 2026 -0600
+
+    MainLayout was added
+
+[33mcommit ef71489596a4bd635e6d7ebc9b55312f573522cb[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Thu Jan 8 20:55:04 2026 -0600
+
+    HeaderLayout.jsx was added and it was set up in the Routes to use Header for the given pages
+
+[33mcommit 07850ae84656dc64f8c9e6dbe4e829f64a7d9146[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Tue Jan 6 23:00:22 2026 -0600
+
+    Created Cart.module.css and CartIcon.jsxand moved the CartIcon function from Header to this file. The add to card button functionality broke and header also renders univesilly for all pages so far. Needs to fix both
+
+[33mcommit 10d0277ff99cb93ff2386ae91fa68fae0b5b14c5[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Mon Jan 5 21:30:24 2026 -0600
+
+    Add to Cart button css style was modified such as hover on button and clicking on button changes the color of button; also the number in cart displays when there are items in the cart
+
+[33mcommit 7b4ebffcdb0a3c67c402c435404d2387e30d8d92[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Mon Jan 5 20:29:07 2026 -0600
+
+    add to cart button in book description successfully add book to the cart list
+
+[33mcommit e7dee2312e3bde94b4ff2fad1a7246998c6564d4[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Sat Jan 3 21:59:13 2026 -0600
+
+    Used the cartItems from useCart as a source of cart information in Header and BookDetails components, as prior to its placement in Home page
+
+[33mcommit aaa5d4a91a42d0dfe22c15d5cd9490118aa47b1b[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Sat Jan 3 21:39:00 2026 -0600
+
+    transfered the cartItems state tofrom Home page to CartContexts.jsx; also updated App.jsx structure
+
+[33mcommit 7266d1f5a3417fd3f690e585445e172337ec9655[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Sat Jan 3 21:22:59 2026 -0600
+
+    created CartContexts.jsx in frontend/src/contexts/CartContexts.jsx
+
+[33mcommit d5b4c7887ee4e873a8b39d8fb1ae3ab8d2322ccb[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Wed Dec 31 07:27:08 2025 -0600
+
+    User able to return from bookDetails page back to home page. Also updated the Readme.md
+
+[33mcommit 91e7804d42d57ce9a5ec6435fa54370e9e629d6d[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Tue Dec 30 21:56:02 2025 -0600
+
+    Description field data was added to each book using the import_books_csv command
+
+[33mcommit 00a73c695831d095045b2cd81729a5008ccfe74d[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Tue Dec 30 00:52:55 2025 -0600
+
+    export_books_fields_csv and import_books_csv.py commands were added to backend/management/commands
+
+[33mcommit 2ba96354e7cdee85adf994f1839b99a3978f56c6[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Mon Dec 29 22:38:47 2025 -0600
+
+    created utils/csv_helpers.py and inside it |export_book_fields_as_csv| and |import_books_from_csv| functions
+
+[33mcommit 3dfe227b0fb817f0893f929419c87d672e24b407[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Sun Dec 28 23:17:46 2025 -0600
+
+    created css properties for author,title,price,description,and button elements in BookDetails.jsx file
+
+[33mcommit 292e1e28d06add3e71562cd20e86b2989851ea34[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Sat Dec 27 23:46:49 2025 -0600
+
+    created BookDetails.module.css file; still have to complete it from some containers
+
+[33mcommit b9fca90e28a42a368d453a1a5448a13e0e730c31[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Tue Dec 23 22:25:45 2025 -0800
+
+    BookDetails function works correctly
+
+[33mcommit 69b9eba746df6e314c6788ec0608116a1f0ef79e[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Fri Dec 19 21:35:51 2025 -0800
+
+    bookID is passed correctly now to the useBookDetails; but the useEffect still doens't run inside useBookDetails
+
+[33mcommit 1ccb5c7b65cdbaa95351f2e1d7caeb7b28862101[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Mon Dec 15 23:18:05 2025 -0800
+
+    created useBookDetails in api.js; created basic BookDetails function; and updated R.\README.md
+
+[33mcommit a3a849f15e6c6dc083d950f1fabe5a4d43c493a9[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Mon Dec 15 12:13:53 2025 -0800
+
+    logout is completed; user can logout successfully now; authentication for a user is complete; login works, registration works and logout works
+
+[33mcommit d288e087f3ee6d9efca80b0b53a110f82f2224e4[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Sun Dec 14 20:29:42 2025 -0800
+
+    Logout function was created inside LogOutForm.jsx
+
+[33mcommit abccbe9fba676ca8b2182a34034d528547d0dcb9[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Sat Dec 13 23:29:21 2025 -0800
+
+    improved homepage: when logged in the login and create account buttons doesn't show now, but logout button shows
+
+[33mcommit 86632bafa5a0b08dbacb504886c8102480de4649[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Sat Dec 13 22:04:37 2025 -0800
+
+    successfully connected frontend login request to backend oauth. Oauth generate tokens and frontend recieves and store it successfully
+
+[33mcommit 6d75b25e2406e404101f3641a0b2787b35f07609[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Fri Dec 12 23:32:27 2025 -0800
+
+    backend_login was created in backend/services; LoginForm.jsx file was modified;
+
+[33mcommit daeed9eb8f5bab3ac6e36e3cd2b455a5b74d32b7[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Fri Dec 12 23:20:49 2025 -0800
+
+    login request method in frontend was changed and .env file was created in backend
+
+[33mcommit 5ac984f88deedf0c2cd78ef3219e5efe87c61ca9[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Tue Dec 9 20:51:36 2025 -0800
+
+    registered my app to the django oauth toolkit
+
+[33mcommit 22767ff1cecdecc1fc91cd6b7e07b407526a1993[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Sun Dec 7 20:36:45 2025 -0800
+
+    url path for LoginForm, and view for LoginForm were created in url.py and views.py in backend
+
+[33mcommit 6471bf2471d85567540b39db5ef3b6b9fbedbdf4[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Thu Dec 4 13:06:10 2025 -0800
+
+    LoginForm.module.css form was created for loginForm; and now bug was fixed, login form is displaying after successful registration
+
+[33mcommit c4e0997a3cff53e31e6a9413962ab1390fcefeb9[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Thu Dec 4 12:50:43 2025 -0800
+
+    Login form is completed; however it still doesn't render when registration form is completed
+
+[33mcommit d80b285d96c0c84c7a9a377581e5df772d5dd563[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Tue Dec 2 23:01:23 2025 -0800
+
+    RegistrationForm successfully creates a user. The information goes to the database
+
+[33mcommit f8ff69c0c3fdad35bbcda64b1ea316f098285b6a[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Tue Dec 2 14:12:53 2025 -0800
+
+    action was changed to onSubmit in registrationForm it solved the event.DefaultError; however, now 404 error is still there for some reason the post request url cannot be find
+
+[33mcommit e1efd8322c825b8dd3adfc81e800505e7bc9c5e8[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Tue Dec 2 13:00:47 2025 -0800
+
+    Registration Form is showing up now, and Readme.md was edited specifying work finished, work in progress, and work in to be started
+
+[33mcommit 34e80cd6ad6f97d6e8fca0122135d704fcc1e1c7[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Sun Nov 30 16:59:54 2025 -0800
+
+    RegistrationForm.module.css was added
+
+[33mcommit b6f8677046f57664a6c7ce5de7e702ff2e2f4571[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Sat Nov 29 22:25:20 2025 -0800
+
+    HomePage.module.css was created but the style for ResistrationForm needs to get fixed first
+
+[33mcommit 42f7b3aa0e40b098f278cd2720db854273de903b[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Sat Nov 29 21:58:46 2025 -0800
+
+    Login Form was created and conditional rendering of registration was set inside header
+
+[33mcommit f9ec5d121f5a37a0fcfa3ba1e4e7b62f405a9e90[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Sat Nov 29 21:29:06 2025 -0800
+
+    conditional rendering was added for registrationForm in the homepage
+
+[33mcommit c43972df6c1128244f5a6126cde2643f374f895b[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Fri Nov 28 19:56:19 2025 -0800
+
+    process_registration method in views.py was created
+
+[33mcommit 8479debc71c1d08696ab560490e8e9648804d382[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Thu Nov 27 21:27:55 2025 -0800
+
+    RegistrationForm was created in frontend/components
+
+[33mcommit c005bdc55bf25e5c416f28469c6d4d4028e823ff[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Tue Nov 25 14:36:18 2025 -0800
+
+    UsrSerializer and UserProfileSerializer were created in backend; and project README.md was edited
+
+[33mcommit 69f7ca9bbd25363c65cc5e6cfdec8762812929ab[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Mon Nov 24 23:46:35 2025 -0800
+
+    BooksRowDisplay component and the api it uses works fine now. All data  including the images can be rendered
+
+[33mcommit 62fb3c7b97843e8b2b2bd895126d80c89b0730ba[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Mon Nov 17 23:30:54 2025 -0800
+
+    Backend correctly returns the requested data. The useBookList hook still needs to correctly get the data from axios.fetch
+
+[33mcommit eaf2cae613ba61602e75614225622875e34c0135[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Sun Nov 16 21:17:31 2025 -0800
+
+    Logging in Django was set up
+
+[33mcommit 924722ed0b8f1598f315c42f8f39f7ba876b9813[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Sun Nov 16 19:54:18 2025 -0800
+
+    Changed serveral things, the main ones: Created a welcome page for root url for django; created a single function at the backend that takes arguments of book category and count from frontend for fetching books from database; it still doesn't fetch the right data, to debugg this i need to setup logging in django. This is next step
+
+[33mcommit ac5c23c2359b6a0c7cd243cab0c3170efee5b596[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Sun Nov 9 21:57:08 2025 -0800
+
+    created routes in frontend and backend non api path
+
+[33mcommit ab516d23cdb36164c7d346176968765d54558348[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Sun Nov 9 19:15:02 2025 -0800
+
+    Three Routes were defined in App.jsx
+
+[33mcommit fdb39bcc270e7e7804a56b4e70bdbd265aaee34b[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Fri Nov 7 12:07:10 2025 -0800
+
+    MyHorizontalList function in frontend/src/components works perfectly. It displays the contents as expected
+
+[33mcommit ee8760440c555c894ec86222594ee990ecf422ed[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Thu Nov 6 11:31:20 2025 -0800
+
+    management, commands directory were added and inside them lood_books.py script and books.json were added
+
+[33mcommit 4b8a365b2019ba0c2367540f9013b7c976dee989[m
+Author: Ahmad <abilalh7@gmail.com>
+Date:   Wed Nov 5 22:42:31 2025 -0800
+
+    Project is set up in new pc and superuser was created
+
+[33mcommit bbaa200e1e1ef0a6fcc318f41fbeede859897d1c[m
+Author: a-bilalh <abilalh7@gmail.com>
+Date:   Sun Oct 26 14:56:29 2025 -0700
+
+    booksDisplayRow.jsx was added at frontend/components
+
+[33mcommit ab8103a91fc42b270f339799d08bf21a3a890926[m
+Author: a-bilalh <abilalh7@gmail.com>
+Date:   Sat Oct 25 21:56:55 2025 -0700
+
+    the newly created enpoint api/books/random is working now
+
+[33mcommit 38bc4b29adfdf5218e62d98d0b3744a907f1d880[m
+Author: a-bilalh <abilalh7@gmail.com>
+Date:   Sat Oct 25 21:13:03 2025 -0700
+
+    service/getData.py was added with get_random_books function Also random_books_view was created in view.py and its end point was created
+
+[33mcommit 0b272e658cb32c8488192ea4d9bf622b8276f343[m
+Author: a-bilalh <abilalh7@gmail.com>
+Date:   Fri Oct 24 22:04:37 2025 -0700
+
+    book cover_pic is displaying now in react
+
+[33mcommit 9675374a712c4a68a171c18211aa5f9e9973798d[m
+Author: a-bilalh <abilalh7@gmail.com>
+Date:   Wed Oct 22 00:15:24 2025 -0700
+
+    frontend is able to render database data; except showing picture
+
+[33mcommit f37eadb17f164316b8f506769ca7de3b41012bac[m
+Author: a-bilalh <abilalh7@gmail.com>
+Date:   Tue Oct 21 10:30:37 2025 -0700
+
+    state of app before deleting virtual environment
+
+[33mcommit ad3a1a86073f82823fc04efde09e144154dad843[m
+Author: a-bilalh <abilalh7@gmail.com>
+Date:   Sun Oct 19 23:23:13 2025 -0700
+
+    test_rest_api.py file was added with two tests to test endpoints of api, but the tests  don't run yet, needs to get fixed
+
+[33mcommit 8d11dd845d3433602f430208c2e81777c4db42bc[m
+Merge: ba5944a d851edd
+Author: a-bilalh <abilalh7@gmail.com>
+Date:   Sat Oct 18 23:21:46 2025 -0700
+
+    Merge branch 'main' of github.com:a-bilalh/bookstore_django_app
+
+[33mcommit ba5944a56d61163454f89ad812f7aa1baa90d6b4[m
+Author: a-bilalh <abilalh7@gmail.com>
+Date:   Sat Oct 18 23:17:09 2025 -0700
+
+    fetchBooks function was created in frontent/src/services/api.js
+
+[33mcommit d851eddafb3a3df4c74a839f965bc2bf268b29e6[m
+Author: a-bilalh <abilalh7@gmail.com>
+Date:   Fri Oct 17 14:37:14 2025 -0700
+
+    Updated README.md
+
+[33mcommit dc09badb1fc2d32ab0baeaa0d6504f2c19838275[m
+Author: a-bilalh <abilalh7@gmail.com>
+Date:   Sat Oct 11 21:14:59 2025 -0700
+
+    static\images\bookCovers folder was added
+
+[33mcommit af5638dbae68439066a5a7a916092fc2509c9654[m
+Author: a-bilalh <abilalh7@gmail.com>
+Date:   Sun Oct 5 21:25:02 2025 -0700
+
+    header.js and header.css were added
+
+[33mcommit 37f14bd675adb5127f5e0667ed56fe54d1fb690f[m
+Author: a-bilalh <abilalh7@gmail.com>
+Date:   Sun Oct 5 19:56:53 2025 -0700
+
+    bookDisplay.css was updated; space and alignment were fixed
+
+[33mcommit e9eb23926ad3a06d486d1ae612298580d7b712a6[m
+Author: a-bilalh <abilalh7@gmail.com>
+Date:   Sat Oct 4 19:55:21 2025 -0700
+
+    mock/styleMock.js was added and configured also solved react_scripts version in package.json, babel can read import statements,
+
+[33mcommit 5d29d219033afb8224796dda09d5d3650c36e15f[m
+Author: a-bilalh <abilalh7@gmail.com>
+Date:   Sat Oct 4 00:04:53 2025 -0700
+
+    several files were added for jest testing in frontend
+
+[33mcommit a7e8379e5792672d593439c1c072bf8b5ae605d9[m
+Author: a-bilalh <abilalh7@gmail.com>
+Date:   Wed Oct 1 00:14:46 2025 -0700
+
+    menu bar is ready to be displayed
+
+[33mcommit 2790d3dd2be31bedeed50d0fee7e071179b8c290[m
+Author: a-bilalh <abilalh7@gmail.com>
+Date:   Sat Sep 27 22:52:45 2025 -0700
+
+    menu.css was added to fronend/src/components
+
+[33mcommit 18782cb8eb38a2ae1edc9a6fbecbd8645ae87fa7[m
+Author: a-bilalh <abilalh7@gmail.com>
+Date:   Sat Sep 27 21:07:23 2025 -0700
+
+    menu.js file was added to the frontend/src/components
+
+[33mcommit 1210f00dbf46c11c737decd5b9d3f42284b4c77c[m
+Author: a-bilalh <abilalh7@gmail.com>
+Date:   Thu Sep 25 11:35:55 2025 -0700
+
+    registration.js file was added
+
+[33mcommit 681fbcfa658e3f221c35db0a62b8b653e6f0c3cf[m
+Author: a-bilalh <abilalh7@gmail.com>
+Date:   Thu Sep 25 11:08:15 2025 -0700
+
+    FormInput.jsx file was added
+
+[33mcommit 83c0d7f507a1dd7f4d3470b35495ef5649fb16f9[m
+Author: a-bilalh <abilalh7@gmail.com>
+Date:   Fri Sep 19 22:00:53 2025 -0700
+
+    admin user was added
+
+[33mcommit b5f505fcc482738b2556209da90c62a7b1fab43b[m
+Author: a-bilalh <abilalh7@gmail.com>
+Date:   Wed Sep 17 10:35:41 2025 -0700
+
+    tests for book model were created
+
+[33mcommit 5676bf3e4d5d4af90729252c9e026c888a7907f0[m
+Author: a-bilalh <abilalh7@gmail.com>
+Date:   Thu Sep 11 23:44:39 2025 -0700
+
+    The api between django and react was created and it works successfully
+
+[33mcommit 43b2f4ef077600d3265f7b807b01374c922b721c[m
+Author: a-bilalh <abilalh7@gmail.com>
+Date:   Sun Sep 7 19:11:12 2025 -0700
+
+    fronend .gitignore was merged to .gitignore for both frontend and backend located in myapp repo
+
+[33mcommit 030fe09d8001dbb714fb44d6622aa0ce509a2c81[m
+Author: a-bilalh <abilalh7@gmail.com>
+Date:   Sun Sep 7 19:04:51 2025 -0700
+
+    Create README.md
+
+[33mcommit 594ed6073d682cd2f59abceec4f2496e46b0c0ae[m
+Author: a-bilalh <abilalh7@gmail.com>
+Date:   Sun Sep 7 19:04:02 2025 -0700
+
+    frontend react was created
+
+[33mcommit 9f3c0401f34520fec67842953fd45472abfe62d1[m
+Author: a-bilalh <abilalh7@gmail.com>
+Date:   Sat Sep 6 13:49:29 2025 -0700
+
+    Initial commit
