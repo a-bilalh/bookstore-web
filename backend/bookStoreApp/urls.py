@@ -7,6 +7,7 @@ from .views import process_registration
 from .views import login_view
 from .views import logout_view
 from .views import get_book_by_id
+from .views import check_user_exists
 import logging
 
 
@@ -16,6 +17,7 @@ urlpatterns = [
     path('books/<int:book_id>/', get_book_by_id, name='book-by-id'),
     path('books/random/<str:category>/<int:count>/', random_books_view, name='random-books'),
     path('register/', process_registration, name='register'),
+    path('user/email/', check_user_exists, name='does_user_exists'),
     path('login/', login_view, name='login_view'), # TODO: New url for user login; untested
     path('logout/', logout_view, name='logout_view'), # TODO: New url for user logout; untested
     path('', home_view, name='home_view'),
