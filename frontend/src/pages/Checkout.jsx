@@ -7,16 +7,14 @@ import EmailInput from "../components/Checkout/EmailInput";
 export default function Checkout() {
 
     
-  const[userHasAccount, setUserHasAccount] = useState(false);
-
-
+  const [userHasAccount, setUserHasAccount] = useState(false);
 
 
     return (
 
     <div>
       
-      <EmailInput setUserHasAccount/>
+      <EmailInput setUserHasAccount={setUserHasAccount}/>
 
     </div>
     
