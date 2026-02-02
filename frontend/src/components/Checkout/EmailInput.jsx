@@ -5,7 +5,7 @@ import axios from 'axios';
 
 
 // This method gets the email of the user and send it to database whether it exists or not. 
-export default function EmailInput( {setUserHasAccount, setCheckoutSteps} ) {
+export default function EmailInput( {setUserHasAccount, setCheckoutSteps, setEmail} ) {
 
     
 
@@ -16,6 +16,9 @@ export default function EmailInput( {setUserHasAccount, setCheckoutSteps} ) {
         // Read form data
         const form = e.target;
         const formData = new FormData(form);
+
+        // Save the email; to be send back with password for token generation 
+        setEmail( form.get("email") );
 
         try {
           

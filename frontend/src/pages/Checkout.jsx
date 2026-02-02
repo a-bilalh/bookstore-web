@@ -12,6 +12,7 @@ export default function Checkout() {
     
   const [userHasAccount, setUserHasAccount] = useState(false);
   const [checkoutSteps, setCheckoutSteps] = useState("step1");
+  const [email, setEmail] = useState("");
   const { isLoggedIn, handleLogout, handleSetTokens } = useAuth();
 
 
@@ -24,6 +25,7 @@ export default function Checkout() {
         checkoutSteps === "step1" && 
         <EmailInput setUserHasAccount={setUserHasAccount}
                     setCheckoutSteps={setCheckoutSteps}
+                    setEmail={setEmail}
         /> 
       }
 
@@ -31,7 +33,9 @@ export default function Checkout() {
       {
         userHasAccount && 
         checkoutSteps === "step2" && 
-        <PasswordInput setCheckoutSteps={setCheckoutSteps} />
+        <PasswordInput setCheckoutSteps={setCheckoutSteps}
+                       email={email}
+        />
         
       }
 
