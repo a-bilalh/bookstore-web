@@ -1,17 +1,10 @@
 import axios from "axios";
 import { API_BASE_URL } from "../config";
 import styles from "./LoginForm.module.css";
+import saveToken from "../utils/save-tokens";
 
 
 
-// Helper function to save token to localStorage
-function saveToken(token) {
-    if (!token) {
-        localStorage.removeItem("access");
-    } else {
-        localStorage.setItem("access", token);
-    }
-}
 
 // changes object destructing to props object. { closeLogin, handleSetTokens }
 export default function LoginForm( props ) {
@@ -30,8 +23,8 @@ export default function LoginForm( props ) {
             if (response.status === 200) {
                 alert("Login successful!");
                 // Save tokens to localStorage
-                saveToken(response.data.access_token);
-                saveToken(response.data.refresh_token);
+                saveToken( "access", response.data.access_token );
+                saveToken( "refresh", response.data.refresh_token );
 
                 // Update access token state with new tokens
                 props.handleSetTokens(response.data.access_token);

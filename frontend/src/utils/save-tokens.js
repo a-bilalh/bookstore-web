@@ -2,13 +2,11 @@
 
 
 
-
-
 // Helper function to save token to localStorage
-export default function saveToken(token) {
+export default function saveToken(key, token) {
     if (!token) {
-        localStorage.removeItem("access");
+        localStorage.removeItem(key);
     } else {
-        localStorage.setItem("access", token);
+        localStorage.setItem(key, token);
     }
 }

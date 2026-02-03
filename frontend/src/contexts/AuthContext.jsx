@@ -19,6 +19,8 @@ export function AuthProvider({ children }) {
     function isLoggedIn() {
         console.log("Checking isLoggedIn with access token:", !!accessToken); // temporary log
         console.log("Current Access Token type in AuthContext, localstorage:", typeof(accessToken)); // temporary log
+
+        if ( accessToken )
         return !!accessToken;
     }
 
