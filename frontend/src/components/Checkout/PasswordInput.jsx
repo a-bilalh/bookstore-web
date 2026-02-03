@@ -1,7 +1,7 @@
 import { API_BASE_URL } from '../../config';
 import styles from './PasswordInput.module.css'
 import axios from 'axios';
-import saveToken from '../../utils/save-tokens';
+import saveToken from '../../utils/save-tokens';    
 
 
 
@@ -24,7 +24,18 @@ export default function PasswordInput( {setCheckoutSteps, email} ) {
             // Send request to the following endpoint and get the response
             const response = await axios.post(`${API_BASE_URL}/api/login/`, formData);
 
-            setCheckoutSteps("step3")
+            if ( response.status === 200 ) {
+
+                alert("Login Successful")
+
+                // save tokens to the memory
+                saveToken( "access", response.data.access_token );
+                saveToken( "refresh", response.data.refresh_token );
+                
+                // change the step of checkout page
+                setCheckoutSteps("step3")
+            }
+
 
         } catch (error) {
 

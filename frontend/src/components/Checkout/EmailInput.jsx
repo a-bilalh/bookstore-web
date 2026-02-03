@@ -18,7 +18,7 @@ export default function EmailInput( {setUserHasAccount, setCheckoutSteps, setEma
         const formData = new FormData(form);
 
         // Save the email; to be send back with password for token generation 
-        setEmail( form.get("email") );
+        setEmail( formData.get("email") );
 
         try {
           
