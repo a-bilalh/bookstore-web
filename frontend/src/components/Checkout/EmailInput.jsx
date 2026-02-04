@@ -24,13 +24,24 @@ export default function EmailInput( {setUserHasAccount, setCheckoutSteps, setEma
           
           const response = await axios.post(`${API_BASE_URL}/api/user/email/`, formData); 
         
-          setUserHasAccount(response.status === 200);
-          setCheckoutSteps("step2");
+          // If response is 200, then user has an account
+          if (response.status === 200) {
+            
+            setUserHasAccount(true);
+            setCheckoutSteps("step2");
+
+          }
 
 
         } catch (error) {
+
           console.log("The email is not correct, please try again");
+        
         }
+
+        // in case of failed response from the server
+        setUserHasAccount(false);
+        setCheckoutSteps("step3");
 
     } 
 

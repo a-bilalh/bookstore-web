@@ -2,6 +2,7 @@ import { useState } from "react";
 import EmailInput from "../components/Checkout/EmailInput";
 import useAuth from "../contexts/AuthContext"
 import PasswordInput from "../components/Checkout/PasswordInput";
+import UserRegistration from "../components/Checkout/UserRegistration";
 
 
 
@@ -36,15 +37,21 @@ export default function Checkout() {
         <PasswordInput setCheckoutSteps={setCheckoutSteps}
                        email={email}
         />
-        
       }
 
-      {
 
+      {
+        !userHasAccount && 
+        checkoutSteps === "step3" && 
+        <UserRegistration email={email} 
+                          setCheckoutSteps={setCheckoutSteps}
+        />  
       }
 
 
     </div>
     
+
+
     );
 }
