@@ -1,0 +1,30 @@
+
+
+
+.mainContainerLayout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 100vh;
+}
+
+
+
+.mainContainer {
+    width: 50vw;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border : 1px solid #ddd;
+    border-radius: 10px;
+}
+
+
+.formFields {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+    width: 80%;
+}
