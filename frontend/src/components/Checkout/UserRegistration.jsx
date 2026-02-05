@@ -1,4 +1,6 @@
 import styles from './UserRegistration.module.css';
+import axios from 'axios';
+import { API_BASE_URL } from '../../config';
 
 
 
@@ -6,6 +8,33 @@ import styles from './UserRegistration.module.css';
 export default function UserRegistration({ email, setCheckoutSteps }) {
 
 
+    async function handleSubmit(e) {
+
+        e.preventDefault();
+
+        // Form Data
+        const form = e.target;
+        const formData = new FormData(form);
+        formData.append("auto_login", true);  // to auto login after registration
+
+        try {
+
+            const response = await axios.post(`${API_BASE_URL}/api/register/`, formData);
+
+            if (response.status === 201) {
+
+                alert("Registration successful! Please log in.");
+                setCheckoutSteps("step1");  // have to fix that, not sure what value to set once logged in
+
+            } else {
+                alert("Registration failed. Please try again.");
+            }
+        } catch (error) {
+            console.error("Error during registration:", error);     
+        }
+
+
+    }
 
 
     return (
@@ -17,11 +46,11 @@ export default function UserRegistration({ email, setCheckoutSteps }) {
             <h2>Create an Account</h2>
 
             {/* Registration form */}
-            <form>
+            <form onSubmit={handleSubmit}>
 
               <div className={styles.formFields}>
 
-                <input type="hidden" name="email" value={email} />
+                <input type="text" name="email" defaultValue={email} />
                 <input type="text" name="full_name" placeholder="Full Name" required />
                 <input type="password" name="password" placeholder="Password" required />
                 <input type="password" name="confirm_password" placeholder="Confirm Password" required />
