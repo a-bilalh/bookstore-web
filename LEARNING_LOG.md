@@ -44,6 +44,8 @@ BUGS<br>
                       
 
 
+** BUGS ** 
+
 =============================================================================================================================
 
 **Bug - (1/22/2026): Adding the same book twice to the cart is rendered seperately in the cart page.
@@ -51,5 +53,10 @@ BUGS<br>
 =============================================================================================================================
 
 ** Bug- (1/22/2026): When all items of cart page is removed, the order summary box is moved shifted from its orignal position
+
+=============================================================================================================================
+
+** Bug- if an existance user in the system try to register again with the same email, the system should
+        give an clear message that the email is already registered. Right now it just give a generic error message.
 
 =============================================================================================================================

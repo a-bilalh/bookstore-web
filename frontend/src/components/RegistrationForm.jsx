@@ -13,13 +13,14 @@ import styles from "./RegistrationForm.module.css";
 
 
 
-// Registration Form Component
+// Registration Form Component used in home page
 export default function RegistrationForm({ closeRegister, showLoginForm }) {
 
 
     async function submistFormRegistration(event) {
         event.preventDefault();
         const formData = new FormData(event.target);
+        formData.append("auto_login", false); // New Changes to auto login after registration
 
         try{
             console.log("Submitting resgitration form with data:", formData);

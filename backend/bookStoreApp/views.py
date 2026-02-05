@@ -53,6 +53,7 @@ def get_book_by_id(request, book_id):
 
 
 # View to handle user registration
+# can be refactored to seperate logic from here later
 @api_view(['POST'])
 def process_registration(request):
 
@@ -71,6 +72,13 @@ def process_registration(request):
         user.save()
         user_profile = UserProfile.objects.create(user=user)
         user_profile.save()
+
+        if request.POST.get("auto_login"):
+            
+            # authenticate the user
+            tokens = backend_login(email, password)
+            return Response(tokens, status=201)
+
         return Response({'message': 'User registered successfully'}, status=201)
 
 
