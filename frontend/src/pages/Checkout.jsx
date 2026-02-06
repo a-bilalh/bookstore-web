@@ -3,6 +3,11 @@ import EmailInput from "../components/Checkout/EmailInput";
 import useAuth from "../contexts/AuthContext"
 import PasswordInput from "../components/Checkout/PasswordInput";
 import UserRegistration from "../components/Checkout/UserRegistration";
+import useCart from "../contexts/CartContext";
+import CartBookDisplay from "../components/Cart/CartBookDisplay.jsx";
+import OrderSummary from "../components/Cart/OrderSummary.jsx";
+import styles from './checkout.module.css';
+
 
 
 
@@ -14,7 +19,14 @@ export default function Checkout() {
   const [userHasAccount, setUserHasAccount] = useState(false);
   const [checkoutSteps, setCheckoutSteps] = useState("step1");
   const [email, setEmail] = useState("");
+  
   const { isLoggedIn, handleLogout, handleSetTokens } = useAuth();
+  const { cartItems, removeFromCart, addToCart, deleteFromCart } = useCart();
+  
+  const booksArray = [...cartItems.keys()];
+
+  // Function to get number of books in cart
+  const numberOfBooks = (book) => cartItems.get(book) || 0;
 
 
     return (
@@ -36,6 +48,7 @@ export default function Checkout() {
         checkoutSteps === "step2" && 
         <PasswordInput setCheckoutSteps={setCheckoutSteps}
                        email={email}
+                       handleSetTokens={handleSetTokens}
         />
       }
 
@@ -45,13 +58,44 @@ export default function Checkout() {
         checkoutSteps === "step3" && 
         <UserRegistration email={email} 
                           setCheckoutSteps={setCheckoutSteps}
+                          handleSetTokens={handleSetTokens}
         />  
       }
 
+      
+      {/* step4 can be used instead of isLoggedIn if needed */}
+      {
+        isLoggedIn &&
+        checkoutSteps === "step4" && 
+        <div>
+          <div className={styles.checkoutTitle}>
+            <h2>Checkout Complete</h2>
+          </div>
+
+          <div className={styles.cartBooksAndSummary}>
+            <div>
+
+              {booksArray.map( book => (
+                  numberOfBooks(book) > 0 &&
+                  <CartBookDisplay key = {book.id} book = {book} 
+                    quantity = {numberOfBooks(book)} 
+                    decreaseBook={removeFromCart}
+                    increaseBook={addToCart} 
+                    deleteFromCart={deleteFromCart}
+                  />
+              ))}
+
+            </div>
+            <div>
+              <OrderSummary cartItems={cartItems} />
+            </div>
+
+          </div>
+        </div>
+      }
 
     </div>
-    
-
 
     );
+    
 }
