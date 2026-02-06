@@ -1,11 +1,12 @@
 import styles from './UserRegistration.module.css';
 import axios from 'axios';
 import { API_BASE_URL } from '../../config';
+import saveToken from '../../utils/save-tokens';
 
 
 
 
-export default function UserRegistration({ email, setCheckoutSteps }) {
+export default function UserRegistration({ email, setCheckoutSteps, handleSetTokens }) {
 
 
     async function handleSubmit(e) {
@@ -23,8 +24,15 @@ export default function UserRegistration({ email, setCheckoutSteps }) {
 
             if (response.status === 201) {
 
+                saveToken( "access", response.data.access_token );
+                saveToken( "refresh", response.data.refresh_token );
+                
+                handleSetTokens( response.data.access_token );
+                                
+
                 alert("Registration successful! Please log in.");
-                setCheckoutSteps("step1");  // have to fix that, not sure what value to set once logged in
+                setCheckoutSteps("step4");  // have to fix that, not sure what value to set once logged in
+
 
             } else {
                 alert("Registration failed. Please try again.");

@@ -20,6 +20,8 @@ export default function EmailInput( {setUserHasAccount, setCheckoutSteps, setEma
         // Save the email; to be send back with password for token generation 
         setEmail( formData.get("email") );
 
+        console.log( "Email is: ", formData.get("email") );
+
         try {
           
           const response = await axios.post(`${API_BASE_URL}/api/user/email/`, formData); 
@@ -36,12 +38,12 @@ export default function EmailInput( {setUserHasAccount, setCheckoutSteps, setEma
         } catch (error) {
 
           console.log("The email is not correct, please try again");
+          
+          // in case of failed response from the server
+          setUserHasAccount(false);
+          setCheckoutSteps("step3");
         
         }
-
-        // in case of failed response from the server
-        setUserHasAccount(false);
-        setCheckoutSteps("step3");
 
     } 
 

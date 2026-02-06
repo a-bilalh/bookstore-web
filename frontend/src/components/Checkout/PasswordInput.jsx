@@ -5,7 +5,7 @@ import saveToken from '../../utils/save-tokens';
 
 
 
-export default function PasswordInput( {setCheckoutSteps, email} ) {
+export default function PasswordInput( {setCheckoutSteps, email, handleSetTokens} ) {
 
 
     async function handleSubmit(e) {
@@ -31,9 +31,11 @@ export default function PasswordInput( {setCheckoutSteps, email} ) {
                 // save tokens to the memory
                 saveToken( "access", response.data.access_token );
                 saveToken( "refresh", response.data.refresh_token );
+
+                handleSetTokens( response.data.access_token );
                 
                 // change the step of checkout page
-                setCheckoutSteps("step3")
+                setCheckoutSteps("step4")
             }
 
 
