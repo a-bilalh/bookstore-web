@@ -7,6 +7,7 @@ import useCart from "../contexts/CartContext";
 import CartBookDisplay from "../components/Cart/CartBookDisplay.jsx";
 import OrderSummary from "../components/Cart/OrderSummary.jsx";
 import styles from './checkout.module.css';
+import ShippingAddress from "../components/Checkout/ShippingAddress.jsx";
 
 
 
@@ -14,14 +15,15 @@ import styles from './checkout.module.css';
 
 export default function Checkout() {
 
-  
-    
-  const [userHasAccount, setUserHasAccount] = useState(false);
-  const [checkoutSteps, setCheckoutSteps] = useState("step1");
-  const [email, setEmail] = useState("");
-  
+
   const { isLoggedIn, handleLogout, handleSetTokens } = useAuth();
   const { cartItems, removeFromCart, addToCart, deleteFromCart } = useCart();
+  
+
+  const [userHasAccount, setUserHasAccount] = useState(false);
+  const [checkoutSteps, setCheckoutSteps] = useState(() => isLoggedIn ? "step4" : "step1");
+  const [email, setEmail] = useState("");
+  
   
   const booksArray = [...cartItems.keys()];
 
@@ -73,6 +75,11 @@ export default function Checkout() {
           </div>
 
           <div className={styles.cartBooksAndSummary}>
+
+            <div>
+              <ShippingAddress />
+            </div>
+
             <div>
 
               {booksArray.map( book => (
