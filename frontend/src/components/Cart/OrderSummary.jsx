@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 // Order Summary needs: Total price, estimated tax, shipping cost, final total
 
 
-export default function OrderSummary( { cartItems } ) {
+export default function OrderSummary( { cartItems, actionLabel } ) {
 
     console.log("OrderSummary Component - type of cartItems:", typeof cartItems);
     console.log("OrderSummary Component - cartItems:", cartItems);
@@ -33,7 +33,7 @@ export default function OrderSummary( { cartItems } ) {
           <p>Subtotal: ${ calculateSubtotal().toFixed(2) }</p>
           
           <Link to="/checkout" className={styles.checkoutButton}>
-            Checkout
+            {actionLabel}
           </Link>
 
 
