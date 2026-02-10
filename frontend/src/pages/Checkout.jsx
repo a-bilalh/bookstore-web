@@ -7,7 +7,7 @@ import useCart from "../contexts/CartContext";
 import CartBookDisplay from "../components/Cart/CartBookDisplay.jsx";
 import OrderSummary from "../components/Cart/OrderSummary.jsx";
 import styles from './checkout.module.css';
-import ShippingAddress from "../components/Checkout/ShippingAddress.jsx";
+import ManageShippingAddress from "../components/Checkout/ManageShippingAddress.jsx";
 
 
 
@@ -21,7 +21,10 @@ export default function Checkout() {
   
 
   const [userHasAccount, setUserHasAccount] = useState(false);
-  const [checkoutSteps, setCheckoutSteps] = useState(() => isLoggedIn ? "step4" : "step1");
+  const [checkoutSteps, setCheckoutSteps] = useState(() => isLoggedIn() ? "step4" : "step1");
+
+  console.log(" what step is now?", checkoutSteps);
+  console.log(" isLoggedIn in checkout component?", isLoggedIn());
   const [email, setEmail] = useState("");
   
   
@@ -37,6 +40,7 @@ export default function Checkout() {
       
 
       { 
+      
         checkoutSteps === "step1" && 
         <EmailInput setUserHasAccount={setUserHasAccount}
                     setCheckoutSteps={setCheckoutSteps}
@@ -56,6 +60,7 @@ export default function Checkout() {
 
 
       {
+        
         !userHasAccount && 
         checkoutSteps === "step3" && 
         <UserRegistration email={email} 
@@ -77,7 +82,7 @@ export default function Checkout() {
           <div className={styles.cartBooksAndSummary}>
 
             <div>
-              <ShippingAddress />
+              <ManageShippingAddress />
             </div>
 
             <div>
@@ -94,7 +99,7 @@ export default function Checkout() {
 
             </div>
             <div>
-              <OrderSummary cartItems={cartItems} actionLabel={"Complete Checkout"} />
+              <OrderSummary cartItems={cartItems} actionLabel={"Place your order"} />
             </div>
 
           </div>
