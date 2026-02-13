@@ -23,6 +23,7 @@ class Book(models.Model):
     
 # Address model
 class Address(models.Model):
+    
     street = models.CharField(max_length=255)
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=100)
@@ -47,7 +48,18 @@ class UserProfile(models.Model):
     
 # Order model
 class Order(models.Model):
+
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    shipping_full_name = models.CharField(max_length=255)
+    shipping_phone_number = models.CharField(max_length=15)
+    shipping_address_line1 = models.CharField(max_length=255)
+    shipping_address_line2 = models.CharField(max_length=255, blank=True, null=True)
+    shipping_city = models.CharField(max_length=100)
+    shipping_state = models.CharField(max_length=100)
+    shipping_zip_code = models.CharField(max_length=20)
+
+
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(default=1)
     order_date = models.DateTimeField(auto_now_add=True)
