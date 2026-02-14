@@ -24,6 +24,7 @@ class Book(models.Model):
 # Address model
 class Address(models.Model):
     
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     street = models.CharField(max_length=255)
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=100)
