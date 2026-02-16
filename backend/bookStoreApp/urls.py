@@ -14,7 +14,7 @@ import logging
 
 urlpatterns = [
 
-    path('addresses/', save_address, name='save_address'),
+    path('addresses/', add_new_address, name='add_new_address'),
     path('books/<int:book_id>/', get_book_by_id, name='book-by-id'),
     path('books/random/<str:category>/<int:count>/', random_books_view, name='random-books'),
     path('register/', process_registration, name='register'),

@@ -121,3 +121,28 @@ def check_user_exists(request):
         return Response(status=404)
 
 
+
+# View to add new address for user
+@api_view(['POST'])
+def add_new_address(request):
+
+    user = request.user
+    street = request.POST.get('street')
+    city = request.POST.get('city')
+    state = request.POST.get('state')
+    zip_code = request.POST.get('zip_code')
+    country = request.POST.get('country')
+
+    address = Address.objects.create(
+        user=user,
+        street=street,
+        city=city,
+        state=state,
+        zip_code=zip_code,
+        country=country
+    )
+
+    address.save()
+
+    return Response({'message': 'Address added successfully'}, status=200)
+

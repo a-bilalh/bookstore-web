@@ -4,7 +4,7 @@
 export default function InputShippingAddress( { action } ) {
 
     
-  
+
     async function handleSubmit(e) {
 
         e.preventDefault();
@@ -16,7 +16,12 @@ export default function InputShippingAddress( { action } ) {
         try {
 
             // Send request to the following endpoint and get the response
-            const response = await axios.post(`${API_BASE_URL}/api/addresses/`, formData);
+            if ( action === "add") {
+              const response = await axios.post(`${API_BASE_URL}/api/addresses/`, formData);
+            } else if ( action === "edit" ) {
+              const response = await axios.put(`${API_BASE_URL}/api/addresses/`, formData);
+            }
+            
 
             // when response is successful 
             if ( response.status === 200 ) {
