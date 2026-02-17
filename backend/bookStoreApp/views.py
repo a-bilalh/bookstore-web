@@ -146,3 +146,31 @@ def add_new_address(request):
 
     return Response({'message': 'Address added successfully'}, status=200)
 
+
+
+
+# View to update existing address for user
+@api_view(['PUT'])
+def update_address(request, id):
+
+    user = request.user
+    street = request.POST.get('street')
+    city = request.POST.get('city')
+    state = request.POST.get('state')
+    zip_code = request.POST.get('zip_code')
+    country = request.POST.get('country')
+
+    try:
+        address = Address.objects.get(id=id)
+    except Address.DoesNotExist:
+        return Response({'error': 'Address not found'}, status=404)
+
+    address.street = street
+    address.city = city
+    address.state = state
+    address.zip_code = zip_code
+    address.country = country
+    address.save()
+
+    return Response({'message': 'Address updated successfully'}, status=200)
+

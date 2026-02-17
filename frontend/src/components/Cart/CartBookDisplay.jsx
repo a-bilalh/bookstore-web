@@ -1,6 +1,9 @@
 import styles from './CartBookDisplay.module.css';
 import { Minus, Plus, Trash2 } from 'lucide-react';
 
+
+
+
 /* Component to display book in the cart
 *  Args: book - book object, quantity - number of books in cart, decreaseBook - function to decrease book quantity
 */
