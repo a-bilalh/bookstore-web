@@ -19,7 +19,7 @@ export default function InputShippingAddress( { action } ) {
             if ( action === "add") {
               const response = await axios.post(`${API_BASE_URL}/api/addresses/`, formData);
             } else if ( action === "edit" ) {
-              const response = await axios.put(`${API_BASE_URL}/api/addresses/`, formData);
+              const response = await axios.put(`${API_BASE_URL}/api/addresses/${id}`, formData);
             }
             
 
