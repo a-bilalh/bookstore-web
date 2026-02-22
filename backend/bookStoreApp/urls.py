@@ -8,14 +8,15 @@ from .views import login_view
 from .views import logout_view
 from .views import get_book_by_id
 from .views import check_user_exists
-from .views import add_new_address, update_address
+from .views import update_address
 import logging
+from .views import fetch_and_add_address
 
 
 
 urlpatterns = [
 
-    path('addresses/', add_new_address, name='add_new_address'),
+    path('addresses/', fetch_and_add_address, name='fetch_and_add_address'),
     path('addresses/<int:id>/', update_address, name='update_address'),
     path('books/<int:book_id>/', get_book_by_id, name='book-by-id'),
     path('books/random/<str:category>/<int:count>/', random_books_view, name='random-books'),
