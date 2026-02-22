@@ -122,29 +122,42 @@ def check_user_exists(request):
 
 
 
-# View to add new address for user
-@api_view(['POST'])
-def add_new_address(request):
+# View to get and add new address for user
+@api_view(['GET ', 'POST'])
+def fetch_and_add_address(request):
 
-    user = request.user
-    street = request.POST.get('street')
-    city = request.POST.get('city')
-    state = request.POST.get('state')
-    zip_code = request.POST.get('zip_code')
-    country = request.POST.get('country')
+    # if request is GET fetch user addresses and return
+    if request.method == 'GET':
 
-    address = Address.objects.create(
-        user=user,
-        street=street,
-        city=city,
-        state=state,
-        zip_code=zip_code,
-        country=country
-    )
+        user = request.user
+        addresses = Address.objects.filter(user=user).order_by('-last_used')
+        serializer = AddressSerializer(addresses, many=True)
 
-    address.save()
+        return Response(serializer.data, status=200)
 
-    return Response({'message': 'Address added successfully'}, status=200)
+
+    # if request is POST add new address for user
+    if request.method == 'POST':
+
+        user = request.user
+        street = request.POST.get('street')
+        city = request.POST.get('city')
+        state = request.POST.get('state')
+        zip_code = request.POST.get('zip_code')
+        country = request.POST.get('country')
+
+        address = Address.objects.create(
+            user=user,
+            street=street,
+            city=city,
+            state=state,
+            zip_code=zip_code,
+            country=country
+        )
+
+        address.save()
+
+        return Response({'message': 'Address added successfully'}, status=200)
 
 
 
@@ -173,4 +186,6 @@ def update_address(request, id):
     address.save()
 
     return Response({'message': 'Address updated successfully'}, status=200)
+
+
 
