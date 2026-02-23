@@ -6,7 +6,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from django.shortcuts import render
 from django.contrib.auth.models import User
-from .models import UserProfile
+from .models import UserProfile, Address
 import logging
 from django.contrib.auth import authenticate, login
 from oauth2_provider.views.generic import ProtectedResourceView
@@ -123,14 +123,14 @@ def check_user_exists(request):
 
 
 # View to get and add new address for user
-@api_view(['GET ', 'POST'])
+@api_view(['GET', 'POST'])
 def fetch_and_add_address(request):
 
     # if request is GET fetch user addresses and return
     if request.method == 'GET':
 
         user = request.user
-        addresses = Address.objects.filter(user=user).order_by('-last_used')
+        addresses = Address.objects.filter(user=user).order_by('last_used')
         serializer = AddressSerializer(addresses, many=True)
 
         return Response(serializer.data, status=200)

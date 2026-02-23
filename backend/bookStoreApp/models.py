@@ -24,7 +24,7 @@ class Book(models.Model):
 # Address model
 class Address(models.Model):
     
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     street = models.CharField(max_length=255)
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=100)
@@ -54,13 +54,13 @@ class Order(models.Model):
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
-    shipping_full_name = models.CharField(max_length=255)
-    shipping_phone_number = models.CharField(max_length=15)
-    shipping_address_line1 = models.CharField(max_length=255)
+    shipping_full_name = models.CharField(max_length=255, null=True, blank=True)
+    shipping_phone_number = models.CharField(max_length=15, null=True, blank=True)
+    shipping_address_line1 = models.CharField(max_length=255, null=True, blank=True)
     shipping_address_line2 = models.CharField(max_length=255, blank=True, null=True)
-    shipping_city = models.CharField(max_length=100)
-    shipping_state = models.CharField(max_length=100)
-    shipping_zip_code = models.CharField(max_length=20)
+    shipping_city = models.CharField(max_length=100, null=True, blank=True)
+    shipping_state = models.CharField(max_length=100, null=True, blank=True)
+    shipping_zip_code = models.CharField(max_length=20, null=True, blank=True)
 
 
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
