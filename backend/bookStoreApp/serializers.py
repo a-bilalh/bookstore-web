@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from .models import Book
 from django.contrib.auth.models import User
-from .models import UserProfile
+from .models import UserProfile, Address
 
 
 class BookSerializer(serializers.ModelSerializer):
@@ -23,3 +23,9 @@ class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserProfile
         fields = ['user', 'address', 'phone_number']
+
+
+class AddressSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Address
+        fields = ['id', 'street', 'city', 'state', 'zip_code', 'country']
