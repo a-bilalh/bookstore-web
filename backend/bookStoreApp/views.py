@@ -1,6 +1,6 @@
 from rest_framework import  viewsets
 from .models import Book
-from .serializers import BookSerializer
+from .serializers import BookSerializer, AddressSerializer
 from .services.getData import get_random_books
 from rest_framework.response import Response    
 from rest_framework.decorators import api_view
@@ -133,6 +133,7 @@ def fetch_and_add_address(request):
 
         logger.debug("Is user authenticated? " + str(user.is_authenticated))
 
+        logger.debug(f"Fetching addresses for user {request.headers.get('Authorization')} - {user}")
         
         logger.debug(f"Fetched addresses for user {user}")
 
