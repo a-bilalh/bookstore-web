@@ -28,9 +28,15 @@ export default function PasswordInput( {setCheckoutSteps, email, handleSetTokens
 
                 alert("Login Successful")
 
+                // console.log("Data received from backend after login request", response.data);
+
+                // console.log("Tokens received from backend after login request", response.data.access_token, response.data.refresh_token);
+
                 // save tokens to the memory
                 saveToken( "access", response.data.access_token );
                 saveToken( "refresh", response.data.refresh_token );
+
+                // console.log("Confirm tokens are saved in local storage", localStorage.getItem('access'), localStorage.getItem('refresh'));
 
                 handleSetTokens( response.data.access_token );
                 
@@ -58,7 +64,7 @@ export default function PasswordInput( {setCheckoutSteps, email, handleSetTokens
             
             <form onSubmit={handleSubmit}>
 
-              <input type='password'/>
+              <input type='password' name="password" required/>
               <button className={styles.submitButton} type='submit'>Sign In</button>
 
             </form>

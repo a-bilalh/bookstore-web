@@ -130,7 +130,14 @@ def fetch_and_add_address(request):
     if request.method == 'GET':
 
         user = request.user
+
+        logger.debug("Is user authenticated? " + str(user.is_authenticated))
+
+        
+        logger.debug(f"Fetched addresses for user {user}")
+
         addresses = Address.objects.filter(user=user).order_by('last_used')
+
         serializer = AddressSerializer(addresses, many=True)
 
         return Response(serializer.data, status=200)

@@ -9,7 +9,13 @@ export default async function fetchUserAddresses() {
 
     try {
 
-        const response = await axios.get(`${API_BASE_URL}/api/addresses/`);
+        console.log("Tokens in fetch user addresses", localStorage.getItem('access'), localStorage.getItem('refresh'));
+
+        const response = await axios.get(`${API_BASE_URL}/api/addresses/`, {
+            headers : {
+                Authorization: `Bearer ${localStorage.getItem('access')}`
+            }
+        });
 
         if ( response.status === 200 ) {
         return response.data;
