@@ -1,0 +1,15 @@
+
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(196, 42, 62);
+
+}
+
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

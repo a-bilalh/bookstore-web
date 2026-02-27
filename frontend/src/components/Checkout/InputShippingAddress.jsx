@@ -1,7 +1,9 @@
+import axios from 'axios';
+import { API_BASE_URL } from '../../config';
+import styles from './InputShippingAddress.module.css';
 
 
-
-export default function InputShippingAddress( { action } ) {
+export default function InputShippingAddress( { action, id } ) {
 
     
 
@@ -13,7 +15,10 @@ export default function InputShippingAddress( { action } ) {
         const form = e.target;
         const formData = new FormData(form);
 
+
         try {
+
+          const response = null;
 
             // Send request to the following endpoint and get the response
             if ( action === "add") {
@@ -43,11 +48,11 @@ export default function InputShippingAddress( { action } ) {
 
     return (
 
-        <div>
+        <div className={styles.mainContainer}>
           
-          <h2>{action}</h2>
+          <h2>{action} new shipping address</h2>
 
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className={styles.formContainer}>
 
               <label>
                 Full Name:
