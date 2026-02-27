@@ -131,12 +131,6 @@ def fetch_and_add_address(request):
 
         user = request.user
 
-        logger.debug("Is user authenticated? " + str(user.is_authenticated))
-
-        logger.debug(f"Fetching addresses for user {request.headers.get('Authorization')} - {user}")
-        
-        logger.debug(f"Fetched addresses for user {user}")
-
         addresses = Address.objects.filter(user=user).order_by('last_used')
 
         serializer = AddressSerializer(addresses, many=True)
@@ -148,7 +142,10 @@ def fetch_and_add_address(request):
     if request.method == 'POST':
 
         user = request.user
-        street = request.POST.get('street')
+
+        logger.debug(f"is user authenticated? {user.is_authenticated} in fetch_and_add_address view")
+
+        street = request.POST.get('street_address')
         city = request.POST.get('city')
         state = request.POST.get('state')
         zip_code = request.POST.get('zip_code')

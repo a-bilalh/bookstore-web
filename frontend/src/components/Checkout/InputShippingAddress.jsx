@@ -15,18 +15,33 @@ export default function InputShippingAddress( { action, id } ) {
         const form = e.target;
         const formData = new FormData(form);
 
+        console.log(" checking user tokens in input shipping address component", localStorage.getItem('access'), localStorage.getItem('refresh'));
+
 
         try {
 
-          const response = null;
-
+          let response;
+          
             // Send request to the following endpoint and get the response
             if ( action === "add") {
-              const response = await axios.post(`${API_BASE_URL}/api/addresses/`, formData);
-            } else if ( action === "edit" ) {
-              const response = await axios.put(`${API_BASE_URL}/api/addresses/${id}`, formData);
+               response = await axios.post(`${API_BASE_URL}/api/addresses/`, formData, {
+                headers : {
+                    Authorization: `Bearer ${localStorage.getItem('access')}`
+                } 
+              
+              });
+              console.log( "response statuss in input shipping address component", response.status);
+
+
+            } else {
+              response = await axios.put(`${API_BASE_URL}/api/addresses/${id}`, formData, {
+                headers : {
+                    Authorization: `Bearer ${localStorage.getItem('access')}`
+                } 
+              });
             }
             
+        
 
             // when response is successful 
             if ( response.status === 200 ) {
@@ -82,6 +97,11 @@ export default function InputShippingAddress( { action, id } ) {
               <label>
                 Zip Code:
                 <input type="text" name="zip_code" />
+              </label>
+
+              <label>
+                Country:
+                <input type="text" name="country" />
               </label>
 
               <button type="submit">Save</button>
