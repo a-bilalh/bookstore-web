@@ -6,7 +6,7 @@ import UserRegistration from "../components/Checkout/UserRegistration";
 import useCart from "../contexts/CartContext";
 import CartBookDisplay from "../components/Cart/CartBookDisplay.jsx";
 import OrderSummary from "../components/Cart/OrderSummary.jsx";
-import styles from './checkout.module.css';
+import styles from "./checkout.module.css";
 import ManageShippingAddress from "../components/Checkout/ManageShippingAddress.jsx";
 
 
