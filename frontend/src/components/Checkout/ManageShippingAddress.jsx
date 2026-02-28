@@ -46,7 +46,7 @@ export default function ManageShippingAddress() {
 
             { numberOfAddresses > numberOfAddressesDispalyed && <button>show more</button>}
 
-            { showAddressForm && <InputShippingAddress action="add" />}
+            { showAddressForm && <InputShippingAddress action="add" setShowAddressForm={setShowAddressForm} />}
 
             {}
 
