@@ -3,7 +3,7 @@ import { API_BASE_URL } from '../../config';
 import styles from './InputShippingAddress.module.css';
 
 
-export default function InputShippingAddress( { action, id } ) {
+export default function InputShippingAddress( { action, id, setShowAddressForm } ) {
 
     
 
@@ -14,8 +14,6 @@ export default function InputShippingAddress( { action, id } ) {
         // Form Data
         const form = e.target;
         const formData = new FormData(form);
-
-        console.log(" checking user tokens in input shipping address component", localStorage.getItem('access'), localStorage.getItem('refresh'));
 
 
         try {
@@ -46,6 +44,7 @@ export default function InputShippingAddress( { action, id } ) {
             // when response is successful 
             if ( response.status === 200 ) {
                 alert("Shipping Address Saved Successfully")
+                setShowAddressForm(false);
             }
 
 
