@@ -2,6 +2,7 @@ import {useState, useEffect } from 'react';
 import fetchUserAddresses from '../../services/fetchUserAddresses';
 import InputShippingAddress from './InputShippingAddress';
 import DisplayShippingAddress from './DisplayShippingAddress';
+import styles from "./ManageShippingAddress.module.css";
 
 
 
@@ -13,6 +14,9 @@ export default function ManageShippingAddress() {
 
     // state to trace if user is adding a new address 
     const [showAddressForm, setShowAddressForm] = useState(false);
+
+    // state to trace if user is editing an address
+    const [showEditAddressForm, setShowEditAddressForm] = useState(false);
 
     // state to store the selected shipping address
     const [selectedAddress, setSelectedAddress] = useState(null);
@@ -45,7 +49,7 @@ export default function ManageShippingAddress() {
             <h5>Shipping Address</h5>
 
             { numberOfAddresses === 0 && <button onClick={() => setShowAddressForm(true)}>add new address</button>}
-            { numberOfAddresses > 0 && <button>change</button> }
+            { numberOfAddresses > 0 && <button onClick={() => setShowEditAddressForm(true)}>change</button> }
 
 
             { numberOfAddresses > numberOfAddressesDispalyed && <button onClick={() => setNumberOfAddressesDisplayed(numberOfAddressesDispalyed + 5)}>show more</button>}
@@ -55,7 +59,7 @@ export default function ManageShippingAddress() {
             {addresses.slice(0, numberOfAddressesDispalyed).map( 
 
                 (address) => ( 
-                    <label>
+                    <label className={styles.addressDisplay}>
 
                         <input type="radio" 
                                name="shipping_address"

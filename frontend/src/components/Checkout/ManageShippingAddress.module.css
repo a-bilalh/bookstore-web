@@ -1,0 +1,9 @@
+
+
+.addressDisplay {
+
+    display: flex;
+    align-items: flex-start;
+    cursor: pointer;
+
+}
