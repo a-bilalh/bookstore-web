@@ -60,3 +60,5 @@ BUGS<br>
         give an clear message that the email is already registered. Right now it just give a generic error message.
 
 =============================================================================================================================
+
+** Bug (2/28/2026) - when user token expires, user still stays logged in. User needs to get logged out when tokens expires
