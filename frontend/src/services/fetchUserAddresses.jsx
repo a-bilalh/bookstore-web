@@ -11,17 +11,24 @@ export default async function fetchUserAddresses() {
 
         console.log("Tokens in fetch user addresses", localStorage.getItem('access'), localStorage.getItem('refresh'));
 
+        const token = localStorage.getItem('access');
+
+        if ( !token ) {
+            console.log("No access token found.");
+        }
+
         const response = await axios.get(`${API_BASE_URL}/api/addresses/`, {
             headers : {
-                Authorization: `Bearer ${localStorage.getItem('access')}`
+                Authorization: `Bearer ${token}`
             }
         });
 
-        if ( response.status === 200 ) {
         return response.data;
-        } 
+        
     } catch (error) {
-        console.log("Error fetching user addresses, please try again");
+
+        console.log("Fetch failed: ", error.response?.status);
+        throw error;
 
     }
     

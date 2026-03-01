@@ -14,6 +14,8 @@ from django.http import HttpResponse
 from .services.oauth_service import backend_login
 from .services.oauth_service import backend_logout
 from .services.user_exists import user_exists
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.decorators import permission_classes
 
 
 
@@ -124,12 +126,17 @@ def check_user_exists(request):
 
 # View to get and add new address for user
 @api_view(['GET', 'POST'])
+@permission_classes([IsAuthenticated])
 def fetch_and_add_address(request):
 
     # if request is GET fetch user addresses and return
     if request.method == 'GET':
 
         user = request.user
+
+        logger.debug(f"is user authenticated? {user.is_authenticated} in fetch_and_add_address view")
+        print("AUTH HEADER:", request.headers.get("Authorization"))
+        logger.debug(f"print user: {user}")
 
         addresses = Address.objects.filter(user=user).order_by('last_used')
 
