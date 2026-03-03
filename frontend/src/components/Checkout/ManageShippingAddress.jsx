@@ -55,6 +55,11 @@ export default function ManageShippingAddress() {
             { numberOfAddresses > numberOfAddressesDispalyed && <button onClick={() => setNumberOfAddressesDisplayed(numberOfAddressesDispalyed + 5)}>show more</button>}
 
             { showAddressForm && <InputShippingAddress action="add" setShowAddressForm={setShowAddressForm} />}
+            { showEditAddressForm && <InputShippingAddress action="edit" id={selectedAddress} 
+                                                           setShowAddressForm={setShowEditAddressForm}
+                                                           address = {addresses.find( (address) => address.id === selectedAddress )}
+                                                           
+                                                           />}
 
             {addresses.slice(0, numberOfAddressesDispalyed).map( 
 
