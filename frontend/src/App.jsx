@@ -8,6 +8,7 @@ import HeaderLayout from './layouts/HeaderLayout.jsx';
 import MainLayout from './layouts/MainLayout.jsx';
 import { AuthProvider } from './contexts/AuthContext.jsx';
 import Checkout from './pages/Checkout'
+import Payment from './pages/Payment';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
             <Route path="/book/:id" element={<BookDetails />} />
             <Route path="/cart/" element={<Cart/>} />
             <Route path="/checkout" element={<Checkout />}/>
+            <Route path="/payment" element={<Payment />} />
           </Routes>
         </MainLayout>
         </AuthProvider>

@@ -37,7 +37,7 @@ export default function Cart() {
             </div>
 
             <div>
-              <OrderSummary cartItems={cartItems} actionLabel={"Checkout"} />
+              <OrderSummary cartItems={cartItems} actionLabel={"Checkout"} destination="/checkout" />
             </div>
             
           </div>

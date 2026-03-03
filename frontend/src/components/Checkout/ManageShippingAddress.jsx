@@ -7,7 +7,7 @@ import styles from "./ManageShippingAddress.module.css";
 
 
 
-export default function ManageShippingAddress() {
+export default function ManageShippingAddress({ selectedAddress, setSelectedAddress }) {
 
     // state to store user addresses
     const [addresses, setAddresses] = useState([]);
@@ -17,9 +17,6 @@ export default function ManageShippingAddress() {
 
     // state to trace if user is editing an address
     const [showEditAddressForm, setShowEditAddressForm] = useState(false);
-
-    // state to store the selected shipping address
-    const [selectedAddress, setSelectedAddress] = useState(null);
 
     // state to store number of addresses displayed to the user, default is 5
     const [numberOfAddressesDispalyed, setNumberOfAddressesDisplayed] = useState(5);
