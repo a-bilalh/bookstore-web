@@ -23,15 +23,36 @@ export default function Checkout() {
   const [userHasAccount, setUserHasAccount] = useState(false);
   const [checkoutSteps, setCheckoutSteps] = useState(() => isLoggedIn() ? "step4" : "step1");
 
-  console.log(" what step is now?", checkoutSteps);
-  console.log(" isLoggedIn in checkout component?", isLoggedIn());
+  // state to store user email during checkout process, used in both login and registration components
   const [email, setEmail] = useState("");
+
+  
+  // state to store the selected shipping address
+  const [selectedAddress, setSelectedAddress] = useState(null);
   
   
   const booksArray = [...cartItems.keys()];
 
   // Function to get number of books in cart
   const numberOfBooks = (book) => cartItems.get(book) || 0;
+
+
+
+  // Function to send address and cart to backend and create order, then redirect to payment page
+  async function handleCheckout() {
+    
+
+
+
+
+
+
+
+  }
+
+
+
+
 
 
     return (
@@ -82,7 +103,7 @@ export default function Checkout() {
           <div className={styles.cartBooksAndSummary}>
 
             <div>
-              <ManageShippingAddress />
+              <ManageShippingAddress selectedAddress={selectedAddress} setSelectedAddress={setSelectedAddress} />
             </div>
 
             <div>
@@ -99,7 +120,7 @@ export default function Checkout() {
 
             </div>
             <div>
-              <OrderSummary cartItems={cartItems} actionLabel={"Place your order"} />
+              <OrderSummary cartItems={cartItems} actionLabel={"Continue to Payment"} destination="/payment" />
             </div>
 
           </div>
