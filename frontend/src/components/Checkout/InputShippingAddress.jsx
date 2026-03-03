@@ -45,8 +45,6 @@ export default function InputShippingAddress( { action, id, setShowAddressForm, 
 
 
 
-
-
     async function handleSubmit(e) {
 
         e.preventDefault();
@@ -68,7 +66,6 @@ export default function InputShippingAddress( { action, id, setShowAddressForm, 
                 } 
               
               });
-              console.log( "response statuss in input shipping address component", response.status);
 
 
             } else {
@@ -152,6 +149,7 @@ export default function InputShippingAddress( { action, id, setShowAddressForm, 
               </label>
 
               <button type="submit">Save</button>
+              <button onClick={() => setShowAddressForm(false)}>Cancel</button>
 
           </form>
 
