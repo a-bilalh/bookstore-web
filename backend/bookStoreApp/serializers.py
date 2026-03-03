@@ -26,6 +26,9 @@ class UserProfileSerializer(serializers.ModelSerializer):
 
 
 class AddressSerializer(serializers.ModelSerializer):
+    full_name = serializers.CharField(source='user.get_full_name', read_only=True)
+    phone = serializers.CharField(source='user.profile.phone_number', read_only=True)
+
     class Meta:
         model = Address
-        fields = ['id', 'street', 'city', 'state', 'zip_code', 'country']
+        fields = ['id', 'street', 'city', 'state', 'zip_code', 'country', 'full_name', 'phone']
