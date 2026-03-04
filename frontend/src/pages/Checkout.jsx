@@ -8,6 +8,8 @@ import CartBookDisplay from "../components/Cart/CartBookDisplay.jsx";
 import OrderSummary from "../components/Cart/OrderSummary.jsx";
 import styles from "./checkout.module.css";
 import ManageShippingAddress from "../components/Checkout/ManageShippingAddress.jsx";
+import axios from "axios";
+import { API_BASE_URL } from "../config";
 
 
 
@@ -41,11 +43,26 @@ export default function Checkout() {
   // Function to send address and cart to backend and create order, then redirect to payment page
   async function handleCheckout() {
     
+        // send address and cart data to backend and create order
+        const orderData = {
+            address: selectedAddress,
+            cartItems: Object.fromEntries(cartItems) // convert Map to an object for easier handling in backend
+        };
+
+        try {
+
+            const response = await axios.post(`${API_BASE_URL}/orders/create/`, orderData, {
+                headers: {
+                   'Bearer': localStorage.getItem('accessToken')
+                }
+            })
+            console.log("Order created successfully", response.data);
+
+        } catch (error) {
+            console.log("Order creation failed", error.response); 
 
 
-
-
-
+        }
 
 
   }
