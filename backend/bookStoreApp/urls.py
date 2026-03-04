@@ -11,16 +11,19 @@ from .views import check_user_exists
 from .views import update_address
 import logging
 from .views import fetch_and_add_address
+from .views import create_order_view
 
 
 
 urlpatterns = [
+
 
     path('addresses/', fetch_and_add_address, name='fetch_and_add_address'),
     path('addresses/<int:id>/', update_address, name='update_address'),
     path('books/<int:book_id>/', get_book_by_id, name='book-by-id'),
     path('books/random/<str:category>/<int:count>/', random_books_view, name='random-books'),
     path('register/', process_registration, name='register'),
+    path('orders/create/', create_order_view, name='create_order'),
     path('user/email/', check_user_exists, name='does_user_exists'),
     path('login/', login_view, name='login_view'), # TODO: New url for user login; untested
     path('logout/', logout_view, name='logout_view'), # TODO: New url for user logout; untested

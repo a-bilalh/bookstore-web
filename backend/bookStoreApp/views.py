@@ -201,3 +201,9 @@ def update_address(request, id):
 
 
 
+
+def create_order_view(request):
+
+    user = request.user
+    cart_items = request.POST.get('cartItems')
+    address = request.POST.get('address')

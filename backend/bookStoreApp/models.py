@@ -61,15 +61,26 @@ class Order(models.Model):
     shipping_city = models.CharField(max_length=100, null=True, blank=True)
     shipping_state = models.CharField(max_length=100, null=True, blank=True)
     shipping_zip_code = models.CharField(max_length=20, null=True, blank=True)
+    shipping_country = models.CharField(max_length=100, null=True, blank=True, default='USA')
 
-
-    book = models.ForeignKey(Book, on_delete=models.CASCADE)
-    quantity = models.PositiveIntegerField(default=1)
+    
     order_date = models.DateTimeField(auto_now_add=True)
     shipped = models.BooleanField(default=False)
+    total_price = models.DecimalField(max_digits=8, decimal_places=2, default=0.00)
 
     def __str__(self):
         return f"Order {self.id} by {self.user.username}"
+
+
+
+class OrderItem(models.Model):
+    order = models.ForeignKey(Order, related_name='items', on_delete=models.CASCADE)
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField(default=1)
+    price = models.DecimalField(max_digits=6, decimal_places=2)
+
+    def __str__(self):
+        return f"{self.quantity} of {self.book.title} in Order {self.order.id}"
     
     
     
