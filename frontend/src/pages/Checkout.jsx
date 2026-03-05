@@ -46,7 +46,10 @@ export default function Checkout() {
         // send address and cart data to backend and create order
         const orderData = {
             address: selectedAddress,
-            cartItems: Object.fromEntries(cartItems) // convert Map to an object for easier handling in backend
+            cartItems: Array.from(cartItems.entries()).map(([book, quantity]) => ({
+                 book_id: book.id, 
+                 quantity, 
+                 price: book.price })) // convert Map to an array of objects for easier handling in backend
         };
 
         try {
