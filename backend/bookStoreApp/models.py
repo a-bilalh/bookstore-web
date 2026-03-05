@@ -73,6 +73,7 @@ class Order(models.Model):
 
 
 
+# OrderItem model to represent individual items in an order
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, related_name='items', on_delete=models.CASCADE)
     book = models.ForeignKey(Book, on_delete=models.CASCADE)

@@ -207,3 +207,37 @@ def create_order_view(request):
     user = request.user
     cart_items = request.POST.get('cartItems')
     address = request.POST.get('address')
+
+    order = Order.objects.create(
+        user=user,
+        shipping_full_name = address.get('full_name'),
+        shipping_phone_number = address.get('phone'),
+        shipping_address_line1 = address.get('street'),
+        shipping_city = address.get('city'),
+        shipping_state=address.get('state'),
+        shipping_zip_code=address.get('zip_code'),
+        shipping_country=address.get('country'),
+
+        order_date = timezone.now(),
+        shipped = False,
+        total_price = calculate_total_price(cart_items)
+    )
+
+    order.save()
+
+
+    for item in cart_items:
+
+        order_item = OrderItem.objects.create(
+            order=order,
+            book_id=item.get('book_id'),
+            quantity=item.get('quantity'),
+            price=item.get('price')
+        )
+
+        order_item.save()
+
+    return Response({'message': 'Order created successfully',
+                     'order_id': order.id
+                    }, status=201, )
+
