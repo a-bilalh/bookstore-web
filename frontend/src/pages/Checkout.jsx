@@ -10,6 +10,7 @@ import styles from "./checkout.module.css";
 import ManageShippingAddress from "../components/Checkout/ManageShippingAddress.jsx";
 import axios from "axios";
 import { API_BASE_URL } from "../config";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -37,6 +38,7 @@ export default function Checkout() {
 
   // Function to get number of books in cart
   const numberOfBooks = (book) => cartItems.get(book) || 0;
+
 
 
 
@@ -140,7 +142,7 @@ export default function Checkout() {
 
             </div>
             <div>
-              <OrderSummary cartItems={cartItems} actionLabel={"Continue to Payment"} destination="/payment" />
+              <OrderSummary cartItems={cartItems} actionLabel={"Continue to Payment"} onClick={handleCheckout} />
             </div>
 
           </div>

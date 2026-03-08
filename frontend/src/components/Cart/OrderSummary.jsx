@@ -32,9 +32,8 @@ export default function OrderSummary( { cartItems, actionLabel, destination } ) 
 
           <p>Subtotal: ${ calculateSubtotal().toFixed(2) }</p>
           
-          <Link to={destination} className={styles.checkoutButton}>
-            {actionLabel}
-          </Link>
+
+          <button onClick={onClick}>{actionLabel}</button>
 
 
         </div>
