@@ -12,6 +12,7 @@ from .views import update_address
 import logging
 from .views import fetch_and_add_address
 from .views import create_order_view
+from .views import success, cancel
 
 
 
@@ -28,5 +29,7 @@ urlpatterns = [
     path('login/', login_view, name='login_view'), # TODO: New url for user login; untested
     path('logout/', logout_view, name='logout_view'), # TODO: New url for user logout; untested
     path('', home_view, name='home_view'),
+    path('success/', success, name='success'),
+    path('cancel/', cancel, name='cancel'),
 
 ]

@@ -16,6 +16,10 @@ from .services.oauth_service import backend_logout
 from .services.user_exists import user_exists
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import permission_classes
+import stripe
+from django.conf import settings
+
+
 
 
 
@@ -240,4 +244,48 @@ def create_order_view(request):
     return Response({'message': 'Order created successfully',
                      'order_id': order.id
                     }, status=201, )
+
+
+
+# stripe success view
+def success(request):
+    return Response({'message': 'Payment successful'}, status=200)
+
+
+# stripe cancel view
+def cancel(request):
+    return Response({'message': 'Payment cancelled'}, status=200)
+
+
+
+
+def create_checkout_session(request):
+
+    stripe.api_key = settings.STRIPE_SECRET_KEY
+
+    cart_items = request.POST.get('cartItems')
+    address = request.POST.get('address')
+
+    line_items = []
+    for item in cart_items:
+        line_items.append({
+            'price_data': {
+                'currency': 'usd',
+                'product_data': {
+                    'name': item.get('book_title'),
+                },
+                'unit_amount': int(item.get('price') * 100),  # price in cents
+            },
+            'quantity': item.get('quantity'),
+        })
+
+    checkout_session = stripe.checkout.Session.create(
+        payment_method_types=['card'],
+        line_items=line_items,
+        mode='payment',
+        success_url=request.build_absolute_uri('/success/'),
+        cancel_url=request.build_absolute_uri('/cancel/'),
+    )
+
+    return Response({'id': checkout_session.id}, status=200)
 
