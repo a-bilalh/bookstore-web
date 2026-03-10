@@ -62,6 +62,9 @@ class Order(models.Model):
     shipping_state = models.CharField(max_length=100, null=True, blank=True)
     shipping_zip_code = models.CharField(max_length=20, null=True, blank=True)
     shipping_country = models.CharField(max_length=100, null=True, blank=True, default='USA')
+    
+    status = models.CharField(max_length=20, default='pending')
+    session_id = models.CharField(max_length=255, null=True, blank=True)
 
     
     order_date = models.DateTimeField(auto_now_add=True)

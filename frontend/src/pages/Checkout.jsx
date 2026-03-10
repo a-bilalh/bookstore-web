@@ -56,11 +56,13 @@ export default function Checkout() {
 
         try {
 
-            const response = await axios.post(`${API_BASE_URL}/orders/create/`, orderData, {
+            const response = await axios.post(`${API_BASE_URL}/orders/payment/`, orderData, {
                 headers: {
                    'Bearer': localStorage.getItem('accessToken')
                 }
             })
+
+            window.location.href = response.data.url; // redirect to Stripe checkout page
             console.log("Order created successfully", response.data);
 
         } catch (error) {
