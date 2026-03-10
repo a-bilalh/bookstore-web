@@ -206,7 +206,7 @@ def update_address(request, id):
 
 
 
-def create_order_view(request):
+def create_order_payment_view(request):
 
     user = request.user
     cart_items = request.POST.get('cartItems')
@@ -241,9 +241,7 @@ def create_order_view(request):
 
         order_item.save()
 
-    return Response({'message': 'Order created successfully',
-                     'order_id': order.id
-                    }, status=201, )
+    return create_checkout_session(cart_items, address)
 
 
 
@@ -259,12 +257,9 @@ def cancel(request):
 
 
 
-def create_checkout_session(request):
+def create_checkout_session(cartItems, address):
 
     stripe.api_key = settings.STRIPE_SECRET_KEY
-
-    cart_items = request.POST.get('cartItems')
-    address = request.POST.get('address')
 
     line_items = []
     for item in cart_items:
@@ -287,5 +282,6 @@ def create_checkout_session(request):
         cancel_url=request.build_absolute_uri('/cancel/'),
     )
 
-    return Response({'id': checkout_session.id}, status=200)
+    return Response({'id': checkout_session.id, 
+                     'url': checkout_session.url}, status=200)
 
