@@ -19,13 +19,18 @@ from rest_framework.decorators import permission_classes
 import stripe
 from django.conf import settings
 import json
-
-
-
+from django.utils import timezone
+from utils.calculate_total_price import calculate_total_price
 
 
 
 logger = logging.getLogger("bookStoreApp")
+
+
+stripe.api_key = settings.STRIPE_SECRET_KEY
+
+
+
 
 
 # Create your views here.
@@ -223,6 +228,7 @@ def create_order_payment_view(request):
     logger.debug(f"Received cart items: {cart_items} and address: {address} in create_order_payment_view")
 
     order = Order.objects.create(
+
         user=user,
         shipping_full_name = address.full_name,
         shipping_phone_number = address.phone,
@@ -237,7 +243,6 @@ def create_order_payment_view(request):
         total_price = calculate_total_price(cart_items)
     )
 
-    logger.debug(f"Created order: {order} in create_order_payment_view")
 
     order.save()
 
@@ -253,7 +258,7 @@ def create_order_payment_view(request):
 
         order_item.save()
 
-    return create_checkout_session(cart_items, address)
+    return create_checkout_session(cart_items, address, request)
 
 
 
@@ -269,22 +274,26 @@ def cancel(request):
 
 
 
-def create_checkout_session(cartItems, address):
+def create_checkout_session(cartItems, address, request):
 
-    stripe.api_key = settings.STRIPE_SECRET_KEY
+    books_ids = [item.get('book_id') for item in cartItems]
+    books = Book.objects.filter(id__in=books_ids)
+
+    books_dict = {book.id: book for book in books}
 
     line_items = []
-    for item in cart_items:
+    for item in cartItems:
         line_items.append({
             'price_data': {
                 'currency': 'usd',
                 'product_data': {
-                    'name': item.get('book_title'),
+                    'name': books_dict[item.get('book_id')].title,
                 },
-                'unit_amount': int(item.get('price') * 100),  # price in cents
+                'unit_amount': int(float(item.get('price')) * 100),  # price in cents
             },
-            'quantity': item.get('quantity'),
+            'quantity': int(item.get('quantity')),
         })
+
 
     checkout_session = stripe.checkout.Session.create(
         payment_method_types=['card'],
@@ -293,6 +302,7 @@ def create_checkout_session(cartItems, address):
         success_url=request.build_absolute_uri('/success/'),
         cancel_url=request.build_absolute_uri('/cancel/'),
     )
+
 
     return Response({'id': checkout_session.id, 
                      'url': checkout_session.url}, status=200)
