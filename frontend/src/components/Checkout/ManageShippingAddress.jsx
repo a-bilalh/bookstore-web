@@ -69,13 +69,12 @@ export default function ManageShippingAddress({ selectedAddress, setSelectedAddr
 
             {addresses.slice(0, numberOfAddressesDispalyed).map( 
 
-                (address) => ( 
-                    <label className={styles.addressDisplay}>
+                (address) => (
+                    <label key={address.id} className={styles.addressDisplay}>
 
                         <input type="radio" 
                                name="shipping_address"
                                value={address.id}
-                               key={address.id}
                                checked={selectedAddress === address.id}
                                onChange={() => setSelectedAddress(address.id)}
 

@@ -1,5 +1,5 @@
 from rest_framework import  viewsets
-from .models import Book
+from .models import Book, UserProfile, Address, Order, OrderItem
 from .serializers import BookSerializer, AddressSerializer
 from .services.getData import get_random_books
 from rest_framework.response import Response    
@@ -18,6 +18,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import permission_classes
 import stripe
 from django.conf import settings
+import json
 
 
 
@@ -178,8 +179,11 @@ def fetch_and_add_address(request):
 
 
 
+
 # View to update existing address for user
+
 @api_view(['PUT'])
+@permission_classes([IsAuthenticated])
 def update_address(request, id):
 
     user = request.user
@@ -206,26 +210,34 @@ def update_address(request, id):
 
 
 
+
+@permission_classes([IsAuthenticated])
+@api_view(['POST'])
 def create_order_payment_view(request):
 
     user = request.user
-    cart_items = request.POST.get('cartItems')
-    address = request.POST.get('address')
+    cart_items = request.data.get('cartItems')
+    address = Address.objects.get(id=request.data.get('address'))
+
+    logger.debug(f"User: {user} in create_order_payment_view")
+    logger.debug(f"Received cart items: {cart_items} and address: {address} in create_order_payment_view")
 
     order = Order.objects.create(
         user=user,
-        shipping_full_name = address.get('full_name'),
-        shipping_phone_number = address.get('phone'),
-        shipping_address_line1 = address.get('street'),
-        shipping_city = address.get('city'),
-        shipping_state=address.get('state'),
-        shipping_zip_code=address.get('zip_code'),
-        shipping_country=address.get('country'),
+        shipping_full_name = address.full_name,
+        shipping_phone_number = address.phone,
+        shipping_address_line1 = address.street,
+        shipping_city = address.city,
+        shipping_state=address.state,
+        shipping_zip_code=address.zip_code,
+        shipping_country=address.country,
 
         order_date = timezone.now(),
         shipped = False,
         total_price = calculate_total_price(cart_items)
     )
+
+    logger.debug(f"Created order: {order} in create_order_payment_view")
 
     order.save()
 
