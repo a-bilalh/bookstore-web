@@ -23,8 +23,12 @@ class Book(models.Model):
     
 # Address model
 class Address(models.Model):
-    
+
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+
+    full_name = models.CharField(max_length=255, null=True, blank=True)
+    phone = models.CharField(max_length=20, null=True, blank=True)
+
     street = models.CharField(max_length=255)
     city = models.CharField(max_length=100)
     state = models.CharField(max_length=100)

@@ -56,9 +56,11 @@ export default function Checkout() {
 
         try {
 
+          console.log("Sending order data to backend:", orderData);
+
             const response = await axios.post(`${API_BASE_URL}/orders/payment/`, orderData, {
                 headers: {
-                   'Bearer': localStorage.getItem('accessToken')
+                   'Authorization': `Bearer ${localStorage.getItem('access')}`
                 }
             })
 
