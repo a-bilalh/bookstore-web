@@ -258,16 +258,20 @@ def create_order_payment_view(request):
 
         order_item.save()
 
-    return create_checkout_session(cart_items, address, request)
+        stripe_data = create_checkout_session(cart_items, address, request)
+
+    return Response(stripe_data, status=200)
 
 
 
 # stripe success view
+@api_view(['GET'])
 def success(request):
     return Response({'message': 'Payment successful'}, status=200)
 
 
 # stripe cancel view
+@api_view(['GET'])
 def cancel(request):
     return Response({'message': 'Payment cancelled'}, status=200)
 
@@ -300,10 +304,17 @@ def create_checkout_session(cartItems, address, request):
         line_items=line_items,
         mode='payment',
         success_url=request.build_absolute_uri('/success/'),
-        cancel_url=request.build_absolute_uri('/cancel/'),
+        cancel_url="http://localhost:3000/checkout",
     )
 
 
-    return Response({'id': checkout_session.id, 
-                     'url': checkout_session.url}, status=200)
+    return {
+        'id': checkout_session.id,
+        'url': checkout_session.url
+    }
+    
+    
+    
+#    Response({'id': checkout_session.id, 
+ #                    'url': checkout_session.url}, status=200)
 
