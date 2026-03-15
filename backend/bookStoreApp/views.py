@@ -21,6 +21,8 @@ from django.conf import settings
 import json
 from django.utils import timezone
 from utils.calculate_total_price import calculate_total_price
+from django.views.decorators.csrf import csrf_exempt
+from .models import Payment
 
 
 
@@ -314,7 +316,48 @@ def create_checkout_session(cartItems, address, request):
     }
     
     
+
+@csrf_exempt
+def stripe_webhook(request):
+
+    print("Webhook received")
+    print("Method:", request.method)
+    print("Body:", request.body)
+
+    payload = request.body
+    sig_header = request.META.get("HTTP_STRIPE_SIGNATURE")
+    event = None
+
+    try:
+        event = stripe.Webhook.construct_event(
+            payload, sig_header, settings.STRIPE_WEBHOOK_SECRET
+        )
+    except ValueError as e:
+        # Invalid payload
+        return HttpResponse(status=400)
+    except stripe.error.SignatureVerificationError as e:
+        # Invalid signature
+        return HttpResponse(status=400)
+
+    # Handle the checkout.session.completed event
+    if event['type'] == 'checkout.session.completed':
+        session = event['data']['object']
+
+        order = Order.objects.filter(session_id=session.id)
+        order.update(status='paid')
+        order.save()
+
+
+        Payment.objects.create(
+            order=order.first(),
+            stripe_payment_intent_id=session.payment_intent,
+            amount=session.amount_total / 100,  # convert cents to dollars
+            payment_date=timezone.now()
+        )
+
     
-#    Response({'id': checkout_session.id, 
- #                    'url': checkout_session.url}, status=200)
+        # Here you can update your order status in the database
+        # For example, you can mark the order as paid and update inventory
+
+    return HttpResponse(status=200)
 

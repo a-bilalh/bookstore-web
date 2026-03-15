@@ -13,6 +13,7 @@ import logging
 from .views import fetch_and_add_address
 from .views import success, cancel
 from .views import create_order_payment_view
+from .views import stripe_webhook
 
 
 
@@ -29,6 +30,7 @@ urlpatterns = [
     path('login/', login_view, name='login_view'), # TODO: New url for user login; untested
     path('logout/', logout_view, name='logout_view'), # TODO: New url for user logout; untested
     path('', home_view, name='home_view'),
+    path('stripe/webhook/', stripe_webhook, name='stripe_webhook'),
     path('success/', success, name='success'),
     path('cancel/', cancel, name='cancel'),
 
