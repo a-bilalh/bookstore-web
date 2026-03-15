@@ -260,7 +260,7 @@ def create_order_payment_view(request):
 
         order_item.save()
 
-        stripe_data = create_checkout_session(cart_items, address, request)
+    stripe_data = create_checkout_session(cart_items, address, request)
 
     return Response(stripe_data, status=200)
 
@@ -305,6 +305,9 @@ def create_checkout_session(cartItems, address, request):
         payment_method_types=['card'],
         line_items=line_items,
         mode='payment',
+        metadata={
+            'order_id': address.id
+        },
         success_url=request.build_absolute_uri('/success/'),
         cancel_url="http://localhost:3000/checkout",
     )
@@ -320,10 +323,6 @@ def create_checkout_session(cartItems, address, request):
 @csrf_exempt
 def stripe_webhook(request):
 
-    print("Webhook received")
-    print("Method:", request.method)
-    print("Body:", request.body)
-
     payload = request.body
     sig_header = request.META.get("HTTP_STRIPE_SIGNATURE")
     event = None
@@ -332,30 +331,38 @@ def stripe_webhook(request):
         event = stripe.Webhook.construct_event(
             payload, sig_header, settings.STRIPE_WEBHOOK_SECRET
         )
+
+        logger.debug(f"Received Stripe webhook event: {event['type']} with data: {event['data']} in stripe_webhook view")
     except ValueError as e:
         # Invalid payload
         return HttpResponse(status=400)
     except stripe.error.SignatureVerificationError as e:
         # Invalid signature
         return HttpResponse(status=400)
+    
+    logger.debug(f"Received Stripe webhook event: {event['type']} with data: {event['data']} in stripe_webhook view")
+    logger.debug(f"EVENT TYPE: {event['type']}")
 
     # Handle the checkout.session.completed event
     if event['type'] == 'checkout.session.completed':
+        logger.debug(f"Received Stripe webhook event: {event['type']} with data: {event['data']} in stripe_webhook view")
         session = event['data']['object']
 
-        order = Order.objects.filter(session_id=session.id)
-        order.update(status='paid')
+        order_id = session['metadata']['order_id']
+
+        order = Order.objects.get(id=order_id)
+        order.status = 'paid'
         order.save()
 
 
         Payment.objects.create(
-            order=order.first(),
+            order=order,
             stripe_payment_intent_id=session.payment_intent,
             amount=session.amount_total / 100,  # convert cents to dollars
             payment_date=timezone.now()
         )
 
-    
+        logger.debug(f"Payment created for order: {order}")
         # Here you can update your order status in the database
         # For example, you can mark the order as paid and update inventory
 
