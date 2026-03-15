@@ -86,7 +86,10 @@ SECRET_KEY = 'django-insecure-f5k%&!=owjmqam3s31#+%5t!#5v&@@#4p!&(mg=gv2+)0*nqu+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["subregular-unfilling-junior.ngrok-free.dev"]
+ALLOWED_HOSTS = ["subregular-unfilling-junior.ngrok-free.dev",
+                    'localhost',
+                '127.0.0.1',
+]
 
 
 # Application definition
@@ -220,4 +223,4 @@ REST_FRAMEWORK = {
 
 STRIPE_PUBLISHABLE_KEY= config('STRIPE_PUBLISHABLE_KEY')
 STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY')
-STRIPE_WEBHOOK_SECRET = "whsec_test_secret"
+STRIPE_WEBHOOK_SECRET = config('STRIPE_WEBHOOK_SECRET')
