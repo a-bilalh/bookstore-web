@@ -368,3 +368,21 @@ def stripe_webhook(request):
 
     return HttpResponse(status=200)
 
+
+
+
+@api_view(['GET'])
+def search_books(request):
+
+    query = request.GET.get("q", "")
+
+    if not query: 
+        return Response([])
+
+    books = Books.objects.filter(
+        Q(title_icontains=query) |
+        Q(author_icontains=query)
+    )[:10]
+
+    serializer = BookSerializer(books, many=True)
+    return Response(serializer.data)
