@@ -14,6 +14,7 @@ from .views import fetch_and_add_address
 from .views import success, cancel
 from .views import create_order_payment_view
 from .views import stripe_webhook
+from .views import search_books
 
 
 
@@ -23,6 +24,7 @@ urlpatterns = [
     path('addresses/', fetch_and_add_address, name='fetch_and_add_address'),
     path('addresses/<int:id>/', update_address, name='update_address'),
     path('books/<int:book_id>/', get_book_by_id, name='book-by-id'),
+    path('books/search/', search_books, name='search-books'),
     path('books/random/<str:category>/<int:count>/', random_books_view, name='random-books'),
     path('register/', process_registration, name='register'),
     path('orders/payment/', create_order_payment_view, name='create_order'),
