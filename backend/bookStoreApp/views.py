@@ -23,6 +23,7 @@ from django.utils import timezone
 from utils.calculate_total_price import calculate_total_price
 from django.views.decorators.csrf import csrf_exempt
 from .models import Payment
+from django.db.models import Q 
 
 
 
@@ -379,9 +380,9 @@ def search_books(request):
     if not query: 
         return Response([])
 
-    books = Books.objects.filter(
-        Q(title_icontains=query) |
-        Q(author_icontains=query)
+    books = Book.objects.filter(
+        Q(title__icontains=query) |
+        Q(author__icontains=query)
     )[:10]
 
     serializer = BookSerializer(books, many=True)
