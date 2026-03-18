@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import styles from './SearchBar.module.css';
 import axios from 'axios';
+import { API_BASE_URL } from '../../config';
 
 
 // Search Bar Component
@@ -15,7 +16,7 @@ export default function SearchBar() {
 
         const delay = setTimeout(() => {
             if ( query.length > 1 ) {
-                axios.get(`/api/books/search?q=${query}`)
+                axios.get(`${API_BASE_URL}/api/books/search/?q=${query}`)
                     .then(res => setResults(res.data))
                     .catch(err => console.error(err));
             } else {
