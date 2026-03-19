@@ -1,11 +1,55 @@
 
+.searchContainer {
+    position: relative;
+    width: 350px;
+    margin-left: 150px;
+}
+
+
+
 
 .searchBar{
-    width: 350px;
+    width: 100%;
     height: 30px;
-    margin-left: 150px;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #191818;
     font-size: 16px;
+    box-sizing: border-box;
+
+}
+
+
+
+.searchResult{
+
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+
+    background: white;
+    border: 1px solid;
+    border-top: none;
+
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    max-height: 250px;
+    overflow-y: auto;
+
+    z-index: 1000;
+
+}
+
+
+.search-result li {
+    padding: 10px;
+    cursor: pointer;
+}
+
+
+.search-result li:hover {
+    background-color: #f5f5f5;
 }

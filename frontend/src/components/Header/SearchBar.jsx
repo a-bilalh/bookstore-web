@@ -33,17 +33,17 @@ export default function SearchBar() {
 
     return (
 
-      <div>
+      <div className={styles.searchContainer}>
 
-          <input 
+          <input
+                className={styles.searchBar}
                 type="text" 
-                className={styles.searchBar} 
                 placeholder="Search books..."
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
             />
 
-            <ul>
+            <ul className={styles.searchResult}>
                 {
                     results.map((book) => (
                         <li key={book.id}>
