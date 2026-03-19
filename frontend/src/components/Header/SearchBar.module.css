@@ -44,12 +44,17 @@
 }
 
 
-.search-result li {
+.searchResult li {
     padding: 10px;
     cursor: pointer;
 }
 
 
-.search-result li:hover {
+.searchResult li:not(:last-child) {
+  border-bottom: 1px solid #eee;
+}
+
+
+.searchResult li:hover {
     background-color: #f5f5f5;
 }
