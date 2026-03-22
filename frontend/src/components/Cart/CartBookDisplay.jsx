@@ -45,7 +45,7 @@ export default function CartBookDisplay( {book , quantity, decreaseBook, increas
               </div>
 
               <div>
-                <button onClick={() => deleteFromCart(book)}>Delete</button> | <button>Save for later</button>
+                <button onClick={() => deleteFromCart(book)}>Delete</button> <button>Save for later</button>
               </div>
 
             </div>
