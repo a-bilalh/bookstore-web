@@ -17,7 +17,6 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: inherit;
   font-weight: 700;
-  margin: 0 0 16px 0;
   color: #111;
   line-height: 1.2;
 }
@@ -55,21 +54,29 @@ button:hover, .btn:hover {
 /* -------------------- */
 /* Inputs / search box */
 /* -------------------- */
-input, textarea {
-  font-family: inherit;
-  font-weight: 400;
-  font-size: 16px;
-  padding: 10px;
-  border: 1px solid #ccc;
+input {
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  padding: 10px 12px;
   border-radius: 6px;
-  outline: none;
-  box-sizing: border-box;
-  transition: border 0.2s, box-shadow 0.2s;
+  color: #111827;
 }
 
-input:focus, textarea:focus {
-  border-color: #4a90e2;
-  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+
+input:focus {
+  border-color: #2563EB;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+
+input::placeholder {
+  color: #9CA3AF;
+}
+
+input.error {
+  border-color: #DC2626;
+  background: #FEF2F2;
 }
 
 

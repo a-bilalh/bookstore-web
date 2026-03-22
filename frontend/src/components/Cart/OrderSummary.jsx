@@ -25,7 +25,7 @@ export default function OrderSummary( { cartItems, actionLabel, destination, onC
 
         <div className={styles.orderSummaryMainDiv}>
 
-          <h2 className={styles.orderSummaryTitle}>Order Summary</h2>
+          <h3 className={styles.orderSummaryTitle}>Order Summary</h3>
 
           <p>Total Items: {cartItems.size}</p>  
 

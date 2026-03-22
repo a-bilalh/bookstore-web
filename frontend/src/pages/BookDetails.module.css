@@ -46,14 +46,12 @@
 /* author */
 .bookDetails_container_section_author {
     font-size: 1.2rem;
-    color: gray;
 }
 
 /* price */
 .bookDetails_container_section_price {
     font-size: 1.5rem;
     font-weight: bold;
-    color: green;
 }
 
 /* description */
@@ -88,6 +86,5 @@
 .backLink {
     margin-top: 15px;
     text-decoration: none;
-    color: #007bff;
     font-size: 1rem;
 }
