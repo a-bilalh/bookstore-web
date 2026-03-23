@@ -49,25 +49,31 @@ export default function Header() {
 
     <div className={styles.headerDev}>
 
+
+      <div className={styles.titleAndSearch}>
+
         <header>
           <h1>AB Book Store</h1>
         </header>
-
         <SearchBar />
+
+      </div>
+
+      <div>
 
         <div className={styles.createAccountDiv}>
             {!isLoggedInValue && <AuthButton onClick={openRegistrationForm} content={"Create Account"} /> }
         </div>
 
-
         <div>
             {!isLoggedInValue && <AuthButton onClick={openLoginForm} content={"Log In"} /> }
         </div>
 
-
         <div>
             { isLoggedInValue && <AuthButton onClick={handleLogout} content={"Log Out"} /> }
         </div>
+
+      </div>
 
 
         <div className={styles.formPosition}>
@@ -82,6 +88,7 @@ export default function Header() {
         <Link to="/cart">
             <CartIcon itemCount={numberOfItemsInCart()} />
         </Link>
+
 
 
     </div>  

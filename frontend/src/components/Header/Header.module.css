@@ -9,6 +9,12 @@
 }
 
 
+.titleAndSearch {
+    display: flex;
+    flex-direction: row;
+}
+
+
 .cartIcon{
     width: 40px;
     height: 40px;

@@ -64,6 +64,7 @@
 .primaryButton {
     padding: 10px 15px;
     background-color: #007bff;
+    /*#007bff*/
     color: white;
     border: none;
     border-radius: 5px;
@@ -80,6 +81,7 @@
 
 .primaryButton:active {
     background-color: #004080;
+    /*#004080*/
 }
 
 
