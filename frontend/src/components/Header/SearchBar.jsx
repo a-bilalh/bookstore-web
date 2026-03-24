@@ -46,7 +46,7 @@ export default function SearchBar() {
           <input
                 className={styles.searchBar}
                 type="text" 
-                placeholder="Search books..."
+                placeholder="Search by title or author"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
             />

@@ -1,9 +1,7 @@
 import RegistrationForm from "../components/RegistrationForm";
 import MyHorizontalList from "../components/BooksRowDisplay.jsx";
 import LoginForm from "../components/LoginForm.jsx";
-import { useState } from "react";
-import styles from './HomePage.module.css';
-import Logout from "../components/LogoutForm.jsx";
+import Label from "../components/SectionLabel.jsx";
 
 // temporary removed from header 
 /*
@@ -36,18 +34,12 @@ import Logout from "../components/LogoutForm.jsx";
 
 export default function Home() {
 
-// temporary and needs to be removed if current design was working 
-/*
-                <Header handleRegistration={handleRegistration}
-                    handleLogin={handleLogin}
-                    handleLogout={handleLogout}
-                    isLoggedIn={isLoggedIn}
-                    />
-*/
     return (
         <>
-
+            <Label type="fiction" children="Fiction" />
             <MyHorizontalList category={"fiction"} count={10}/>
+
+            <Label type="nonfiction">Non Fiction</Label>
             <MyHorizontalList category={"nonfiction"} count={10}/>
 
         </>
