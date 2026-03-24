@@ -47,7 +47,7 @@ export default function Header() {
 
     // TO:DO Button onClick was added to the Create Account button
 
-    <div className={styles.headerDev}>
+    <div className={styles.headerDiv}>
 
 
       <div className={styles.titleAndSearch}>
@@ -55,23 +55,29 @@ export default function Header() {
         <header>
           <h1>AB Book Store</h1>
         </header>
-        <SearchBar />
+        <div className={styles.searchDiv}>
+          <SearchBar />
+        </div>
 
       </div>
 
-      <div>
+      <div className={styles.logRegisterCart}>
 
         <div className={styles.createAccountDiv}>
             {!isLoggedInValue && <AuthButton onClick={openRegistrationForm} content={"Create Account"} /> }
         </div>
 
-        <div>
+        <div className={styles.createAccountDiv}>
             {!isLoggedInValue && <AuthButton onClick={openLoginForm} content={"Log In"} /> }
         </div>
 
-        <div>
+        <div className={styles.createAccountDiv}>
             { isLoggedInValue && <AuthButton onClick={handleLogout} content={"Log Out"} /> }
         </div>
+
+        <Link to="/cart">
+            <CartIcon itemCount={numberOfItemsInCart()} />
+        </Link>
 
       </div>
 
@@ -85,9 +91,6 @@ export default function Header() {
             {showLoginForm && <LoginForm closeLogin={closeLoginForm} handleSetTokens={handleSetTokens} />}
         </div>
 
-        <Link to="/cart">
-            <CartIcon itemCount={numberOfItemsInCart()} />
-        </Link>
 
 
 
