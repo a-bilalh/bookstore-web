@@ -17,7 +17,8 @@ function BookDisplay({book}) {
                  : <h1>Cover Not Available</h1>}
             </div>
             <div className={styles.textDiv}> 
-                {book.title} by {book.author}
+                <div className={styles.title}>{book.title}</div>
+                <div className={styles.author}>{book.author}</div>
             </div>
 
         </Link>
