@@ -8,6 +8,7 @@ import RegistrationForm from '../RegistrationForm.jsx';
 import LoginForm from '../LoginForm.jsx';
 import useAuth from '../../contexts/AuthContext.jsx';
 import { Link } from 'react-router-dom';
+import Modal from '../Modal.jsx';
 
 
 // Header Component
@@ -42,7 +43,16 @@ export default function Header() {
     const closeLoginForm = () => {
         setShowLoginForm(false);
     }
+
+
+    const closeAllForms = () => {
+      setShowLoginForm(false);
+      setShowRegistrationForm(false);
+    };
                                     
+
+
+
   return (
 
     // TO:DO Button onClick was added to the Create Account button
@@ -82,15 +92,39 @@ export default function Header() {
       </div>
 
 
-        <div className={styles.formPosition}>
-            {showRegistrationForm && <RegistrationForm closeRegister={closeRegisterationForm} showLoginForm={openLoginForm} />}
-        </div>
+      <div className={styles.formsContainer}>
+
+        
+      {/* {showRegistrationForm && <RegistrationForm closeRegister={closeRegisterationForm} showLoginForm={openLoginForm} />} */}  
+        
+
+      {(showLoginForm || showRegistrationForm) && (
+        <Modal onClose={closeAllForms}>
+          {showLoginForm && (
+            <LoginForm 
+              closeLogin={closeLoginForm} 
+              handleSetTokens={handleSetTokens} 
+            />
+          )}
+
+          {showRegistrationForm && (
+            <RegistrationForm 
+              closeRegister={closeRegisterationForm} 
+              showLoginForm={openLoginForm} 
+            />
+          )}
+        </Modal>
+      )}
 
 
-        <div className={styles.formPosition}>
+
+
+      {/* <div className={styles.formPosition}>
             {showLoginForm && <LoginForm closeLogin={closeLoginForm} handleSetTokens={handleSetTokens} />}
         </div>
+      */}
 
+      </div>
 
 
 
