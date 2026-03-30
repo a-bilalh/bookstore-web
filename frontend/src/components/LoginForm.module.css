@@ -1,7 +1,27 @@
 .loginFormContainer {
-    background-color: #e6efff;
-    padding: 20px;
-    border-radius: 8px;
-    border: 2px solid; 
-    border-color: black;
+
+}
+
+
+.inputFields {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 0;
+}
+
+
+
+.inputFields {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 20px;
+    width: 80%;
+}
+
+
+.formButtons {
+    display: flex;
+    flex-direction: column;
 }
