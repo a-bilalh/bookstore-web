@@ -17,6 +17,8 @@
 
 .modal {
 
+  margin: 0;
+
   width: 90%;
   max-width: 380px;
 

@@ -48,14 +48,18 @@ export default function LoginForm( props ) {
     return (
         <div className={styles.loginFormContainer}>
             <h1> Login Form </h1>
-            <form onSubmit={submitLogIn} className={styles.inputFields}>
+            <form onSubmit={submitLogIn}>
+
+              <div className={styles.inputFields}>
                 <input type="text" name="email" placeholder="Email Address" /><br/>
                 <input type="password" name="password" placeholder="Password" /><br/>
+              </div>
 
               <div className={styles.formButtons}>
                 <button type="submit">Login</button>
                 <button type="button" onClick={props.closeLogin}>Cancel</button> {/* changed to props. */}
               </div>
+
             </form>
         </div>
     )
