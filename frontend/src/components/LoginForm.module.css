@@ -3,25 +3,25 @@
 }
 
 
-.inputFields {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin: 0;
-}
-
 
 
 .inputFields {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    margin-top: 20px;
-    width: 80%;
+    gap: 0;
+    border: none;
+    justify-content: flex-start;
+    width: 100%;
 }
 
 
 .formButtons {
     display: flex;
-    flex-direction: column;
+    gap: 12px;
+
+    margin-top: 8px;
+}
+
+.buttonGroup button {
+  flex: 1;
 }
