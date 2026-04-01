@@ -45,12 +45,18 @@ export default function RegistrationForm({ closeRegister, showLoginForm }) {
         <div className = {styles.registrationFormContainer}>
             <h1> Registration Form </h1>
             <form onSubmit={submistFormRegistration}>
+
+              <div className = {styles.inputFields}>
                 <input type="text" name="email" placeholder="Email Address" /><br/>
                 <input type="password" name="password" placeholder="Password" /><br/>
                 <input type="password" name="confirm_password" placeholder="Confirm Password" /><br/>
-              
+              </div>
+
+              <div className = {styles.formButtons}>
                 <button type="submit">Register</button>
                 <button type="button" onClick={closeRegister}>Cancel</button>
+                
+              </div>
             </form>
         </div>
     )
