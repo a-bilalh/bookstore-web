@@ -2,3 +2,26 @@
 .registrationFormContainer {
 
 }
+
+
+
+.inputFields {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: none;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+
+.formButtons {
+    display: flex;
+    gap: 12px;
+
+    margin-top: 8px;
+}
+
+.buttonGroup button {
+  flex: 1;
+}

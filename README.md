@@ -7,8 +7,8 @@ A work-in-progress e-commerce bookstore built using React for the frontend and D
  Create a book detail page✅</br>
  Shopping cart and checkout system ✅</br>
  Stripe or PayPal integration for payments ✅</br>
- Search Engine 🚧(WIP)</br>
- A review system, where users can leave reviews and rate a book. 🔴</br>
+ Search Engine ✅</br>
+ A review system, where users can leave reviews and rate a book. 🚧(WIP)</br>
 </br>
 **Technology Used**</br>
 Frontend: React, JavaScript, Axios, CSS, html </br>
@@ -18,5 +18,33 @@ API Communication: REST API </br>
 
 </br></br>
 Home Page of the App</br>
-![Homepage](screenshots/homepage.png)
+![Homepage](screenshots/homepage1.png)
+
+Cart Page<br>
+![Cart Page](screenshots/cartpage1.png)
+
+
+
+**Clone Repository**
+git clone https://github.com/a-bilalh/bookstore-web.git
+
+
+**Install Dependencies**
+npm install
+
+
+**Run Application**
+Frontend: 
+npm start
+
+Backend: 
+python manage.py runserver
+
+
+**Author**
+Ahmad Bilal Hassan
+
+github: https://github.com/a-bilalh
+Linkedln: https://www.linkedin.com/in/ahmad-bilal-hassan-988602199/ 
+
 
