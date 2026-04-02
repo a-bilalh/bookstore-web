@@ -32,8 +32,9 @@
 /* Section for book details */
 .bookDetails_container_section {
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 3px;
+    grid-template-columns: auto, 1fr;
+    grid-auto-rows: min-content;
+    gap: 15px;
 }
 
 /* title */
