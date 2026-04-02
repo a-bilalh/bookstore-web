@@ -24,6 +24,12 @@ modified such that it would send user login tokens to frontend, if it was marked
 
 
 
+** ISSUE: 04/01/2026 (Solved)
+Currently, the <Header /> component was only displayed on the Home page. Other pages like /book/:id (Book Details) and /cart had no header. This created a UX problem: users could not easily navigate, search, or access the cart from these pages.
+
+DECISION: Wrap all pages that require consistent navigation in a HeaderLayout component that includes the header and an <Outlet />.
+
+
 
 
 ## Things to do in next iteration ## 
