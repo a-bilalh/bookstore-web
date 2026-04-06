@@ -21,7 +21,8 @@ import useCart from "../contexts/CartContext.jsx";
 export default function BookDetails( ) {
 
     const { id } = useParams();
-    console.log("Book Details Component - bookId:", id);
+    
+
     const book = useBook(id);
     const { cartItems, addToCart, numberOfItemsInCart } = useCart();
 

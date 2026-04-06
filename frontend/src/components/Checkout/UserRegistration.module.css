@@ -1,30 +1,35 @@
 
-
-
-.mainContainerLayout {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    max-height: 100vh;
+body{
+    background: #f9fafb;
 }
 
 
 
+
+.mainContainerLayout {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    min-height: 100vh;
+    padding-top: 40px;
+}
+
+
 .mainContainer {
-    padding: 24px;
     width: 50vw;
     max-width: 500px;
     min-height: 60vh;
-    height: auto;
-
+    
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    border : 1px solid #ddd;
-    border-radius: 10px;
-    background-color: #f0f6ff;
     gap: 16px;
+
+    padding: 24px;
+
+    border: 1px solid #dbeafe;;
+    border-radius: 12px;
+    background-color: #e6efff
 }
 
 
