@@ -23,7 +23,7 @@ export default function InputShippingAddress( { action, id, setShowAddressForm, 
     useEffect( () => {
 
 
-        if ( action === "edit" ) {
+        if ( action.toLowerCase() === "edit" ) {
             setAddressData({
                 full_name: address.full_name || "",
                 phone_number: address.phone || "",
@@ -59,7 +59,7 @@ export default function InputShippingAddress( { action, id, setShowAddressForm, 
           let response;
           
             // Send request to the following endpoint and get the response
-            if ( action === "add") {
+            if ( action.toLowerCase() === "add") {
                response = await axios.post(`${API_BASE_URL}/api/addresses/`, formData, {
                 headers : {
                     Authorization: `Bearer ${localStorage.getItem('access')}`
@@ -101,56 +101,57 @@ export default function InputShippingAddress( { action, id, setShowAddressForm, 
 
         <div className={styles.mainContainer}>
           
-          <h2>{action} new shipping address</h2>
+          <h2>{action} Address</h2>
 
             <form onSubmit={handleSubmit} className={styles.formContainer}>
 
-              <label>
-                Full Name:
+              <label className={styles.label}>
+                Full Name
                 <input type="text" name="full_name" value={addressData.full_name}
                        onChange={(e) => setAddressData({...addressData, full_name: e.target.value})} />
 
               </label>
 
-              <label>
-                Phone Number:
+              <label className={styles.label}>
+                Phone Number
                 <input type="text" name="phone_number" value={addressData.phone_number}
                        onChange={(e) => setAddressData({...addressData, phone_number: e.target.value})} />
               </label>
-                
-              <label>
-                Street Address: 
+
+              <label className={styles.label}>
+                Street Address
                 <input type="text" name="street_address" value={addressData.street_address}
                        onChange={(e) => setAddressData({...addressData, street_address: e.target.value})} />
               </label>
 
-              <label>
-                City:
+              <label className={styles.label}>
+                City
                 <input type="text" name="city" value={addressData.city}
                        onChange={(e) => setAddressData({...addressData, city: e.target.value})} />
               </label>
 
-              <label>
-                State:
+              <label className={styles.label}>
+                State
                 <input type="text" name="state" value={addressData.state}
                        onChange={(e) => setAddressData({...addressData, state: e.target.value})} />
               </label>
 
-              <label>
-                Zip Code:
+              <label className={styles.label}>
+                Zip Code
                 <input type="text" name="zip_code" value={addressData.zip_code}
                        onChange={(e) => setAddressData({...addressData, zip_code: e.target.value})} />
               </label>
 
-              <label>
-                Country:
+              <label className={styles.label}>
+                Country
                 <input type="text" name="country" value={addressData.country}
                        onChange={(e) => setAddressData({...addressData, country: e.target.value})} />
               </label>
 
-              <button type="submit">Save</button>
-              <button onClick={() => setShowAddressForm(false)}>Cancel</button>
-
+              <div className={styles.formButtons}>
+                <button type="submit">Save</button>
+                <button onClick={() => setShowAddressForm(false)}>Cancel</button>
+              </div>
           </form>
 
         </div>
