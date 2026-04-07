@@ -45,22 +45,22 @@ export default function ManageShippingAddress({ selectedAddress, setSelectedAddr
 
             <h5>Shipping Address</h5>
 
-            { numberOfAddresses === 0 && <button onClick={() => setShowAddressForm(true)}>add new address</button>}
-            { numberOfAddresses > 0 && <button onClick={() => setShowEditAddressForm(true)}>change</button> }
+            { numberOfAddresses === 0 && <button onClick={() => setShowAddressForm(true)}>Add New Address</button>}
+            { numberOfAddresses > 0 && <button onClick={() => setShowEditAddressForm(true)}>Change</button> }
 
 
             { numberOfAddresses > numberOfAddressesDispalyed && <button onClick={() => setNumberOfAddressesDisplayed(numberOfAddressesDispalyed + 5)}>show more</button>}
 
             { showAddressForm &&
                 <div className={styles.formOverlay}> 
-                    <InputShippingAddress action="add" setShowAddressForm={setShowAddressForm} />
+                    <InputShippingAddress action="Add" setShowAddressForm={setShowAddressForm} />
                 </div>
             }
 
 
             { showEditAddressForm && 
                 <div className={styles.formOverlay} >
-                    <InputShippingAddress action="edit" id={selectedAddress} 
+                    <InputShippingAddress action="Edit" id={selectedAddress} 
                                           setShowAddressForm={setShowEditAddressForm}
                                           address = {addresses.find( (address) => address.id === selectedAddress )}
                     />
