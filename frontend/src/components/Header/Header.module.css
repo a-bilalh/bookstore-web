@@ -1,14 +1,21 @@
 
 .headerDiv{
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: flex-start;
+    flex-wrap: wrap;
 
     background-color: grey;
-    padding: 10px 20px;
+    padding: 10px 16px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
+}
+
+@media (max-width: 600px) {
+  .headerDiv {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 
