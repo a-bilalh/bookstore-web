@@ -9,6 +9,13 @@
 }
 
 
+@media (max-width: 768px) {
+  .bookDetailsContainer {
+    grid-template-columns: 1fr;
+  }
+}
+
+
 /* Section for book image */
 .bookDetails_container_img {
     display: flex;
