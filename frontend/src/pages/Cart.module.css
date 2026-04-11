@@ -9,4 +9,14 @@
     display: flex;
     justify-content: center;
     gap: 4rem;
+
+    width: 100%;
+}
+
+
+@media (max-width: 768px) {
+  .cartBooksAndSummary {
+    flex-direction: column;
+    gap: 2rem;
+  }
 }

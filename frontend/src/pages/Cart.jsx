@@ -34,13 +34,13 @@ export default function Cart() {
                                                                 decreaseBook={removeFromCart}
                                                                 increaseBook={addToCart} 
                                                                 deleteFromCart={deleteFromCart}
-                                                                 />
+                                                />
                 ))}
             </div>
 
-            <div>
-              <OrderSummary cartItems={cartItems} actionLabel={"Checkout"} onClick={() => navigate('/checkout')} />
-            </div>
+            
+            <OrderSummary cartItems={cartItems} actionLabel={"Checkout"} onClick={() => navigate('/checkout')} />
+            
             
           </div>
 

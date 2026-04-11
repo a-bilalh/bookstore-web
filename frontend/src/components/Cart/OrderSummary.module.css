@@ -4,18 +4,29 @@
 .orderSummaryMainDiv{
     margin-top: 1rem;
     padding: 20px;
-    max-width: 400px;
+    max-width: 350px;
     width: 100%;
 
-
-    position : fixed;
     background-color: #e6efff;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     border: 1px solid #e5e7eb;  
     border-radius: 8px;
+    box-sizing: border-box;
 
+    position: sticky;
+    top: 20px;
 
+    max-height: fit-content;
 }
+
+@media (max-width: 768px) {
+  .orderSummaryMainDiv {
+    max-width: 100%;
+  }
+}
+
+
+
 
 .checkoutButton {
     background-color: #007bff;
