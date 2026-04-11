@@ -1,5 +1,4 @@
 import styles from './OrderSummary.module.css';
-import { Link } from "react-router-dom";
 
 
 // Order Summary needs: Total price, estimated tax, shipping cost, final total
@@ -33,7 +32,6 @@ export default function OrderSummary( { cartItems, actionLabel, destination, onC
           
 
           <button onClick={onClick}>{actionLabel}</button>
-
 
         </div>
 
