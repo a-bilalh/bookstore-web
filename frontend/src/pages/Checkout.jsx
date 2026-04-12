@@ -128,11 +128,11 @@ export default function Checkout() {
 
           <div className={styles.cartBooksAndSummary}>
 
-            <div>
+            <div className={styles.shippingAddress}>
               <ManageShippingAddress selectedAddress={selectedAddress} setSelectedAddress={setSelectedAddress} />
             </div>
 
-            <div>
+            <div className={styles.cartBooks}>
 
               {booksArray.map( book => (
                   numberOfBooks(book) > 0 &&
@@ -145,7 +145,7 @@ export default function Checkout() {
               ))}
 
             </div>
-            <div>
+            <div className={styles.orderSummary}>
               <OrderSummary cartItems={cartItems} actionLabel={"Continue to Payment"} onClick={handleCheckout} />
             </div>
 
