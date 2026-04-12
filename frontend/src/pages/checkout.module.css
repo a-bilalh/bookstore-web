@@ -11,3 +11,23 @@
     justify-content: center;
     gap: 4rem;
 }
+
+
+@media (max-width: 768px) {
+  .cartBooksAndSummary {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .cartBooks {
+    order: 1;
+  }
+
+  .shippingAddress {
+    order: 2;
+  }
+
+  .orderSummary {
+    order: 3;
+  }
+}
