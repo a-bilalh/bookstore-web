@@ -14,7 +14,7 @@ export default function Cart() {
 
 
     // Function to get number of books in cart
-    const numberOfBooks = (book) => cartItems.get(book) || 0;
+    const numberOfBooks = (book) => cartItems.get(book.id)?.quantity || 0;
 
 
 
