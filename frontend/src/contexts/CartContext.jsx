@@ -1,4 +1,4 @@
-import { createContext, useState, useContext } from "react";
+import { createContext, useState, useContext, useEffect } from "react";
 
 // Create a Context for the cart
 const CartContext = createContext(null);
@@ -13,12 +13,35 @@ export function CartProvider({ children }) {
     // State to hold cart items as a Map(item, quantity)
     const [cartItems, setCartItems] = useState( new Map() );
 
+    console.log("CartContext cartItems:", cartItems);  // Debugging log to check cartItems state
+    console.log("cart in local storage:", localStorage.getItem("cart"));  // Debugging log to check local storage
+
+    // Load cart from local storage on initial render
+    useEffect(() => {
+        const saved = JSON.parse(localStorage.getItem("cart"));
+            if (saved) {
+                setCartItems(new Map(saved));
+            }
+        }, []);
+
+    
+    // save cart to local storage whenever it changes
+    useEffect(() => {
+        localStorage.setItem("cart", 
+            JSON.stringify([...cartItems]));
+    }, [cartItems]);
+
+
 
     // Function to add an item to the cart
     function addToCart(item) {
         setCartItems( prevItems => {
             const newMap = new Map(prevItems);
-            newMap.set( item, (newMap.get(item) || 0) + 1 );
+
+            const id = item.id;
+            newMap.set( id, {
+                item, quantity: (newMap.get(id)?.quantity || 0) + 1 }
+            );
             return newMap;
         });
     }
@@ -32,13 +55,14 @@ export function CartProvider({ children }) {
 
             const newMap = new Map(prevItems);
 
-            if (newMap.has(item)) {
-                const currentQuantity = newMap.get(item);
+            const id = item.id;
+            if (newMap.has(id)) {
+                const currentQuantity = newMap.get(id)?.quantity || 0;
 
                 if (currentQuantity > 1) {
-                    newMap.set(item, currentQuantity - 1);
+                    newMap.set(id, { item, quantity: currentQuantity - 1 });
                 } else {
-                    newMap.delete(item);
+                    newMap.delete(id);
                 }
             }
             return newMap;
@@ -50,8 +74,10 @@ export function CartProvider({ children }) {
     // Function to delete an item completely from the cart
     function deleteFromCart(item) {
         setCartItems( prevItems => {
+            const id = item.id;
+
             const newMap = new Map(prevItems);
-            newMap.delete(item);
+            newMap.delete(id);
             return newMap;
         });
     }
@@ -61,7 +87,7 @@ export function CartProvider({ children }) {
     // Function to get the total number of items in the cart
     function numberOfItemsInCart() {
         const values = [...cartItems.values()];
-        return values.reduce((sum, count) => sum + count, 0);
+        return values.reduce((sum, { quantity }) => sum + quantity, 0);
     }
 
 
