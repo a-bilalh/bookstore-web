@@ -17,8 +17,9 @@ export default function Cart() {
     const numberOfBooks = (book) => cartItems.get(book.id)?.quantity || 0;
 
 
-
     return (
+
+
         <div>
 
 
@@ -28,13 +29,18 @@ export default function Cart() {
 
           <div className={styles.cartBooksAndSummary}>
             <div>
+            
                 {booksArray.map( book => (
-                    numberOfBooks(book) > 0 && <CartBookDisplay key = {book.id} book = {book} 
-                                                                quantity = {numberOfBooks(book)} 
-                                                                decreaseBook={removeFromCart}
-                                                                increaseBook={addToCart} 
-                                                                deleteFromCart={deleteFromCart}
-                                                />
+                    numberOfBooks(book) > 0 
+                    
+                      && 
+                      <CartBookDisplay 
+                          key = {book.id} book={book} 
+                          quantity = {numberOfBooks(book)} 
+                          decreaseBook={removeFromCart}
+                          increaseBook={addToCart} 
+                          deleteFromCart={deleteFromCart}
+                        />
                 ))}
             </div>
 
