@@ -13,9 +13,6 @@ export function CartProvider({ children }) {
     // State to hold cart items as a Map(item, quantity)
     const [cartItems, setCartItems] = useState( new Map() );
 
-    console.log("CartContext cartItems:", cartItems);  // Debugging log to check cartItems state
-    console.log("cart in local storage:", localStorage.getItem("cart"));  // Debugging log to check local storage
-
     // Load cart from local storage on initial render
     useEffect(() => {
         const saved = JSON.parse(localStorage.getItem("cart"));

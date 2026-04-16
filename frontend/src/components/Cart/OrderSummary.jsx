@@ -8,14 +8,18 @@ export default function OrderSummary( { cartItems, actionLabel, destination, onC
 
 
     function calculateSubtotal() {
-        let itemTotal = 0;
-        for (const [book, quantity] of cartItems) {
-            itemTotal += book.price * quantity;
+        let itemTotal = 0.00;
+        for (const [id, value] of cartItems) {
+
+            const quantity = value.quantity;
+            const price = value.item.price;
+
+            itemTotal += price * quantity;
         }
         return itemTotal;
     }
 
-
+    console.log( "order total: ", calculateSubtotal() );
 
 
 
