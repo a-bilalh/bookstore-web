@@ -9,7 +9,7 @@ export default function Cart() {
 
 
     const { cartItems, removeFromCart, deleteFromCart, addToCart } = useCart();
-    const booksArray = [...cartItems.keys()];
+   const booksArray = [...cartItems.values()].map(entry => entry.item);
     const navigate = useNavigate();
 
 

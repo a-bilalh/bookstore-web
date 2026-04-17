@@ -13,20 +13,34 @@ export function CartProvider({ children }) {
     // State to hold cart items as a Map(item, quantity)
     const [cartItems, setCartItems] = useState( new Map() );
 
-    // Load cart from local storage on initial render
-    useEffect(() => {
-        const saved = JSON.parse(localStorage.getItem("cart"));
-            if (saved) {
-                setCartItems(new Map(saved));
-            }
-        }, []);
+    // State to track if cart has been loaded from local storage
+    const [isLoaded, setIsLoaded] = useState(false);
 
-    
+ 
     // save cart to local storage whenever it changes
     useEffect(() => {
-        localStorage.setItem("cart", 
-            JSON.stringify([...cartItems]));
-    }, [cartItems]);
+        const saved = localStorage.getItem("cart");
+
+            if (saved) {
+                const parsed = JSON.parse(saved);
+
+                setCartItems(new Map(parsed));
+        }
+
+        setIsLoaded(true);
+    }, []);
+
+
+    // load cart from local storage on component mount
+    useEffect(() => {
+        if (!isLoaded) return;
+
+        localStorage.setItem(
+            "cart",
+            JSON.stringify([...cartItems.entries()])
+        );
+        
+    }, [cartItems, isLoaded]);
 
 
 
