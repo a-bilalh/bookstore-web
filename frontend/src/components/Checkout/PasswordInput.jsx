@@ -62,7 +62,7 @@ export default function PasswordInput( {setCheckoutSteps, email, handleSetTokens
             <h3>Sign In</h3>
             <h3>Password</h3>
             
-            <form onSubmit={handleSubmit}>
+            <form className={styles.inputButtonContainer} onSubmit={handleSubmit}>
 
               <input type='password' name="password" required/>
               <button className={styles.submitButton} type='submit'>Sign In</button>

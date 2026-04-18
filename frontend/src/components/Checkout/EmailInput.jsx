@@ -63,7 +63,7 @@ export default function EmailInput( {setUserHasAccount, setCheckoutSteps, setEma
             <h3>Sign in or create an account</h3>
             <h4>Enter your email address </h4>
 
-            <form onSubmit={handleSubmit}>
+            <form className={styles.inputButtonContainer} onSubmit={handleSubmit}>
               <input name="email" />
               <button className={styles.submitButton} type='submit'>Continue</button>
             </form>
