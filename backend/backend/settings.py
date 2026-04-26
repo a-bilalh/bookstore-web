@@ -87,8 +87,9 @@ SECRET_KEY = 'django-insecure-f5k%&!=owjmqam3s31#+%5t!#5v&@@#4p!&(mg=gv2+)0*nqu+
 DEBUG = True
 
 ALLOWED_HOSTS = ["subregular-unfilling-junior.ngrok-free.dev",
-                    'localhost',
+                'localhost',
                 '127.0.0.1',
+                ".onrender.com"
 ]
 
 
@@ -219,7 +220,7 @@ REST_FRAMEWORK = {
     )
 }
 
-
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 STRIPE_PUBLISHABLE_KEY= config('STRIPE_PUBLISHABLE_KEY')
 STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY')
