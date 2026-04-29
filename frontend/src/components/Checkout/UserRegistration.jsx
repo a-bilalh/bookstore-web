@@ -1,7 +1,7 @@
 import styles from './UserRegistration.module.css';
 import axios from 'axios';
-import { API_BASE_URL } from '../../config';
-import saveToken from '../../utils/save-tokens';
+import { API_BASE_URL } from '../../config.jsx';
+import saveToken from '../../utils/save-tokens.js';
 
 
 

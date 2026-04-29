@@ -1,8 +1,8 @@
 
 import React from 'react';
 import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu';
-import BookDisplay from './BookDisplay';
-import { useBooksList } from '../services/api';
+import BookDisplay from './BookDisplay.jsx';
+import { useBooksList } from '../services/api.jsx';
 import 'react-horizontal-scrolling-menu/dist/styles.css';
 
 

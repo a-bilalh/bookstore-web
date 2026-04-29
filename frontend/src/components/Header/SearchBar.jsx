@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import styles from './SearchBar.module.css';
 import axios from 'axios';
-import { API_BASE_URL } from '../../config';
+import { API_BASE_URL } from '../../config.jsx';
 import { useNavigate } from 'react-router-dom';
 
 

@@ -1,4 +1,4 @@
-import { API_BASE_URL } from '../../config';
+import { API_BASE_URL } from '../../config.jsx';
 import styles from './EmailInput.module.css'
 import axios from 'axios';
 

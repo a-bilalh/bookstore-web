@@ -1,7 +1,7 @@
-import { API_BASE_URL } from '../../config';
+import { API_BASE_URL } from '../../config.jsx';
 import styles from './PasswordInput.module.css'
 import axios from 'axios';
-import saveToken from '../../utils/save-tokens';    
+import saveToken from '../../utils/save-tokens.js';    
 
 
 

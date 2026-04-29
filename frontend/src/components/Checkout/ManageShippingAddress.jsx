@@ -1,7 +1,7 @@
 import {useState, useEffect } from 'react';
-import fetchUserAddresses from '../../services/fetchUserAddresses';
-import InputShippingAddress from './InputShippingAddress';
-import DisplayShippingAddress from './DisplayShippingAddress';
+import fetchUserAddresses from '../../services/fetchUserAddresses.jsx';
+import InputShippingAddress from './InputShippingAddress.jsx';
+import DisplayShippingAddress from './DisplayShippingAddress.jsx';
 import styles from "./ManageShippingAddress.module.css";
 
 

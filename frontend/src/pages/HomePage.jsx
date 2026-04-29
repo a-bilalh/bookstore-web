@@ -1,4 +1,4 @@
-import RegistrationForm from "../components/RegistrationForm";
+import RegistrationForm from "../components/RegistrationForm.jsx";
 import MyHorizontalList from "../components/BooksRowDisplay.jsx";
 import LoginForm from "../components/LoginForm.jsx";
 import Label from "../components/SectionLabel.jsx";

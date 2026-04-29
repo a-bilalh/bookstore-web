@@ -1,15 +1,15 @@
 import { useState } from "react";
-import EmailInput from "../components/Checkout/EmailInput";
-import useAuth from "../contexts/AuthContext"
-import PasswordInput from "../components/Checkout/PasswordInput";
-import UserRegistration from "../components/Checkout/UserRegistration";
-import useCart from "../contexts/CartContext";
+import EmailInput from "../components/Checkout/EmailInput.jsx";
+import useAuth from "../contexts/AuthContext.jsx"
+import PasswordInput from "../components/Checkout/PasswordInput.jsx";
+import UserRegistration from "../components/Checkout/UserRegistration.jsx";
+import useCart from "../contexts/CartContext.jsx";
 import CartBookDisplay from "../components/Cart/CartBookDisplay.jsx";
 import OrderSummary from "../components/Cart/OrderSummary.jsx";
 import styles from "./checkout.module.css";
 import ManageShippingAddress from "../components/Checkout/ManageShippingAddress.jsx";
 import axios from "axios";
-import { API_BASE_URL } from "../config";
+import { API_BASE_URL } from "../config.jsx";
 import { useNavigate } from "react-router-dom";
 
 
