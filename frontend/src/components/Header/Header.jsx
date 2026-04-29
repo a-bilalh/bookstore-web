@@ -16,7 +16,7 @@ import Modal from '../Modal.jsx';
 export default function Header() {
 
 
-    const { cartItems, numberOfItemsInCart } = useCart();
+    const { numberOfItemsInCart } = useCart();
     const { isLoggedIn, handleLogout, handleSetTokens } = useAuth();
     const isLoggedInValue = isLoggedIn();  // Call the function to get boolean value
 

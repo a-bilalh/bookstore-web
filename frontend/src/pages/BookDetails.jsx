@@ -2,7 +2,6 @@ import React from "react";
 import { useBook } from "../services/api.js";
 import { Link, useParams } from "react-router-dom";
 import styles from './BookDetails.module.css';
-import CartIcon from "../components/Cart/CartIcon.jsx";  
 import useCart from "../contexts/CartContext.jsx";
 
 /*
@@ -24,7 +23,7 @@ export default function BookDetails( ) {
     
 
     const book = useBook(id);
-    const { cartItems, addToCart, numberOfItemsInCart } = useCart();
+    const { addToCart } = useCart();
 
     const handleClick = (book) => {
         addToCart(book);

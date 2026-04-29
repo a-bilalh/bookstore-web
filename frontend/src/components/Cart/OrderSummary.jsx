@@ -9,7 +9,7 @@ export default function OrderSummary( { cartItems, actionLabel, destination, onC
 
     function calculateSubtotal() {
         let itemTotal = 0.00;
-        for (const [id, value] of cartItems) {
+        for (const [, value] of cartItems) {
 
             const quantity = value.quantity;
             const price = value.item.price;
@@ -19,7 +19,6 @@ export default function OrderSummary( { cartItems, actionLabel, destination, onC
         return itemTotal;
     }
 
-    console.log( "order total: ", calculateSubtotal() );
 
 
 

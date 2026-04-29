@@ -10,7 +10,6 @@ import styles from "./checkout.module.css";
 import ManageShippingAddress from "../components/Checkout/ManageShippingAddress.jsx";
 import axios from "axios";
 import { API_BASE_URL } from "../config.jsx";
-import { useNavigate } from "react-router-dom";
 
 
 
@@ -19,7 +18,7 @@ import { useNavigate } from "react-router-dom";
 export default function Checkout() {
 
 
-  const { isLoggedIn, handleLogout, handleSetTokens } = useAuth();
+  const { isLoggedIn, handleSetTokens } = useAuth();
   const { cartItems, removeFromCart, addToCart, deleteFromCart } = useCart();
   
 
