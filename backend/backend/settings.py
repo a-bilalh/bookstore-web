@@ -158,7 +158,7 @@ DATABASES = {
 
     
     "default": dj_database_url.config(
-        default="postgresql://postgres.gplcdcutatnbhmhyjqwd:UcZyual9PJNs2xUY@aws-1-us-west-2.pooler.***REMOVED***",   #os.environ.get("DATABASE_URL"),
+        default=os.environ.get("DATABASE_URL"),
         ssl_require=True
     )
 }
