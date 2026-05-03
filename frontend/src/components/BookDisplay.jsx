@@ -7,6 +7,9 @@ import { Link } from "react-router";
 function BookDisplay({book}) {
     
     /* Update! Link was substituted for div to make each book clickable and navigate to book details page */
+
+    console.log("Book url: ", book.cover_image);
+    console.log("Book, ", book);
     
     return (
 

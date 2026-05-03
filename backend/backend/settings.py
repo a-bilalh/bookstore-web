@@ -155,8 +155,10 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
+
+    
     "default": dj_database_url.config(
-        default=os.environ.get("DATABASE_URL"),
+        default="postgresql://postgres.gplcdcutatnbhmhyjqwd:UcZyual9PJNs2xUY@aws-1-us-west-2.pooler.***REMOVED***",   #os.environ.get("DATABASE_URL"),
         ssl_require=True
     )
 }
@@ -230,7 +232,7 @@ REST_FRAMEWORK = {
     )
 }
 
-SECRET_KEY = os.getenv("SECRET_KEY")
+SECRET_KEY =  config('SECRET_KEY') # os.getenv("SECRET_KEY")
 
 STRIPE_PUBLISHABLE_KEY= config('STRIPE_PUBLISHABLE_KEY')
 STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY')

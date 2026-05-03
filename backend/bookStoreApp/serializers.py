@@ -5,7 +5,6 @@ from .models import UserProfile, Address
 
 
 class BookSerializer(serializers.ModelSerializer):
-    cover_image = serializers.ImageField(max_length=None, allow_empty_file=False, use_url=True)
     
     class Meta:
         model = Book
