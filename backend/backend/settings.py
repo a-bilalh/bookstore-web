@@ -124,7 +124,7 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
     'http://127.0.0.1:3000',
-    'bookstore-web-lyart.vercel.app',
+    'https://bookstore-web-lyart.vercel.app',
 ]
 
 ROOT_URLCONF = 'backend.urls'
