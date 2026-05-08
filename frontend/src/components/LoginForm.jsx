@@ -47,7 +47,7 @@ export default function LoginForm( props ) {
 
     return (
         <div className={styles.loginFormContainer}>
-            <h1> Login Form </h1>
+            <h1> Login </h1>
             <form onSubmit={submitLogIn}>
 
               <div className={styles.inputFields}>

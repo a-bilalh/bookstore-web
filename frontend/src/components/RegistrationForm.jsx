@@ -43,7 +43,7 @@ export default function RegistrationForm({ closeRegister, showLoginForm }) {
 
     return (
         <div className = {styles.registrationFormContainer}>
-            <h1> Registration Form </h1>
+            <h1> Register </h1>
             <form onSubmit={submistFormRegistration}>
 
               <div className = {styles.inputFields}>
