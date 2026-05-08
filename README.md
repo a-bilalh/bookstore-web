@@ -41,6 +41,14 @@ Backend:
 python manage.py runserver
 
 
+
+**Attribution**
+
+The book titles, authors, and descriptions in this project are fictional and were generated using ChatGPT.
+Book cover images were generated using Google Gemini AI.
+This project is for educational and portfolio purposes only.
+
+
 **Author**
 Ahmad Bilal Hassan
 
