@@ -1,0 +1,48 @@
+.skeletonBook {
+    width: 230px;
+    margin-right: 12px;
+}
+
+.skeletonImage {
+    width: 230px;
+    height: 270px;
+    background-color: #ddd;
+    border-radius: 6px;
+}
+
+.skeletonTitle {
+    width: 80%;
+    height: 14px;
+    background-color: #e5e5e5;
+    margin-top: 10px;
+    border-radius: 4px;
+}
+
+.skeletonAuthor {
+    width: 60%;
+    height: 14px;
+    background-color: #e5e5e5;
+    margin-top: 6px;
+    border-radius: 4px;
+}
+
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.skeletonImage,
+.skeletonTitle,
+.skeletonAuthor {
+    animation: pulse 1.5s infinite ease-in-out;
+}

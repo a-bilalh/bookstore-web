@@ -4,14 +4,25 @@ import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu';
 import BookDisplay from './BookDisplay.jsx';
 import { useBooksList } from '../services/api.js';
 import 'react-horizontal-scrolling-menu/dist/styles.css';
+import BookSkeleton from './BookSkeleton.jsx';
 
 
 const MyHorizontalList = ({ category, count }) => {
-    const books = useBooksList(category, count);
-    console.log("Books in MyHorizontalList: ", books);
+    const { books, loading } = useBooksList(category, count);
+    
       return (
         <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
-            { books.map((book) => <BookDisplay key={book.id} itemId={book.id} book={book} /> ) }
+          {loading
+            ? Array.from({ length: 5 }).map((_, index) => (
+              <BookSkeleton key={index} />
+            ))
+            : books.map((book) => (
+              <BookDisplay
+                key={book.id}
+                itemId={book.id}
+                book={book}
+              />
+            ))}
         </ScrollMenu>
       );
     };

@@ -7,15 +7,21 @@ import { useState, useEffect } from 'react';
 export const useBooksList = (category, count) => {
    
     const [books, setBooks] = useState([]);
+    const [loading, setLoading] = useState(true);
+
     
     useEffect(() => {
 
         const fetchBooks = async () => {
+
+            if (!category || !count) {
+                setLoading(false);
+                return;
+            }
+
             try {
-                // if category or count are not provided yet, skip fetching
-                if (category === undefined || count === undefined || category === null || count === null) {
-                    return;
-                }
+                
+                setLoading(true);
                 const url = `${API_BASE_URL}/api/books/random/${category}/${count}/`;
                 const response = await axios.get(url);
 
@@ -23,11 +29,13 @@ export const useBooksList = (category, count) => {
                 setBooks(response.data);
             } catch (err) {
                 console.error("Error fetching books:", err);
+            } finally {
+                setLoading(false);
             }
         };
         fetchBooks();
     }, [category, count]);
-    return books;
+    return { books, loading };
 };
 
 
